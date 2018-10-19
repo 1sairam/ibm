@@ -1,0 +1,15 @@
+.example-input-label,
+.example-add-tab-button,
+.example-delete-tab-button {
+  margin: 8px;
+}
+
+.button-row button,
+.button-row a {
+  margin-right: 8px;
+}
+
+.my-mat-toolbar{
+  height: 45px;
+  min-height: 45px;
+}

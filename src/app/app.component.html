@@ -1,20 +1,42 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+  <mat-toolbar style="height: 35px;" color="primary">
+      <mat-icon>home</mat-icon>&nbsp;
+      <span>Broadband Workflow</span>
+  </mat-toolbar>
+
+  <mat-toolbar class="my-mat-toolbar" color="default">
+  <mat-toolbar-row class="my-mat-toolbar">
+    <span class="example-input-label"> Open Case: </span>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="caseId">
+    </mat-form-field>
+    <mat-icon class="example-add-tab-button mat-search-icon" (click)="queryForCaseIdInfo()">search</mat-icon>
+    <!-- To create case ID -->
+    <span class="example-input-label"> Create Case: </span>
+    <mat-form-field>
+      <input matInput type="text">
+    </mat-form-field>
+    <mat-icon class="example-add-tab-button mat-search-icon">create</mat-icon>
+    <div class="button-row">
+        <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
+        <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
+        <button mat-button color="primary">WIP Bins <mat-icon>work</mat-icon></button>
+        <button mat-button color="primary">Queues <mat-icon>queue</mat-icon></button>
+        <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>
+      </div>
+  </mat-toolbar-row>
+  </mat-toolbar>
+  
+  <mat-tab-group [selectedIndex]="caseIdService.selectedCaseInfo"
+                 (selectedIndexChange)="setSelected($event)">
+    <mat-tab *ngFor="let tabData of caseIdService.retrievedCaseInfo; let index = index">
+      <ng-template mat-tab-label>
+        {{tabData.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeTab(index)">clear</mat-icon>
+      </ng-template>
+      <!-- <app-case-id-details [caseIdData]="caseIdService.retrievedCaseInfo[selected]"></app-case-id-details> -->
+      <app-case-id-details></app-case-id-details>
+    </mat-tab>
+  </mat-tab-group>
+
+
+  
