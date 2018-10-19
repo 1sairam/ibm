@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Location } from '@angular/common';
 
 import {CaseIdService} from '../../services/case-id.service';
 @Component({
@@ -10,8 +11,12 @@ export class AppComponent {
 
   caseId:string = "";
 
-  constructor(private caseIdService: CaseIdService) {
+  constructor(private caseIdService: CaseIdService,private location: Location) {
 
+  }
+  
+  goBack(): void {
+    this.location.back();
   }
 
   queryForCaseIdInfo() {

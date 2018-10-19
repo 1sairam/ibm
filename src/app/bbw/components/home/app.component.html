@@ -33,9 +33,15 @@
       <ng-template mat-tab-label>
         {{tabData.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeTab(index)">clear</mat-icon>
       </ng-template>
+      <mat-toolbar style="height: 35px;">
+        <span>CASE INFO : {{tabData.caseId}}</span>&nbsp;&nbsp;&nbsp;
+        <!-- <mat-icon (click)="goBack();" class="mat-search-icon">arrow_back</mat-icon> -->
+      </mat-toolbar>
       <router-outlet></router-outlet>
     </mat-tab>
   </mat-tab-group>
+
+
 
 
   

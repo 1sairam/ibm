@@ -12,6 +12,7 @@ import { MoreInfoComponent } from '../bbw/components/case-id/more-info/more-info
 import { CommHistoryComponent } from './components/case-id/comm-history/comm-history.component';
 import { CommitPlansComponent } from './components/case-id/commit-plans/commit-plans.component';
 import {CaseIdRoutingModule} from './components/case-id/case-id-routing/case-id-routing.module';
+import {CaseIdService} from './services/case-id.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {CaseIdRoutingModule} from './components/case-id/case-id-routing/case-id-
     BrassComponent,
     MoreInfoComponent,
     CommHistoryComponent,
-    CommitPlansComponent
+    CommitPlansComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +29,9 @@ import {CaseIdRoutingModule} from './components/case-id/case-id-routing/case-id-
     FormsModule,
     CommonMaterialModule,
     CaseIdRoutingModule,
+    
   ],
-  providers: [],
+  providers: [CaseIdService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
