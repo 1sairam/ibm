@@ -33,7 +33,7 @@
       <ng-template mat-tab-label>
         {{tabData.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeTab(index)">clear</mat-icon>
       </ng-template>
-      <bbw-case-id-details></bbw-case-id-details>
+      <router-outlet></router-outlet>
     </mat-tab>
   </mat-tab-group>
 

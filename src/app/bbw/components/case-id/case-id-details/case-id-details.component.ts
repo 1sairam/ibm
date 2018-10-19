@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import {CaseIdInfo} from '../../../models/case-id-info';
 import {CaseIdService} from '../../../services/case-id.service';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import {CaseIdService} from '../services/case-id.service';
+import {CaseIdService} from '../../services/case-id.service';
 @Component({
   selector: 'bbw-root',
   templateUrl: './app.component.html',
