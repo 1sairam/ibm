@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import {CommonMaterialModule} from './common-material/common-material.module';
+import {CommonMaterialModule} from '../common/modules/material/common-material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CaseIdDetailsComponent } from './case-id-details/case-id-details.component';
+import { CaseIdDetailsComponent } from '../components/case-id/case-id-details/case-id-details.component';
 
 @NgModule({
   declarations: [

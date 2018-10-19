@@ -1,10 +1,10 @@
 import { Component, OnInit, Input,OnDestroy } from '@angular/core';
 
-import {CaseIdInfo} from '../models/case-id-info';
-import {CaseIdService} from '../services/case-id.service';
+import {CaseIdInfo} from '../../../models/case-id-info';
+import {CaseIdService} from '../../../services/case-id.service';
 
 @Component({
-  selector: 'app-case-id-details',
+  selector: 'bbw-case-id-details',
   templateUrl: './case-id-details.component.html',
   styleUrls: ['./case-id-details.component.css']
 })
