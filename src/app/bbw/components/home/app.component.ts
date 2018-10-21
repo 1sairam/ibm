@@ -11,7 +11,7 @@ export class AppComponent {
 
   caseId:string = "";
 
-  constructor(private caseIdService: CaseIdService,private location: Location) {
+  constructor(public caseIdService: CaseIdService,private location: Location) {
 
   }
   

@@ -4,6 +4,6 @@ import {Routes} from '@angular/router';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/caseId', pathMatch: 'full' },
-    { path: 'brass', component: BrassComponent  },
-    { path: 'caseId', component: CaseIdDetailsComponent  },
+    { path: 'brass', component: BrassComponent },
+    { path: 'caseId', component: CaseIdDetailsComponent },
 ];

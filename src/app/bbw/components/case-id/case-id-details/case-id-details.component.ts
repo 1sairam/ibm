@@ -16,7 +16,7 @@ export class CaseIdDetailsComponent implements OnInit,OnDestroy {
   
   openedSubModuleTitle : string;
 
-  constructor(private caseIdService: CaseIdService) { }
+  constructor(public caseIdService: CaseIdService) { }
 
   displayBrass(){
 
@@ -31,6 +31,10 @@ export class CaseIdDetailsComponent implements OnInit,OnDestroy {
     console.log('i am getting cleared cleared/destroyed.' + this.caseIdData.caseId);
   }
 
+  openModel(){
+
+  }
+  
   // openBrassScreen(){
   //   const dialogRef = this.dialog.open(BrassComponent, {
   //     backdropClass:'nothing',

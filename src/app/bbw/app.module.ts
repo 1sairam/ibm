@@ -13,6 +13,11 @@ import { CommHistoryComponent } from './components/case-id/comm-history/comm-his
 import { CommitPlansComponent } from './components/case-id/commit-plans/commit-plans.component';
 import {CaseIdRoutingModule} from './components/case-id/case-id-routing/case-id-routing.module';
 import {CaseIdService} from './services/case-id.service';
+import { DynamicCompManagerDirective } from './components/case-id/dynamic-comp-manager.directive';
+import { BaseCompComponent } from './components/case-id/dynamic-comps/base-comp/base-comp.component';
+import { Comp1Component } from './components/case-id/dynamic-comps/comp1/comp1.component';
+import { Comp2Component } from './components/case-id/dynamic-comps/comp2/comp2.component';
+import { Comp3Component } from './components/case-id/dynamic-comps/comp3/comp3.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +27,11 @@ import {CaseIdService} from './services/case-id.service';
     MoreInfoComponent,
     CommHistoryComponent,
     CommitPlansComponent,
+    DynamicCompManagerDirective,
+    BaseCompComponent,
+    Comp1Component,
+    Comp2Component,
+    Comp3Component,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +39,8 @@ import {CaseIdService} from './services/case-id.service';
     FormsModule,
     CommonMaterialModule,
     CaseIdRoutingModule,
-    
   ],
+  entryComponents:[Comp1Component,Comp2Component,Comp3Component],
   providers: [CaseIdService],
   bootstrap: [AppComponent]
 })

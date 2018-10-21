@@ -6,8 +6,8 @@ import { CaseIdInfo } from '../models/case-id-info';
 })
 export class CaseIdService {
 
-  private retrievedCaseInfo = [];
-  private selectedCaseInfo : number;
+  retrievedCaseInfo = [];
+  selectedCaseInfo : number;
 
   constructor() { }
 
