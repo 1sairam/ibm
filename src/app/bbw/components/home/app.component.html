@@ -1,7 +1,7 @@
 
   <mat-toolbar style="height: 35px;" color="primary">
-      <mat-icon>home</mat-icon>&nbsp;
-      <span>Broadband Workflow</span>
+    <mat-icon>home</mat-icon>&nbsp;
+    <span>Broadband Workflow</span>
   </mat-toolbar>
 
   <mat-toolbar class="my-mat-toolbar" color="default">
@@ -27,9 +27,9 @@
   </mat-toolbar-row>
   </mat-toolbar>
   
-  <mat-tab-group [selectedIndex]="caseIdService.selectedCaseInfo"
+  <mat-tab-group [selectedIndex]="selectedCaseInfo"
                  (selectedIndexChange)="setSelected($event)">
-    <mat-tab *ngFor="let tabData of caseIdService.retrievedCaseInfo; let index = index">
+    <mat-tab *ngFor="let tabData of caseIdInfo; let index = index">
       <ng-template mat-tab-label>
         {{tabData.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeTab(index)">clear</mat-icon>
       </ng-template>

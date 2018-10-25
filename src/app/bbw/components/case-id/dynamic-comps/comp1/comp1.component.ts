@@ -22,9 +22,10 @@ export class Comp1Component implements OnInit {
       this.component = Comp3Component;
     }
     else if(action == "comp2"){
-    this.component = Comp2Component;
+     this.component = Comp2Component;
     }else{
-      this.component = Comp2Component;
+      return;
+      //Do nothing...
     }
     this.changeToComponent.emit(this.component);
   }

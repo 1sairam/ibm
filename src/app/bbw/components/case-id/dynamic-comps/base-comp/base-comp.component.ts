@@ -26,7 +26,7 @@ export class BaseCompComponent implements OnInit {
     viewContainerRef.clear();
     let componentRef = viewContainerRef.createComponent(componentFactory);
     
-    (componentRef.instance).changeToComponent.subscribe((component: Type<any>) => {
+    (componentRef.instance).changeToComponent.subscribe((component: Type<any>) => { 
       this.loadComponent(component);
     }) ;
    // (<AdComponent>componentRef.instance).data = adItem.data;

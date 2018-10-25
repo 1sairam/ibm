@@ -29,6 +29,14 @@ export class AppComponent {
     this.caseId="";
   }
 
+  get selectedCaseInfo(){
+    return this.caseIdService.getSelectedCaseInfo;
+  }
+  
+  get caseIdInfo(){
+    return this.caseIdService.getretrievedCaseInfo();
+  }
+
   setSelected(index : number){
     this.caseIdService.setSelectedCaseInfo(index);
   }

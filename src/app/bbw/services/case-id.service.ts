@@ -6,11 +6,15 @@ import { CaseIdInfo } from '../models/case-id-info';
 })
 export class CaseIdService {
 
-  retrievedCaseInfo = [];
-  selectedCaseInfo : number;
+  private retrievedCaseInfo = [];
+  private selectedCaseInfo : number;
 
   constructor() { }
 
+  getretrievedCaseInfo(){
+    return this.retrievedCaseInfo;
+  }
+  
   addCaseIdInfo(caseId : string,name:string) {
     this.retrievedCaseInfo.push(new CaseIdInfo(caseId,name, this.getLength()));
     this.selectedCaseInfo = this.getLength() - 1;
