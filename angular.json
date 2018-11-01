@@ -14,22 +14,19 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/bbw-web-ui",
-            "index": "src/app/bbw/bbw-index.html",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/app/bbw/resources/img/favicon.ico",
+              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
-              "src/app/bbw/common/css/global.css"
+              "src/styles.css"
             ],
             "scripts": []
-          },  
+          },
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -75,14 +72,11 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              {
-                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-              },
-              "src/app/bbw/common/css/global.css"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [
-              "src/app/bbw/resources/img/favicon.ico",
+              "src/favicon.ico",
               "src/assets"
             ]
           }
@@ -129,6 +123,5 @@
       }
     }
   },
-
   "defaultProject": "bbw-web-ui"
 }
