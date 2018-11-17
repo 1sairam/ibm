@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivityLogService } from './core/services/activity-log.service';
+import { CaseInfoService } from './core/services/case-info.service';
+import { WipBinsService } from './core/services/wip-bins.service';
 
 @Component({
   selector: 'bbw-root',
@@ -7,16 +8,26 @@ import { ActivityLogService } from './core/services/activity-log.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private title = 'BroadBand Workflow';
+  private caseId:string;
+  private caseInfo;
 
-  title = 'BroadBand Workflow';
-  activityLog=[];
-  
-  constructor(private activityLogService:ActivityLogService){ }
+  private userInfo = {
+    "userName" : "Srinivasarao",
+    "id":"ss139t"
+  };
 
-  getActivityLog(){
-    this.activityLogService.getActivityLogData("2682296").subscribe(data=> this.activityLog=data ); 
+  constructor(private caseInfoService:CaseInfoService,
+              private wipBinsService:WipBinsService){
+
   }
 
+  getCaseInfo(){
+   this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
+  }
 
+  getWipBinsInfo(){
+    //getWipBinInfo...
+  }
 
 }
