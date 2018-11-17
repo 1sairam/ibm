@@ -1,10 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
+import {ActivityLogComponent} from './activity-log/activity-log.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    
   ],
-  declarations: []
+  declarations: [
+    ActivityLogComponent,
+  ],
+  entryComponents:[
+
+  ],
+  providers:[
+
+  ],
+  exports:[
+    ActivityLogComponent,
+  ]
 })
 export class CaseModule { }
