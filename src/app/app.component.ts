@@ -8,11 +8,11 @@ import { WipBinsService } from './core/services/wip-bins.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private title = 'BroadBand Workflow';
-  private caseId:string;
-  private caseInfo;
+  title = 'BroadBand Workflow';
+  caseId:string;
+  caseInfo;
 
-  private userInfo = {
+  userInfo = {
     "userName" : "Srinivasarao",
     "id":"ss139t"
   };
@@ -26,8 +26,12 @@ export class AppComponent {
    this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
   }
 
-  getWipBinsInfo(){
+  getWIPBins(){
     //getWipBinInfo...
+  }
+
+  getQueues(){
+
   }
 
 }

@@ -19,8 +19,8 @@
           <button mat-button color="primary">Create Case:<mat-icon>create</mat-icon></button>
           <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
           <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
-          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();openWIPBins();">WIP Bins <mat-icon>work</mat-icon></button>
-          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();openQueues();">Queues <mat-icon>queue</mat-icon></button>
+          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWIPBins();">WIP Bins <mat-icon>work</mat-icon></button>
+          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getQueues();">Queues <mat-icon>queue</mat-icon></button>
           <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>         
           <button color="primary" mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>more_vert</mat-icon></button>
           <mat-menu #menu="matMenu">
@@ -30,7 +30,7 @@
 </mat-toolbar>
 <!--Actual content Area-->
 <mat-drawer-container class="main-sidenav-queues-wipbins" [hasBackdrop]="true">
-    <mat-drawer class="side-nav-width-queues-wipbins" #wipBinsSideNav [mode]="over">
+    <mat-drawer class="side-nav-width-queues-wipbins" #wipBinsSideNav [mode]="'over'">
       <!--Display Area for Queues and WipBins--> <!-- Pending... -->
       <mat-list role="list">
           <mat-list-item role="listitem">Queues</mat-list-item>
