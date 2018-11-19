@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'bbw-activity-log',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityLogComponent implements OnInit {
 
+  @Output() changeToComponent = new EventEmitter<number>();
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  gotoMoreInfo(index){
+    this.changeToComponent.emit(index);
   }
 
 }

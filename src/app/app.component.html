@@ -1,44 +1,49 @@
-<mat-toolbar class="main-header">
-      <img class="header-att-icon" src="../assets/img/att.jpg">
-      <span>Broadband Workflow</span>
-      <span class="header-fill-remaining-space"></span>
-      <span>{{userInfo.userName}} | {{userInfo.id}}</span>&nbsp;
-      <mat-icon>person</mat-icon>
-      <a mat-button>Logout&nbsp;<mat-icon>power_settings_new</mat-icon></a>
-</mat-toolbar>
+<bbw-header></bbw-header>
 <!-- Menu Component -->
 <mat-toolbar class="header-main-menu">
-          <mat-label color="primary">Case Id:</mat-label>
-          <mat-form-field>
-              <input matInput type="text" [(ngModel)]="caseId">
-              <button matSuffix mat-button mat-icon-button aria-label="search" (click)="getCaseInfo();">
-                  <mat-icon>search</mat-icon>
-              </button>
-          </mat-form-field>
-          <span class="header-fill-remaining-space"></span>
-          <button mat-button color="primary">Create Case:<mat-icon>create</mat-icon></button>
-          <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
-          <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
-          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWIPBins();">WIP Bins <mat-icon>work</mat-icon></button>
-          <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getQueues();">Queues <mat-icon>queue</mat-icon></button>
-          <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>         
-          <button color="primary" mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>more_vert</mat-icon></button>
-          <mat-menu #menu="matMenu">
-              <button mat-menu-item>Apps</button>
-              <button mat-menu-item>Actions</button>
-          </mat-menu>  
+    <mat-label class="spaces" color="primary">Case Id:</mat-label>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="caseId">
+    </mat-form-field>
+    <button mat-button mat-icon-button aria-label="search" (click)="getCaseInfo();">
+            <mat-icon class="mat-search-icon">search</mat-icon>
+    </button>
+    <span class="header-fill-remaining-space"></span>
+    <button mat-button color="primary">Create Case:<mat-icon>create</mat-icon></button>
+    <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
+    <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
+    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWIPBins();">WIP Bins <mat-icon>work</mat-icon></button>
+    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getQueues();">Queues <mat-icon>queue</mat-icon></button>
+    <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>
+    <button color="primary" mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>more_vert</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Apps</button>
+        <button mat-menu-item>Actions</button>
+    </mat-menu>
 </mat-toolbar>
 <!--Actual content Area-->
 <mat-drawer-container class="main-sidenav-queues-wipbins" [hasBackdrop]="true">
     <mat-drawer class="side-nav-width-queues-wipbins" #wipBinsSideNav [mode]="'over'">
-      <!--Display Area for Queues and WipBins--> <!-- Pending... -->
-      <mat-list role="list">
-          <mat-list-item role="listitem">Queues</mat-list-item>
-          <mat-list-item role="listitem">WIP Bins</mat-list-item>
-      </mat-list>
+        <!--Display Area for Queues and WipBins-->
+        <!-- Pending... -->
+        <mat-list role="list">
+            <mat-list-item role="listitem">WIP Bins</mat-list-item>
+            <mat-list-item role="listitem">Queues</mat-list-item>
+        </mat-list>
     </mat-drawer>
     <mat-drawer-content>
-      I am content for case Ids INFO <!-- Pending... -->
+        <!--  I am content for case Ids INFO Pending... -->
+        <mat-tab-group [selectedIndex]="selectCase" (selectedIndexChange)="setSelected($event)">
+            <mat-tab *ngFor="let case of caseInfo; let index = index">
+                <ng-template mat-tab-label>
+                    {{case.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeCase(index)">clear</mat-icon>
+                </ng-template>
+                <mat-toolbar style="height: 35px;">
+                    <span>CASE INFO : {{case.caseId}}</span>&nbsp;&nbsp;&nbsp;
+                </mat-toolbar>
+                <bbw-case-host [caseCompItems]="caseCompList"></bbw-case-host>
+            </mat-tab>
+        </mat-tab-group>
     </mat-drawer-content>
-</mat-drawer-container>
 
+</mat-drawer-container>

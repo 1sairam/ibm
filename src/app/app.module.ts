@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HeaderComponent } from './core/header/header.component';
+
 /* Shared OR common external and angular modules */
 import { MaterialModule } from '../app/shared/modules/material/material.module';
 import { CdkModule } from '../app/shared/modules/cdk/cdk.module';
@@ -16,9 +18,11 @@ import { QueuesModule } from './modules/queues/queues.module';
 import { WipbinsModule } from './modules/wipbins/wipbins.module';
 import { ServicesModule } from './core/services/services.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
