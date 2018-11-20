@@ -1,15 +1,7 @@
-<!-- Case INFO : {{caseInfo.caseId}}
-ActivityLog : 
-{{caseInfo.activity}}
-<br>
-<bbw-activity-log [activityLog]="caseInfo.activity"></bbw-activity-log>
-<button (click)="changeComp(1)" >BRASS</button> 
- -->
- <!-- <div *ngIf="!caseContentDetails"> -->
     <div class="matExpansionPannel_left">
         <mat-accordion class="example-headers-align">
           <!-- customer information pannel -->
-              <mat-expansion-panel class="pannelMain" [expanded]="false" (opened)="setStep(0)" hideToggle="false">
+              <mat-expansion-panel class="pannelMain" [expanded]="true" hideToggle="false">
                   <mat-expansion-panel-header class="pannelHead" [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
                     <mat-panel-title>
                       Customer information
@@ -166,8 +158,7 @@ ActivityLog :
                                 Tap the pannel to view details
                               </mat-panel-description> -->
                             </mat-expansion-panel-header>
-                        
-                           <bbw-activity-log [activityLog]="caseInfo.activity"></bbw-activity-log>
+                           <bbw-activity-log [caseId]="caseInfo.caseId"></bbw-activity-log>
                           </mat-expansion-panel>
       
                           <!-- service information pannel -->
