@@ -1,6 +1,228 @@
-Case INFO : {{caseInfo.caseId}}
+<!-- Case INFO : {{caseInfo.caseId}}
 ActivityLog : 
 {{caseInfo.activity}}
 <br>
+<bbw-activity-log [activityLog]="caseInfo.activity"></bbw-activity-log>
 <button (click)="changeComp(1)" >BRASS</button> 
-
+ -->
+ <!-- <div *ngIf="!caseContentDetails"> -->
+    <div class="matExpansionPannel_left">
+        <mat-accordion class="example-headers-align">
+          <!-- customer information pannel -->
+              <mat-expansion-panel class="pannelMain" [expanded]="false" (opened)="setStep(0)" hideToggle="false">
+                  <mat-expansion-panel-header class="pannelHead" [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                    <mat-panel-title>
+                      Customer information
+                    </mat-panel-title>
+                    <!-- <mat-panel-description>
+                      Tap the pannel to view details
+                    </mat-panel-description> -->
+                  </mat-expansion-panel-header>
+              
+                  
+                    <div>
+                      <span class="infoHead">Site ID:</span>
+                      <span class="infoContent_1">132456_1</span>
+                    </div>
+                    <div class="evenRow">
+                      <span class="infoHead">DSL Order ID:</span>
+                      <span class="infoContent_2">FMBO1025323</span>
+                    </div>
+                    <div>
+                      <span class="infoHead">Account Name:</span>
+                      <span class="infoContent_3">Earthlink Business</span>
+                    </div>
+                    <div class="evenRow">
+                      <span class="infoHead">Street Address:</span>
+                      <span class="infoContent_4">123 Main St</span>
+                    </div>
+                    <div>
+                      <span class="infoHead">Unit/Room/Floor:</span>
+                      <span class="infoContent_5">STE 143</span>
+                    </div>
+                    <div class="evenRow">
+                      <span class="infoHead">City:</span>
+                      <span class="infoContent_6">chicago</span>
+                    </div>
+                    <div>
+                      <span class="infoHead">State:</span>
+                      <span class="infoContent_7">IL</span>
+                    </div>
+                    <div class="evenRow">
+                      <span class="infoHead">Zip Code:</span>
+                      <span class="infoContent_8">90210</span>
+                    </div>
+                  
+                </mat-expansion-panel>
+    
+              <!-- case details pannel -->
+                <mat-expansion-panel class="pannel_2">
+                    <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                      <mat-panel-title>
+                        Case Details
+                      </mat-panel-title>
+                      <!-- <mat-panel-description>
+                        Tap the pannel to view details
+                      </mat-panel-description> -->
+                    </mat-expansion-panel-header>
+                
+                    <div>
+                      <span class="infoHead">Case ID :</span>
+                      <span class="infoContent_2_1">581137</span>
+                    </div>
+                    <div class="evenRow">
+                      <span class="infoHead">Case title :</span>
+                      <span class="infoContent_2_2">DSL New Order(MDS ID:FMOB1025323)</span>
+                    </div>
+                    <div>
+                        <span class="infoHead">Type:</span>
+                        <span class="infoContent_2_3">Request For Service</span>
+                      </div>
+                      <div class="evenRow">
+                          <span class="infoHead">Sub-Type:</span>
+                          <span class="infoContent_2_4">New</span>
+                        </div>
+                        <div>
+                            <span class="infoHead">Priority/Severity:</span>
+                            <span class="infoContent_2_5">2 – Medium</span>
+                          </div>
+                          <div class="evenRow">
+                              <span class="infoHead">Origin:</span>
+                              <span class="infoContent_2_6">DSL CSM</span>
+                            </div>
+                  </mat-expansion-panel>
+      
+                  <!-- contacts pannel -->
+                  <mat-expansion-panel class="pannel_3">
+                      <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                        <mat-panel-title>
+                          Contacts
+                        </mat-panel-title>
+                        <!-- <mat-panel-description>
+                          Tap the pannel to view details
+                        </mat-panel-description> -->
+                      </mat-expansion-panel-header>
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="First name">
+                      </mat-form-field>
+                  
+                      <mat-form-field>
+                        <input matInput placeholder="Age">
+                      </mat-form-field>
+                    </mat-expansion-panel>
+      
+                 </mat-accordion>
+                 </div>
+                 <div class="matExpansionPannel_right">
+                  <mat-accordion class="example-headers-align">
+                    <!-- cases notes pannel -->
+                    <mat-expansion-panel class="pannel_4">
+                        <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                          <mat-panel-title>
+                            Case Notes
+                          </mat-panel-title>
+                          <!-- <mat-panel-description>
+                            Tap the pannel to view details
+                          </mat-panel-description> -->
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field>
+                          <input matInput placeholder="First name">
+                        </mat-form-field>
+                    
+                        <mat-form-field>
+                          <input matInput placeholder="Age">
+                        </mat-form-field>
+                      </mat-expansion-panel>
+      
+                      <!-- planner  pannel -->
+                      <mat-expansion-panel class="pannel_5">
+                          <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                            <mat-panel-title>
+                              Planner
+                            </mat-panel-title>
+                            <!-- <mat-panel-description>
+                              Tap the pannel to view details
+                            </mat-panel-description> -->
+                          </mat-expansion-panel-header>
+                      
+                          <mat-form-field>
+                            <input matInput placeholder="First name">
+                          </mat-form-field>
+                      
+                          <mat-form-field>
+                            <input matInput placeholder="Age">
+                          </mat-form-field>
+                        </mat-expansion-panel>
+      
+                        <!-- activity log pannel -->
+                        <mat-expansion-panel class="pannel_6">
+                            <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                              <mat-panel-title>
+                                Activity log
+                              </mat-panel-title>
+                              <!-- <mat-panel-description>
+                                Tap the pannel to view details
+                              </mat-panel-description> -->
+                            </mat-expansion-panel-header>
+                        
+                           <bbw-activity-log [activityLog]="caseInfo.activity"></bbw-activity-log>
+                          </mat-expansion-panel>
+      
+                          <!-- service information pannel -->
+                          <mat-expansion-panel class="pannel_7">
+                              <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                                <mat-panel-title>
+                                  Service Information
+                                </mat-panel-title>
+                                <!-- <mat-panel-description>
+                                  Tap the pannel to view details
+                                </mat-panel-description> -->
+                              </mat-expansion-panel-header>
+                          
+                              <div class="service_div_one">
+                                <span class="serviceCircuit">CIRCUIT INFOMATION</span>
+                                <span class="serviceSubscribed">SUBSCRIBED OPTIONS</span>
+                              </div>
+                              <div class="service_div_two">
+                                  <span>
+                                      <span class="serviceProvider">PROVIDER INFOMATION</span>
+                                  </span>
+                                  <span>
+                                      <button mat-raised-button	class="btn_one">Add Service</button>
+                                      <button mat-raised-button	class="btn_two">Modify Service</button>
+                                      <button mat-raised-button	class="btn_three">Billing</button><br>
+                                      <button mat-raised-button	class="btn_four">BRASS</button>
+                                      <button mat-raised-button	class="btn_five">View IPs</button>
+                                      <button mat-raised-button	class="btn_six">HSIA</button>
+                                      <button mat-raised-button	class="btn_seven">View CPE</button>
+                                  </span>
+                                </div>
+                                <div class="service_div_three">
+                                   IP INFORMATION
+                                  </div>
+                            </mat-expansion-panel>
+      
+                            <!-- billing pannel -->
+                            <mat-expansion-panel class="pannel_8">
+                                <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                                  <mat-panel-title>
+                                    Billing
+                                  </mat-panel-title>
+                                  <!-- <mat-panel-description>
+                                    Tap the pannel to view details
+                                  </mat-panel-description> -->
+                                </mat-expansion-panel-header>
+                            
+                                <mat-form-field>
+                                  <input matInput placeholder="First name">
+                                </mat-form-field>
+                            
+                                <mat-form-field>
+                                  <input matInput placeholder="Age">
+                                </mat-form-field>
+                              </mat-expansion-panel>
+          </mat-accordion>      
+    </div>
+    <!-- </div> -->

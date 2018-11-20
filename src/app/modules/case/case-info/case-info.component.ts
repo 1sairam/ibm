@@ -29,4 +29,6 @@ export class CaseInfoComponent implements OnInit {
   }
 
 
+  MAT_TAB_COLLAPSED_HEIGHT = '35px';
+  MAT_TAB_EXPANDED_HEIGHT = '35px';
 }
