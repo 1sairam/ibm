@@ -34,12 +34,12 @@
     <mat-drawer-content>
         <!--  I am content for case Ids INFO Pending... -->
         <mat-tab-group [selectedIndex]="selectCase" (selectedIndexChange)="setSelected($event)">
-            <mat-tab *ngFor="let case of caseInfo; let index = index">
+            <mat-tab *ngFor="let caseId of caseIdList; let index = index">
                 <ng-template mat-tab-label>
-                    {{case.caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeCase(index)">clear</mat-icon>
+                    {{caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeCase(index)">clear</mat-icon>
                 </ng-template>
                 <mat-toolbar style="height: 35px;">
-                    <span>CASE INFO : {{case.caseId}}</span>&nbsp;&nbsp;&nbsp;
+                    <span>CASE INFO : {{caseId}}</span>&nbsp;&nbsp;&nbsp;
                 </mat-toolbar>
                 <bbw-case-host [caseCompItems]="caseCompList"></bbw-case-host>
             </mat-tab>
@@ -47,3 +47,6 @@
     </mat-drawer-content>
 
 </mat-drawer-container>
+
+Selected Index{{selectCase}}
+:{{selectedCaseIndex}}

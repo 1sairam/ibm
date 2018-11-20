@@ -13,6 +13,7 @@ export class ActivityLogService {
   constructor(private http: HttpClient) { }
 
   getActivityLogData(caseId): Observable<ActivityLog[]>{
+    console.log(this._url + caseId);
     return this.http.get<ActivityLog[]>(this._url + caseId);
   }
 
