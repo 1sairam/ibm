@@ -3,6 +3,7 @@ import { ActivityLogService } from './activity-log.service';
 import { CaseInfoService } from './case-info.service';
 import { WipBinsService } from './wip-bins.service';
 import { CaseCompService } from './case-comp.service';
+import { UserInfoService } from './user-info.service';
 
 @NgModule({
   providers:[
@@ -10,6 +11,7 @@ import { CaseCompService } from './case-comp.service';
     CaseInfoService,
     WipBinsService,
     CaseCompService,
+    UserInfoService,
   ]
 })
 export class ServicesModule { }

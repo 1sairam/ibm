@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CaseInfoService } from './core/services/case-info.service';
 import { WipBinsService } from './core/services/wip-bins.service';
-
+import { UserInfoService } from './core/services/user-info.service';
 import { CaseCompService } from './core/services/case-comp.service';
 import { CaseCompItem } from './core/models/case-comp-item';
+import { UserInfo } from './core/models/user-info';
 
 @Component({
   selector: 'bbw-root',
@@ -18,19 +19,17 @@ export class AppComponent implements OnInit {
   selectedCaseIndex: number = 0;//default
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
+  userInfo: UserInfo;
 
   constructor(private caseInfoService: CaseInfoService,
     private wipBinsService: WipBinsService,
-    private caseCompService: CaseCompService) {
+    private caseCompService: CaseCompService,
+    private userInfoService: UserInfoService) {
 
   }
   ngOnInit() {
-    this.getUserInfo();
+    this.userInfoService.getUserInfo().subscribe(data => this.userInfo = data);
     this.caseCompList = this.caseCompService.getCaseCompList();
-  }
-
-  getUserInfo() {
-    //get user info after login
   }
 
   getCaseInfo() {
@@ -82,12 +81,5 @@ export class AppComponent implements OnInit {
   getQueues() {
 
   }
-
-  userInfo = {
-    "userName": "Srinivasarao",
-    "id": "ss139t",
-    "objid": "268525973",
-    "loginName": "dev_d_sa"
-  };
 
 }

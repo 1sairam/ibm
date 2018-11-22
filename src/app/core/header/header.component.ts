@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserInfo } from '../models/user-info';
 
 @Component({
   selector: 'bbw-header',
@@ -8,13 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
-  userInfo = {
-    "userName" : "Srinivasarao",
-    "id":"ss139t",
-    "objid":"268525973",
-    "loginName":"dev_d_sa"
-  };
+  @Input() userInfo : UserInfo;
   
   ngOnInit() {
   }
