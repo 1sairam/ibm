@@ -9,7 +9,7 @@ export class WipBinsService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = "/ui/bbw/getWipBinsList/";
+  private _url: string = "./getWipBinsList/";
 
   getWipBinsList(objId): WipBins[] {
     let wipBinsData: WipBins[];

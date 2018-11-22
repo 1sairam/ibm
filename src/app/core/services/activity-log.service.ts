@@ -8,7 +8,7 @@ import { HttpClient ,HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 })
 export class ActivityLogService {
 
-  private _url: string = "http://zlp41146.vci.att.com:31327/bbw/ordermgmtservice/v1/log/getActivityLog/";    
+  private _url: string = "./getActivityLog/";
   
   constructor(private http: HttpClient) { }
 

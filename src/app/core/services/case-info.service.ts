@@ -11,7 +11,7 @@ export class CaseInfoService {
   case: CaseInfo;
   selectedIndex: number;
 
-  private _url: string = "/ui/bbw/getCaseInfo";
+  private _url: string = "./getCaseInfo";
 
   constructor(private http: HttpClient) { }
 
