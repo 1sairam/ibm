@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
-  wipBinsData: WipBins[];
-  queuesData: Queues[];
+  wipBinsData: WipBins[] = [];
+  queuesData: Queues[] = [];
 
   constructor(private caseInfoService: CaseInfoService,
     private wipBinsService: WipBinsService,
@@ -33,12 +33,18 @@ export class AppComponent implements OnInit {
     private userInfoService: UserInfoService) {
 
   }
+
+  getWipBinsQueuesData(){
+    console.log(this.userInfo);
+    if(this.wipBinsData.length <= 0) {
+      this.wipBinsService.getWipBinsList(this.userInfo.objid).subscribe(data=> this.wipBinsData = data);
+      this.queuesService.getQueuesList(this.userInfo.objid).subscribe(data => this.queuesData = data);
+    }
+  }
+
   ngOnInit() {
     //Intial Load Get user Info ,wipbins and queues data
     this.userInfoService.getUserInfo().subscribe(data => this.userInfo = data);
-    this.wipBinsService.getWipBinsList(this.userInfo.objid).subscribe(data=> this.wipBinsData = data);
-    this.queuesService.getQueuesList(this.userInfo.objid).subscribe(data => this.queuesData = data);
-
     if(this.userInfo == null){
       this.userInfo = {
         loginName: "Dummy",
