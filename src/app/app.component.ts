@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CaseInfoService } from './core/services/case-info.service';
 import { WipBinsService } from './core/services/wip-bins.service';
+import { QueuesService } from './core/services/queues.service';
 import { UserInfoService } from './core/services/user-info.service';
 import { CaseCompService } from './core/services/case-comp.service';
 import { CaseCompItem } from './core/models/case-comp-item';
 import { UserInfo } from './core/models/user-info';
+import { WipBins } from './core/models/wip-bins';
+import { Queues } from './core/models/queues';
 
 @Component({
   selector: 'bbw-root',
@@ -20,15 +23,22 @@ export class AppComponent implements OnInit {
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
+  wipBinsData: WipBins[];
+  queuesData: Queues[];
 
   constructor(private caseInfoService: CaseInfoService,
     private wipBinsService: WipBinsService,
+    private queuesService: QueuesService,
     private caseCompService: CaseCompService,
     private userInfoService: UserInfoService) {
 
   }
   ngOnInit() {
+    //Intial Load Get user Info ,wipbins and queues data
     this.userInfoService.getUserInfo().subscribe(data => this.userInfo = data);
+    this.wipBinsService.getWipBinsList(this.userInfo.objid).subscribe(data=> this.wipBinsData = data);
+    this.queuesService.getQueuesList(this.userInfo.objid).subscribe(data => this.queuesData = data);
+
     if(this.userInfo == null){
       this.userInfo = {
         loginName: "Dummy",
@@ -94,31 +104,6 @@ export class AppComponent implements OnInit {
   removeCase(index) {
     this.caseIdList.splice(index, 1);
     this.caseInfoService.removeCaseInfo(index);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  getWIPBins() {
-    this.wipBinsService.getWipBinsList(this.userInfo.objid);
-  }
-
-  getQueues() {
-
   }
 
 }

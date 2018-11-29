@@ -4,6 +4,7 @@ import { CaseInfoService } from './case-info.service';
 import { WipBinsService } from './wip-bins.service';
 import { CaseCompService } from './case-comp.service';
 import { UserInfoService } from './user-info.service';
+import { QueuesService } from './queues.service';
 
 @NgModule({
   providers:[
@@ -12,6 +13,7 @@ import { UserInfoService } from './user-info.service';
     WipBinsService,
     CaseCompService,
     UserInfoService,
+    QueuesService,
   ]
 })
 export class ServicesModule { }

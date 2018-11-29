@@ -12,8 +12,8 @@
     <button mat-button color="primary">Create Case:<mat-icon>create</mat-icon></button>
     <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
     <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
-    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWIPBins();">WIP Bins <mat-icon>work</mat-icon></button>
-    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getQueues();">Queues <mat-icon>queue</mat-icon></button>
+    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();">WIP Bins / Queues <mat-icon>work</mat-icon></button>
+    <!-- <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getQueues();">Queues <mat-icon>queue</mat-icon></button> -->
     <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>
     <button color="primary" mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>more_vert</mat-icon></button>
     <mat-menu #menu="matMenu">

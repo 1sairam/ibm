@@ -1,22 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, of} from 'rxjs';
-import { WipBins } from '../models/wip-bins';
+import { Queues } from '../models/queues';
 
 @Injectable({
   providedIn: 'root'
 })
-export class WipBinsService {
+export class QueuesService {
 
   constructor(private http: HttpClient) { }
+  private _url: string = "./queuesList/";
 
-  private _url: string = "./wipBinsList/";
-
-  getWipBinsList(objId): Observable<WipBins[]> {
-    return this.http.get<WipBins[]>(this._url + objId);
+  getQueuesList(objId): Observable<Queues[]> {
+    return this.http.get<Queues[]>(this._url + objId);
   }
-  
-  getCasesInWipBin(){
+
+  getCasesInQueue(){
     
   }
 }
