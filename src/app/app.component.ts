@@ -29,6 +29,45 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.userInfoService.getUserInfo().subscribe(data => this.userInfo = data);
+    if(this.userInfo == null){
+      this.userInfo = {
+        loginName: "Dummy",
+        wirelessEmail: "Dummy",
+        user2pageClass: "Dummy",
+        userAccessIndicator: "Dummy",
+        sLoginName: "Dummy",
+        agentId: "Dummy",
+        status: "Dummy",
+        equipId: "Dummy",
+        csLic: "Dummy",
+        csdeLic: "Dummy",
+        cqLic: "Dummy",
+        passwdChg: "Dummy",
+        lastLogin: "Dummy",
+        clfoLic: "Dummy",
+        csLicType: "Dummy",
+        cqLicType: "Dummy",
+        csftsdeLic: "Dummy",
+        webLogin: "Dummy",
+        sWebLogin: "Dummy",
+        submitterInd: "Dummy",
+        userAccess2privclass: "Dummy",
+        userDefault2wipbin: "Dummy",
+        supvrDefault2monitor: "Dummy",
+        user2rcConfig: "Dummy",
+        user2srvr: "Dummy",
+        sfaLic: "Dummy",
+        univLic: "Dummy",
+        dev: "Dummy",
+        locale: "Dummy",
+        nodeId: "Dummy",
+        offline2privclass: "Dummy",
+        csftsLic: "Dummy",
+        cqftsLic: "Dummy",
+        objid: "Dummy",
+        userAttuid: "Dummy",
+      }
+    }
     this.caseCompList = this.caseCompService.getCaseCompList();
   }
 

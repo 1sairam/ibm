@@ -1,3 +1,6 @@
+  <mat-toolbar style="height: 35px;">
+    <span>CASE INFO : {{caseInfo.caseId}}</span>&nbsp;&nbsp;&nbsp;
+  </mat-toolbar>
     <div class="matExpansionPannel_left">
         <mat-accordion class="example-headers-align">
           <!-- customer information pannel -->
@@ -9,9 +12,7 @@
                     <!-- <mat-panel-description>
                       Tap the pannel to view details
                     </mat-panel-description> -->
-                  </mat-expansion-panel-header>
-              
-                  
+                  </mat-expansion-panel-header>                
                     <div>
                       <span class="infoHead">Site ID:</span>
                       <span class="infoContent_1">132456_1</span>
@@ -108,6 +109,7 @@
                  </div>
                  <div class="matExpansionPannel_right">
                   <mat-accordion class="example-headers-align">
+                    <button (click)="changeComp(2);" mat-raised-button color="primary">BRASS</button>
                     <!-- cases notes pannel -->
                     <mat-expansion-panel class="pannel_4">
                         <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
@@ -190,6 +192,7 @@
                                       <button mat-raised-button	class="btn_seven">View CPE</button>
                                   </span>
                                 </div>
+                                
                                 <div class="service_div_three">
                                    IP INFORMATION
                                   </div>

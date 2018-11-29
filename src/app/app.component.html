@@ -38,15 +38,9 @@
                 <ng-template mat-tab-label>
                     {{caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeCase(index)">clear</mat-icon>
                 </ng-template>
-                <mat-toolbar style="height: 35px;">
-                    <span>CASE INFO : {{caseId}}</span>&nbsp;&nbsp;&nbsp;
-                </mat-toolbar>
                 <bbw-case-host [caseCompItems]="caseCompList"></bbw-case-host>
             </mat-tab>
         </mat-tab-group>
     </mat-drawer-content>
 
 </mat-drawer-container>
-
-Selected Index{{selectCase}}
-:{{selectedCaseIndex}}

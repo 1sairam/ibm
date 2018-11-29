@@ -10,9 +10,9 @@ export class UserInfoService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = "./getUserInfo";
+  private _url: string = "./userInfo";
 
-  getUserInfo():Observable<UserInfo> {
+  getUserInfo(): Observable<UserInfo> {
     return this.http.get<UserInfo>(this._url);
   }
 }
