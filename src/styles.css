@@ -1,3 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
 body { margin: 0; }
+
+[class*="icon-"] {
+    font-style: normal;
+    font-size: 36px;
+    top: 0;
+}
+[class*="medium icon-"] {
+    font-style: normal;
+    font-size: 30px;
+    top: 0;
+}
+[class*="small icon-"] {
+    font-style: normal;
+    font-size: 24px;
+    top: 0;
+}
+.red {
+    color: red;
+}

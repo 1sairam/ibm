@@ -17,7 +17,6 @@ import { Queues } from './core/models/queues';
 export class AppComponent implements OnInit {
 
   title = 'BroadBand Workflow';
-  caseId: string;
   caseIdList: string[] = [];
   selectedCaseIndex: number = 0;//default
   selectCase: number;//default
@@ -87,17 +86,22 @@ export class AppComponent implements OnInit {
     this.caseCompList = this.caseCompService.getCaseCompList();
   }
 
-  getCaseInfo() {
-    if (this.caseId == null || this.caseId.length < 1) {
+  getCaseInfo(caseId) {
+    console.log(caseId);
+    if (caseId == null || caseId.length < 1) {
       return;
     }
-    this.caseIdList.push(this.caseId);//local to app component
+    this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
     console.log(this.selectCase + "select case");
-    this.caseInfoService.createCaseInfo(this.caseId);//for all components
+    this.caseInfoService.createCaseInfo(caseId);//for all components
     this.selectedCaseIndex = this.selectCase;
     //this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
+  }
+  
+  createCase(){
+    this.getCaseInfo('untitled');
   }
 
   setSelected(index) {

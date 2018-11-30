@@ -3,18 +3,16 @@
 <mat-toolbar class="header-main-menu">
     <mat-label class="spaces" color="primary">Case Id:</mat-label>
     <mat-form-field>
-        <input matInput type="text" [(ngModel)]="caseId">
+        <input maxlength="10" matInput type="text" [(ngModel)]="caseId">
+        <i (click)="getCaseInfo(caseId);caseId=''" class="small icon-arrows-outgoing-call mat-search-icon"></i>
     </mat-form-field>
-    <button mat-button mat-icon-button aria-label="search" (click)="getCaseInfo();">
-            <mat-icon class="mat-search-icon">search</mat-icon>
-    </button>
     <span class="header-fill-remaining-space"></span>
-    <button mat-button color="primary">Create Case:<mat-icon>create</mat-icon></button>
-    <button mat-button color="primary">Contacts <mat-icon>contacts</mat-icon></button>
-    <button mat-button color="primary">Sites <mat-icon>web</mat-icon></button>
-    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWipBinsQueuesData();">WIP Bins / Queues <mat-icon>work</mat-icon></button>
-    <button mat-button color="primary">Advanced Search <mat-icon>search</mat-icon></button>
-    <button color="primary" mat-button [matMenuTriggerFor]="menu">Menu<mat-icon>more_vert</mat-icon></button>
+    <button mat-button color="primary" (click)="createCase()"><i class="small icon-controls-subscribe"></i> Create Case</button>
+    <button mat-button color="primary"><i class="small icon-people-groupcollaboration"></i> Contacts</button>
+    <button mat-button color="primary"><i class="small icon-location-geofence"></i> Sites</button>
+    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();getWipBinsQueuesData();"><i class="small icon-content-seriessubscribetablet" ></i> WIP Bins / Queues </button>
+    <button mat-button color="primary"><i class="small icon-documents-searchfind" role="img" aria-label=""></i> Advanced Search </button>
+    <button color="primary" mat-button [matMenuTriggerFor]="menu"><i class="small icon-content-listguide"></i> Menu</button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item>Apps</button>
         <button mat-menu-item>Actions</button>
@@ -34,8 +32,8 @@
         <!--  I am content for case Ids INFO Pending... -->
         <mat-tab-group [selectedIndex]="selectCase" (selectedIndexChange)="setSelected($event)">
             <mat-tab *ngFor="let caseId of caseIdList; let index = index">
-                <ng-template mat-tab-label>
-                    {{caseId}} &nbsp;<mat-icon class="mat-cancel-icon" (click)="removeCase(index)">clear</mat-icon>
+                <ng-template mat-tab-label class="strong">
+                    {{caseId}} &nbsp;<i class="medium icon-controls-optionsoff red" (click)="removeCase(index)"></i>
                 </ng-template>
                 <bbw-case-host [caseCompItems]="caseCompList"></bbw-case-host>
             </mat-tab>

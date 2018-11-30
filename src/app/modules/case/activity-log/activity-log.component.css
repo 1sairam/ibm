@@ -28,9 +28,12 @@ p{
   table.mat-elevation-z8{
     width: 100%;
   }
+  .listBtn{
+    margin-left: 64%;
+  }
   .sideRight{
     /* float: right; */
-    margin-left: 17%;
+    margin-left: 19%;
   }
   .sideMiddle{
     margin-left: 17%;
@@ -70,7 +73,7 @@ p{
   } */
   .buttonRight{ 
    /* float: right; */
-   margin-left: 8%;
+   margin-left: 4.5%;
   }
   .highlight{
     background:#BBDEFB;
@@ -89,14 +92,14 @@ p{
     width:10%;
   } 
   .siteRadio_1{
-    margin-left: 22%;
+    margin-left: 37%;
   }
 
   .siteRadio_2{
-    margin-left: 8%;
+    margin-left: 3%;
   }
   .thirdDrop{
-    margin-left: 8%;
+    margin-left: 4%;
   }
   
   

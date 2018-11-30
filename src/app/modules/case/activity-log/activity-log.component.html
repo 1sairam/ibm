@@ -1,7 +1,7 @@
 <div>    
   <span class="sideLeft">
       <mat-form-field>
-          <mat-select  [(ngModel)]="firstList">
+          <mat-select  [(ngModel)]="firstOrder">
             <mat-option *ngFor="let firstOrder of firstOrders" [value]="firstOrder">{{firstOrder}}</mat-option>            
           </mat-select>
         </mat-form-field>          
@@ -9,15 +9,15 @@
 
   <span class="sideMiddle">
       <mat-form-field>
-          <mat-select [(ngModel)]="secondList">
+          <mat-select [(ngModel)]="secondOrder">
             <mat-option *ngFor="let secondOrder of secondOrders" [value]="secondOrder">{{secondOrder}}</mat-option>
           </mat-select>
         </mat-form-field>
   </span>
   <span class="sideRight">
       <mat-form-field >
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="datePick">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="datePick">
+          <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Create Date'"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>  
   </span>   
@@ -26,10 +26,10 @@
 <!--Radio Buttons-->
 <div id="table1">&nbsp;
     <span class="siteRadio_1">
-        <mat-radio-button  value="1">Local Time</mat-radio-button>
+        <mat-radio-button  value="1" [checked]="isSelected" [(ngModel)]="localTime">Local Time</mat-radio-button>
     </span>
     <span class="siteRadio_2">
-        <mat-radio-button value="2">Site Time</mat-radio-button>
+        <mat-radio-button value="2" [(ngModel)]="siteTime">Site Time</mat-radio-button>
     </span>
 
 <span>
@@ -88,17 +88,14 @@
           <td> 
               <b>Items :</b>&nbsp;
               {{activityLog.length}}
-              <!-- <mat-form-field>
-                  <input matInput >{{activityLog.length}}
-              </mat-form-field> -->
           </td>     
       
           <td style="text-align: center">
               <button mat-raised-button color="primary" [disabled]="isOpenButtonDisabled" (click)="openButton()">Open</button>                
           </td>
           <td>&nbsp;</td>
-          <td>
-              <button class="sideRight" mat-raised-button color="primary">Done</button>      
+          <td class="DoneBtn">
+              <button  mat-raised-button color="primary">Done</button>      
           </td>
       </tr>
   </table>

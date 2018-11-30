@@ -16,8 +16,14 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
 
   constructor(private activityLogService: ActivityLogService) {
     this.isOpenButtonDisabled = true;
+    this.isDateDisabled=true;
+    this.isSelected=true;
     this.selectedRow = 0;
   }
+    selectedRow: number;
+    isOpenButtonDisabled: boolean;
+    isDateDisabled:boolean;
+    isSelected:boolean;
 
   ngOnInit() {
     
@@ -34,8 +40,24 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
   displayedColumns: string[] = ['Activity', 'Create Date', 'User', 'Additional Information'];
   dataSource = new MatTableDataSource<any>();
 
-  firstOrders = ["Activity", "Create Date", "User", "Additional Information"];
-  secondOrders = ["earlier than", "later than"];
+//Drop-Downs Values
+private map= new Map<string, string[]>([
+  ['Activity',['starts with','ends with','contains','sounds like']],
+  ['Create Date',['earlier than','later than']],
+  ['User',['starts with','ends with','contains','sounds like']],
+  ['Additional Information',['starts with','ends with','contains','sounds like']],
+])
+firstOrder:string="Create Date";
+secondOrder:string ="earlier than";
+thirdOrder:string="Descending";
+get firstOrders():string[]{
+  this.secondOrder = this.map.get(this.firstOrder)[0];
+  return Array.from(this.map.keys());
+}
+get secondOrders():string[]{
+  let orders = this.map.get(this.firstOrder);
+  return orders;
+}
   thirdOrders = ["Ascending", "Descending"];
   selectedAct: ActivityLog;
 
@@ -46,8 +68,6 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
   
 
 
-  selectedRow: number;
-  isOpenButtonDisabled: boolean;
 
   isItChecked = true;
   size: number = 0;
@@ -65,7 +85,7 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
     alert(this.selectedAct.addnlInfo);
   }
   listClick() {
-    alert(this.firstList + " " + this.secondList + " " + this.thirdList + " " + this.datePick);
+    //alert(this.firstList + " " + this.secondList + " " + this.thirdList + " " + this.datePick);
 
   }
 }
