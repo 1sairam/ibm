@@ -22,7 +22,10 @@ export class DynamicDatabase {
   rootLevelNodes: any[] = ['WIP Bins', 'Queues'];
 
   setDefaults(){
+    this.setChildern('WIP Bins',[]);
     this.setChildern('Queues',['myQueues','All Queues']);
+    this.setChildern('myQueues',[]);
+    this.setChildern('All Queues',[]);
   }
   setWipBins(wipBinsList){
     console.log(wipBinsList);
@@ -100,7 +103,7 @@ export class DynamicDataSource {
       return;
     }
 
-    node.isLoading = true;
+    node.isLoading = false;
 
     setTimeout(() => {
       if (expand) {
@@ -115,7 +118,7 @@ export class DynamicDataSource {
       }
       // notify the change
       this.dataChange.next(this.data);
-      node.isLoading = false;
+      node.isLoading = true;
     },0 );
     
   }
@@ -173,6 +176,7 @@ export class QueuesHostComponent {
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new DynamicDataSource(this.treeControl, database);
     database.setDefaults();
+    this.dataSource.data = database.initialData();
     database.setQueues([]);//Need to be implemented..
     if(this.wipBinsList.length <= 0) {//get wipbins
       this.wipBinsService.getWipBinsList().then(data=>{
