@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     //User data service call to get all data at one shot
     if(this.userInfo == null){
       this.userInfo = {
-        loginName: "Dummy",
+        loginName: "dev_d_sa",
         wirelessEmail: "Dummy",
         user2pageClass: "Dummy",
         userAccessIndicator: "Dummy",
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         offline2privclass: "Dummy",
         csftsLic: "Dummy",
         cqftsLic: "Dummy",
-        objid: "Dummy",
+        objid: "268525973",
         userAttuid: "Dummy",
       }
     }
@@ -84,6 +84,18 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (caseId == null || caseId.length < 1) {
       return;
     }
+    let local = true;
+    if(local){
+      this.caseIdList.push(caseId);//local to app component
+      this.selectCase = this.caseIdList.length;
+      console.log(this.selectCase + "select case");
+      this.caseInfoService.createCaseInfo(this.caseId,
+        {
+          "objid": "268456887",
+          "castId": "1111",
+        });//for all components
+      this.selectedCaseIndex = this.selectCase;
+    }else{
     //Write logic to validate the case and pass case info....
     //this.userInfoService.testSample().then(data => {
     this.caseInfoService.getCaseInfo(this.caseId).then(data => {
@@ -99,6 +111,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       console.log("something went wrong.. open model");
     }
     );
+   }
   }
   
   createCase(){

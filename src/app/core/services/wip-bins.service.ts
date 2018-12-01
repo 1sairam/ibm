@@ -12,8 +12,8 @@ export class WipBinsService {
 
   private _url: string = "./wipBinsList";
 
-  getWipBinsList(): Observable<WipBins[]> {
-    return this.http.get<WipBins[]>(this._url);
+  async getWipBinsList(): Promise<WipBins[]> {
+    return await this.http.get<WipBins[]>(this._url).toPromise();
   }
   
   getCasesInWipBin(){

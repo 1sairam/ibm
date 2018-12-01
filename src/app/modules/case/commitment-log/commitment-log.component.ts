@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommitmentLogComponent implements OnInit {
 
+  isItChecked:any;
+  selected:any;
+
   constructor() { }
 
   ngOnInit() {

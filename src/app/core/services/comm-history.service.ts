@@ -7,11 +7,11 @@ import { HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class CommHistoryService {
-  private _url: string = "http://localhost.att.com:8080/ui/getCommitLog/";    
+  private _url: string = "./commitLog/";    
   
   constructor(private http: HttpClient) { }
 
-  getCommHistoryData(): Observable<CommHistory[]>{
-    return this.http.get<CommHistory[]>(this._url);
+  getCommHistoryData(objid): Observable<CommHistory[]>{
+    return this.http.get<CommHistory[]>(this._url+objid);
   }
 }

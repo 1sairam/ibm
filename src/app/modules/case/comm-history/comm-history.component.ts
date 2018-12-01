@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Output, Input, AfterViewInit } from '@
 import { CommHistory } from '../../../core/models/comm-history';
 import { MatTableDataSource } from '@angular/material';
 import { CommHistoryService } from '../../../core/services/comm-history.service';
+import { CaseInfo } from 'src/app/core/models/case-info';
 @Component({
   selector: 'bbw-comm-history',
   templateUrl: './comm-history.component.html',
@@ -11,7 +12,7 @@ export class CommHistoryComponent implements OnInit,AfterViewInit {
 
   @Output() changeToComponent = new EventEmitter<number>();
 
-  @Input() caseId: string;
+  @Input() caseInfo: CaseInfo;
   
   commHistory: CommHistory[] = [];
 
@@ -25,7 +26,7 @@ export class CommHistoryComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(){
-    this.commHistoryService.getCommHistoryData().subscribe(data=> this.commHistory = this.dataSource.data =data);
+    this.commHistoryService.getCommHistoryData(this.caseInfo.tableCase.objid).subscribe(data=> this.commHistory = this.dataSource.data =data);
     this.dataSource.data = this.commHistory;
   }
 

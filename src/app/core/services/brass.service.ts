@@ -8,8 +8,8 @@ import { HttpClient ,HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 })
 export class BrassService {
 
-  private _url: string = "http://zlp41146.vci.att.com:31327/bbw/ordermgmtservice/v1/log/getActivityLog/";    
-
+  //private _url: string = "http://zlp41146.vci.att.com:31327/bbw/ordermgmtservice/v1/log/getActivityLog/";    
+  private _url: string = "./activityLog/"; 
   constructor(private http: HttpClient) { }
 
   getBrassResponseData(caseId): Observable<BrassResponse[]>{

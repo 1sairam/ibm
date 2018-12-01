@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectCommitmentsComponent implements OnInit {
 
+  selected2:any;
+  selected:any;
+  dataSource:any;
+  displayedColumns;
+  SelectCommitments=[];
+
   constructor() { }
 
   ngOnInit() {

@@ -21,13 +21,21 @@ export class DynamicDatabase {
 
   rootLevelNodes: any[] = ['WIP Bins', 'Queues'];
 
-  /** Initial data from database */
-  initialData(queuesList,wipBinsList,allQueuesList): DynamicFlatNode[] {
+  setDefaults(){
+    this.setChildern('Queues',['myQueues','All Queues']);
+  }
+  setWipBins(wipBinsList){
     console.log(wipBinsList);
     this.setChildern('WIP Bins',wipBinsList);
-    this.setChildern('Queues',['myQueues','All Queues']);
+  }
+  setQueues(queuesList){
     this.setChildern('myQueues',queuesList);
+  }
+  setAllQueues(allQueuesList){
     this.setChildern('All Queues',allQueuesList);
+  }
+  /** Initial data from database */
+  initialData(): DynamicFlatNode[] { 
     return this.rootLevelNodes.map(name => new DynamicFlatNode(name, 0, true));
   }
 
@@ -122,10 +130,9 @@ export class DynamicDataSource {
 })
 export class QueuesHostComponent {
 
-  @Input()
   wipBinsList : WipBins[]=[];
-  @Input()
   queuesList : Queues[]=[];
+  allQueuesList : Queues[]=[];
 
   queuesCaseListData: QueuesCaseList[] = [];
   selectedTyp:QueuesCaseList;
@@ -165,11 +172,21 @@ export class QueuesHostComponent {
     private queuesService: QueuesService) {
     this.treeControl = new FlatTreeControl<DynamicFlatNode>(this.getLevel, this.isExpandable);
     this.dataSource = new DynamicDataSource(this.treeControl, database);
-    if(this.wipBinsList.length <= 0) {
-      this.wipBinsService.getWipBinsList().subscribe(data=> this.wipBinsList = data);
-      this.queuesService.getQueuesList().subscribe(data => this.queuesList = data);
+    database.setDefaults();
+    database.setQueues([]);//Need to be implemented..
+    if(this.wipBinsList.length <= 0) {//get wipbins
+      this.wipBinsService.getWipBinsList().then(data=>{
+          this.wipBinsList = data;
+          database.setWipBins(this.wipBinsList);
+          //get all queues
+          this.queuesService.getAllQueuesList().then(data => {
+            this.allQueuesList = data;
+            database.setAllQueues(this.allQueuesList);
+            this.dataSource.data = database.initialData();
+          });
+      });
+      
     }
-    this.dataSource.data = database.initialData([],this.wipBinsList,null);
   }
 
   treeControl: FlatTreeControl<DynamicFlatNode>;

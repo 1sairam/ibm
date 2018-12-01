@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrassIpLetterComponent implements OnInit {
 
+  secondOrders : any[];
   constructor() { }
 
   ngOnInit() {
+  }
+  listClick(){
+    
   }
 
 }

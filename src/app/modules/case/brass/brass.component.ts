@@ -15,6 +15,8 @@ export class BrassComponent implements OnInit,AfterViewInit {
 
   brassResponse: BrassResponse[] = [];
   caseInfo: CaseInfo;//default
+  foods:any[] = [];
+  foo
 
 
   constructor(private brassService: BrassService,private caseInfoService:CaseInfoService) { 
@@ -58,4 +60,7 @@ export class BrassComponent implements OnInit,AfterViewInit {
     this.changeToComponent.emit(index);
   }
 
+  openDialog(){
+    
+  }
 }
