@@ -11,6 +11,12 @@ import { MaterialModule } from '../../shared/modules/material/material.module';
 import { AngularModule } from '../../shared/modules/angular/angular.module';
 import { RestClientModule } from '../../shared/modules/rest-client/rest-client.module';
 import { CdkModule } from '../../shared/modules/cdk/cdk.module';
+import { BrassComponent } from './brass/brass.component';
+import { BrassIpLetterComponent } from './brass-ip-letter/brass-ip-letter.component';
+import { CommitmentLogComponent } from './commitment-log/commitment-log.component';
+import { SelectCommitmentsComponent } from './select-commitments/select-commitments.component';
+import { HsiaInfoComponent } from './hsia-info/hsia-info.component';
+import { CommHistoryComponent } from './comm-history/comm-history.component';
 
 
 @NgModule({
@@ -25,13 +31,23 @@ import { CdkModule } from '../../shared/modules/cdk/cdk.module';
     CaseHostComponent,
     CaseCompManagerDirective,
     MoreInfoComponent,
-    CaseInfoComponent
+    CaseInfoComponent,
+    BrassComponent,
+    BrassIpLetterComponent,
+    CommitmentLogComponent,
+    SelectCommitmentsComponent,
+    HsiaInfoComponent,
+    CommHistoryComponent
   ],
   entryComponents:[
     CaseInfoComponent,
     ActivityLogComponent,
     MoreInfoComponent,
-    
+    BrassComponent,
+    BrassIpLetterComponent,
+    CommitmentLogComponent,
+    SelectCommitmentsComponent,
+    HsiaInfoComponent
   ],
   providers:[
 

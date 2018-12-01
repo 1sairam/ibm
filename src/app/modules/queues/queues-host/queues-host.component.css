@@ -1,0 +1,21 @@
+.mat-tree{
+    position: absolute;
+    top: 1%;
+    left: 1%;
+}  
+.mat-scroll{
+    overflow: auto;
+}
+.mat-scroll2{
+    overflow-y: auto;
+}
+.childHover:hover{
+    cursor: pointer;
+    /* font-family: bold; */
+    background: rgb(255, 249, 249);
+    width: 90%;
+    /* color: blue; */
+}
+.mat-grid-tile{
+    
+}

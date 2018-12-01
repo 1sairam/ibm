@@ -1,0 +1,54 @@
+p{
+    padding: 10px;
+  }
+  th{
+    /* font-weight: bold; */
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+    height: 20%;
+  }
+  td{
+    width: 10%;
+  }
+  .grid-container {
+    margin-left: 5px;
+    width: 99.5%;
+    height: 300px;
+    overflow: auto; 
+    
+  }
+  table.mat-elevation-z8{
+    width: 100%;
+      
+  }
+  
+  
+  .result-row:hover {
+    background-color: #BBDEFB;
+    
+  }
+  
+  .datatable> ::ng-deep figure {
+    justify-content: flex-start !important;
+  }
+  
+  mat-grid-tile {
+    justify-content: start;
+  }
+  
+  .datatable{
+    overflow-y:auto;
+  }
+  /* #table1{
+    width: 55%;
+    margin-left: 35.5%;
+    
+  } */
+  
+  .highlight{
+    background:#BBDEFB;
+    color: white;
+  }
+  
+  

@@ -1,0 +1,121 @@
+/* .Asyn-dropTbl, tr, td{
+    border: 1px solid gray;
+} */
+mat-card{
+    background: navy;
+    color: white;
+    height: 5px;
+    width: 96%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+.wipbin-drop{
+    position: absolute;
+    top: 6.5%;
+    left: 1%;
+    width: 76%;
+}
+.mat-list{
+    width: 3%;
+}
+.dslSirDrp1{
+    width: 13%;
+}
+.dslSirInp{
+    width: 26%;
+}
+.dropLeft{
+    margin-left: 11%;
+}
+.plnrTbl{
+    width: 98%;
+    position: absolute;
+    top: 13%;
+    left: 1%;
+}
+.dropRight{
+    float: right;
+    margin-top: 1.3%;
+    margin-right: 2%;
+}
+.Asyn-dropTbl{
+    width: 42%;
+    position: absolute;
+    top: 20%;
+    left: 55%;
+}
+.assDrop{
+
+}
+.assDrpLeft{
+
+}
+.assDrpRit{
+float: right;
+}
+.plnrBrdr{
+    /* height: 230px;
+    border: 1px solid gray;
+    margin-left: -17%;
+    margin-right: 1%;
+    margin-top: 3.5%;
+    width: 131%;
+    overflow: auto; */
+
+    height: 230px;
+    border: 1px solid gray;
+    position: absolute;
+    left: 0.5%;
+    width: 96%;
+    overflow: auto;
+    top: 34%;
+}
+.myTitle{
+    position: absolute;
+    top: 77%;
+    left: 0%;
+    width: 97%;
+}
+.dlsInptTitl{
+    width: 20%;
+}
+.dslSriTitlInpt{
+    width: 100%;
+    /* position: absolute;
+    top: 71%;
+    left: 4%; */
+}
+.titleTd{
+    width: 1%;
+}
+.button-row{
+    position: absolute;
+    top: 83%;
+    left: 3%;
+    width: 94%;
+}
+.itme-row{
+    width: 100%;
+    position: absolute;
+    top: 89%; 
+    left: 0%;
+}
+.wip-items{
+    width: 10%;
+}
+.Wip-left{
+
+}
+.wip-btn{
+    margin-left: 13%;
+}
+.wip-btnRT{
+    float: right;
+    margin-right: 3%;
+    margin-top: 1.3%;
+}
+.dsl-container{
+    height: 100%;
+}
+

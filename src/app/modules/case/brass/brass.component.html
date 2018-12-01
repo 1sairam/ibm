@@ -1,0 +1,147 @@
+
+  <div class="container">       
+  <div class="grid-item">
+  <table class="htable" >
+               <tr>
+                 <td>Action Type</td>
+                 <td><mat-form-field><mat-select disabled placeholder="Please Specify">
+                     <mat-option ng-disabled="disabled" *ngFor="let food of foods" [value]="food.value">
+                     {{food.viewValue}}
+                     </mat-option>
+                     </mat-select>
+                    </mat-form-field>
+                </td>
+                 <td><button id="btn2" mat-raised-button disabled>Action</button></td>
+                </tr>
+                <tr>
+                   <td>IP Action Type</td>
+                   <td><mat-form-field><mat-select disabled placeholder="Please Specify">
+                       <mat-option *ngFor="let food of foods" [value]="food.value">
+                       {{food.viewValue}}
+                       </mat-option>
+                       </mat-select></mat-form-field></td>
+                   <td><button id="btn2" mat-raised-button disabled>IP Action</button></td>
+                  </tr>
+                  <tr>
+                     <td>Fetch type</td>
+                     <td> <mat-form-field><mat-select placeholder="Please Specify">
+                         <mat-option *ngFor="let food of foods" [value]="food.value">
+                         {{food.viewValue}}
+                         </mat-option>
+                         </mat-select></mat-form-field></td>
+                     <td><button id="btn2" mat-raised-button disabled>Fetch</button></td>
+                    </tr>
+                 </table>
+        </div>
+        
+        <div class="grid-item2">
+           <fieldset class="ipLetter">
+               <legend>IP Letter</legend>
+               <mat-radio-group class="radioView">
+               <mat-radio-button [checked]="true" value="1">View</mat-radio-button>
+               </mat-radio-group>
+               <p class="rightalign"><button mat-raised-button color="primary" (click)="createIpMail(4)">Create IP mail</button></p>
+               <p class="rightalign"></p>
+               <p class="rightalign">
+                   <label style="margin-right: 40px;">Letter type :</label><br>
+               <mat-form-field><mat-select placeholder="Please Specify">
+               <mat-option *ngFor="let food of foods" [value]="food.value">
+               {{food.viewValue}}
+               </mat-option>
+               </mat-select></mat-form-field>
+               </p>
+               </fieldset>
+  
+        </div>
+            
+
+    
+    <!--Mat Table-->
+<div class="responseTable"> Brass Response : 
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Activity">
+            <th mat-header-cell *matHeaderCellDef> Activity </th>
+            <td mat-cell *matCellDef="let activityLog"> {{activityLog.title}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="Create Date">
+            <th mat-header-cell *matHeaderCellDef> Create Date </th>
+               <td mat-cell *matCellDef="let activityLog"> {{activityLog.entryTime}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="User">
+          <th mat-header-cell *matHeaderCellDef> User </th>
+          <td mat-cell *matCellDef="let activityLog"> {{activityLog.loginName}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Additional Information">
+          <th mat-header-cell *matHeaderCellDef> Additional Information </th>
+          <td mat-cell *matCellDef="let activityLog"> {{activityLog.addnlInfo}} </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns;" 
+                                        [ngClass]="{'highlight': selectedAct == row}"
+                                        (click)="setClickedRow(row)"></tr>
+        </table>      
+  </div>
+  <table>
+      <tr>
+          <td>Supplier Working :</td>
+          <td><button  class="btn1" mat-raised-button color="primary" (click)="openDialog()">SIR</button></td>
+          <td><button  class="btn2" mat-raised-button color="primary">UPDATE</button></td>
+          <td><button  class="btn3" mat-raised-button color="primary">ADDITIONAL INFO</button></td>
+      </tr>
+  </table >
+  &nbsp;
+    <!--Mat Table-->
+<div class="supplierTable">  
+  <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">  
+    <!-- Position Column -->
+    <ng-container matColumnDef="Last Updated">
+        <th mat-header-cell *matHeaderCellDef> Last Updated </th>
+        <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+           <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Notes">
+      <th mat-header-cell *matHeaderCellDef> Notes </th>
+      <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
+    </ng-container>    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky: true"></tr>
+    <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns1;" 
+                                    [ngClass]="{'highlight': selectedAct == row}"
+                                    (click)="setClickedRow(row)"></tr>
+    </table>      
+  </div>
+            
+        <div class="button-row btngp2">
+          <mat-label>Sort By:</mat-label> <mat-form-field><mat-select disabled placeholder="Last updated">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+              {{food.viewValue}}
+              </mat-option>
+              </mat-select></mat-form-field>
+              <span><mat-form-field><mat-select disabled placeholder="Descending">
+                  <mat-option *ngFor="let food of foods" [value]="food.value">
+                  {{food.viewValue}}
+                  </mat-option>
+                  </mat-select></mat-form-field></span> 
+  <button class="moreWorkingBtn" mat-raised-button color="primary">More Working</button>
+        
+  <button class="refreshBtn" mat-raised-button color="primary">Refresh</button>
+        
+  <button class="doneBtn" mat-raised-button color="primary" (click)="changeComp(0)">Done</button>
+</div>
+</div>            

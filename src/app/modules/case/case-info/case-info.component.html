@@ -109,16 +109,16 @@
                  </div>
                  <div class="matExpansionPannel_right">
                   <mat-accordion class="example-headers-align">
-                    <button (click)="changeComp(2);" mat-raised-button color="primary">BRASS</button>
                     <!-- cases notes pannel -->
+                    <button id="btn1" mat-raised-button (click)="changeComp(3);" color="primary">BRASS</button>&nbsp;
+                    <button id="btn1" mat-raised-button (click)="changeComp(5);" color="primary">Commitment Log</button>&nbsp;
+                    <button id="btn1" mat-raised-button (click)="changeComp(6);" color="primary">Select Commitments</button>&nbsp;
+                    <button id="btn1" mat-raised-button (click)="changeComp(7);" color="primary">HSIA Info</button>&nbsp;
                     <mat-expansion-panel class="pannel_4">
                         <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
                           <mat-panel-title>
                             Case Notes
                           </mat-panel-title>
-                          <!-- <mat-panel-description>
-                            Tap the pannel to view details
-                          </mat-panel-description> -->
                         </mat-expansion-panel-header>
                     
                         <mat-form-field>
@@ -217,6 +217,14 @@
                                   <input matInput placeholder="Age">
                                 </mat-form-field>
                               </mat-expansion-panel>
+                              <mat-expansion-panel class="pannel_9">
+                                <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                                  <mat-panel-title>
+                                    Comm History
+                                  </mat-panel-title>
+                                  </mat-expansion-panel-header>
+                                  <bbw-comm-history [caseId]="caseInfo.caseId"></bbw-comm-history>
+                                  </mat-expansion-panel>
           </mat-accordion>      
     </div>
     <!-- </div> -->

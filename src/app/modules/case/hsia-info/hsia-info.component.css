@@ -1,0 +1,11 @@
+.hsiaFieldset{
+    width: 40%;
+    margin-left: 0.5%;
+}
+mat-form-field{
+    width: 30%;
+    margin-top: 1%;
+}
+/* .hsia{
+    height: 120px;
+} */

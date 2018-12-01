@@ -1,12 +1,24 @@
 import { NgModule } from '@angular/core';
 import { AngularModule } from '../../shared/modules/angular/angular.module';
+import { MaterialModule } from '../../shared/modules/material/material.module';
+import { RestClientModule } from '../../shared/modules/rest-client/rest-client.module';
+import { CdkModule } from '../../shared/modules/cdk/cdk.module';
 
+import { QueuesHostComponent } from './queues-host/queues-host.component';
+
+import { QueuesCaseListComponent } from './queues-case-list/queues-case-list.component';
+import { WipbinCaseListComponent } from './wipbin-case-list/wipbin-case-list.component';
 @NgModule({
   imports: [
+    MaterialModule,
     AngularModule,
-    
+    RestClientModule,
+    CdkModule,
   ],
   declarations: [
+  QueuesHostComponent,
+  QueuesCaseListComponent,
+  WipbinCaseListComponent,
     
   ],
   entryComponents:[
@@ -14,6 +26,9 @@ import { AngularModule } from '../../shared/modules/angular/angular.module';
   ],
   providers:[
 
+  ],
+  exports:[
+    QueuesHostComponent,
   ]
 })
 export class QueuesModule { }

@@ -1,49 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { CaseInfoService } from './core/services/case-info.service';
-import { WipBinsService } from './core/services/wip-bins.service';
-import { QueuesService } from './core/services/queues.service';
 import { UserInfoService } from './core/services/user-info.service';
 import { CaseCompService } from './core/services/case-comp.service';
 import { CaseCompItem } from './core/models/case-comp-item';
 import { UserInfo } from './core/models/user-info';
-import { WipBins } from './core/models/wip-bins';
-import { Queues } from './core/models/queues';
 
 @Component({
   selector: 'bbw-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
   title = 'BroadBand Workflow';
   caseIdList: string[] = [];
+  caseId: string;
   selectedCaseIndex: number = 0;//default
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
-  wipBinsData: WipBins[] = [];
-  queuesData: Queues[] = [];
 
   constructor(private caseInfoService: CaseInfoService,
-    private wipBinsService: WipBinsService,
-    private queuesService: QueuesService,
     private caseCompService: CaseCompService,
     private userInfoService: UserInfoService) {
-
+      console.log('construct...');
   }
 
-  getWipBinsQueuesData(){
-    console.log(this.userInfo);
-    if(this.wipBinsData.length <= 0) {
-      this.wipBinsService.getWipBinsList(this.userInfo.objid).subscribe(data=> this.wipBinsData = data);
-      this.queuesService.getQueuesList(this.userInfo.objid).subscribe(data => this.queuesData = data);
-    }
+  ngAfterViewInit(){
+    console.log('after...');
   }
-
   ngOnInit() {
     //Intial Load Get user Info ,wipbins and queues data
-    this.userInfoService.getUserInfo().subscribe(data => this.userInfo = data);
+    console.log('before...');
+    this.userInfoService.getUserInfo().subscribe(data => {this.userInfo = data});
+    console.log('After...');
+    //User data service call to get all data at one shot
     if(this.userInfo == null){
       this.userInfo = {
         loginName: "Dummy",
@@ -91,13 +82,15 @@ export class AppComponent implements OnInit {
     if (caseId == null || caseId.length < 1) {
       return;
     }
+    //Write logic to validate the case and pass case info....
+    //this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
     this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
     console.log(this.selectCase + "select case");
     this.caseInfoService.createCaseInfo(caseId);//for all components
     this.selectedCaseIndex = this.selectCase;
-    //this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
+    
   }
   
   createCase(){
@@ -116,4 +109,9 @@ export class AppComponent implements OnInit {
     this.caseInfoService.removeCaseInfo(index);
   }
 
+  //will be called from child wipbins
+  viewCase(caseId){
+    console.log(caseId);
+
+  }
 }

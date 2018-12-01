@@ -8,7 +8,7 @@
 }
 
 .main-sidenav-queues-wipbins {
-    position: fixed;
+    position: absolute;
     top:85px;
     height: 100%;
     left:0;
@@ -17,7 +17,7 @@
     z-index: -1;
   }
   .side-nav-width-queues-wipbins{
-      width: 15%;
+      width: 90%;
   }
 
 .mat-clear-icon,

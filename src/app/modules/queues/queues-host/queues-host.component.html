@@ -1,0 +1,25 @@
+
+<mat-grid-list cols="12" rowHeight="1:6">
+  <mat-grid-tile [colspan]="2" [rowspan]="1.3" class="mat-scroll">
+      <mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+          <mat-tree-node class="childHover" (click)="getCaseListFor(node.item)" *matTreeNodeDef="let node" matTreeNodePadding>
+            {{node.item.title}}
+          </mat-tree-node>
+          <mat-tree-node *matTreeNodeDef="let node; when: hasChild" matTreeNodePadding>
+            <button mat-button matTreeNodeToggle (click)="displayScreen(node.item);">
+              <i *ngIf="!treeControl.isExpanded(node)" class="small icon-controls-subscribe">hi</i>
+              <i *ngIf="treeControl.isExpanded(node)" class="small icon-controls-statusokay">ni</i>
+            </button>
+            {{node.item}}
+            <mat-progress-bar *ngIf="node.isLoading"
+                              mode="indeterminate"
+                              class="example-tree-progress-bar"></mat-progress-bar>
+          </mat-tree-node>
+        </mat-tree>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="10" [rowspan]="1.3" class="mat-scroll2">
+    <bbw-wipbin-case-list *ngIf="viewWipBinsWindow" [dataToDisplay]="wipBinsCaseListData" ></bbw-wipbin-case-list>
+    <bbw-queues-case-list *ngIf="viewQueuesWindow" [dataToDisplay]="queuesCaseListData"></bbw-queues-case-list>
+  </mat-grid-tile>
+  
+</mat-grid-list>

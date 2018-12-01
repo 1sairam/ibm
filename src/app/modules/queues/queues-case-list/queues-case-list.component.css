@@ -1,0 +1,228 @@
+/* .plnrTbl, tr, td{
+    border: 1px solid gray;
+} */
+mat-card{
+    background: navy;
+    color: white;
+    height: 5px;
+    width: 96%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+.matCrd{
+   
+}
+.listDrop{
+    position: relative;
+}
+/* .listDrop2, tr, td{
+    border: 1px solid gray;
+} */
+.listDrop2{
+    position: absolute;
+    top: 6.5%;
+    left: 1%;
+    width: 76%;
+}
+.listDrp{
+    margin-left: -16%;
+}
+.listTbl{
+    width: 113%;
+}
+.plnrTbl{
+    width: 95.5%;
+    position: absolute;
+    top: 13%;
+    left: 1%;
+}
+.span-row{
+
+}
+.dslsirItems{
+    width: 13%;
+}
+#dslsirItems{
+    margin-left: 3.5%;
+}
+.dropLeft{
+    margin-left: 8%;
+}
+.dropLeft1{
+    margin-left: 1%;
+}
+.dropRight{
+    float: right;
+    /* margin-right: 1.8%; */
+    margin-top: 2.3%;
+}
+.dslSirDrp1{
+    /* width: 61%;
+    margin-left: 20%;
+    margin-top: -11%; */
+    width: 10%;
+    
+}
+.plnrBrdr{
+    /* height: 230px;
+    border: 1px solid gray;
+    margin-left: -17%;
+    margin-right: 1%;
+    margin-top: 3.5%;
+    width: 131%;
+    overflow: auto; */
+
+    height: 230px;
+    border: 1px solid gray;
+    position: absolute;
+    left: 0.5%;
+    width: 96%;
+    overflow: auto;
+    top: 25%;
+}
+/* .serviceBtn{
+    float: right;
+} */
+.mat-elevation-z8{
+
+}
+.dslSirRelom{
+    width: 50%;
+}
+.btnGrp{
+    width: 70%;
+    margin-left: 25%;
+}
+table{
+    width: 100%;
+}
+th{
+  
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+}
+.result-row:hover {
+    background-color: #bbdebb; 
+}
+.dslSirDrp{
+    width: 12.5%;
+    margin-left: 1.5%;
+}
+td.mat-cell{
+    text-align: center;
+}
+th.mat-header-cell {
+    text-align: center;
+}
+.dslSirDrp2{
+    width: 9%;
+    margin-left: 12%;
+}
+.dslSriInptTd{
+    width: 20%
+}
+/* .dslSriInpt{
+    margin-left: 9%;
+    margin-top: 6%;
+    width: 81%;
+} */
+.mat-raised-button{
+    line-height: 28px;
+}
+.servBtn1{
+
+}
+.servBtn{
+    background: navy;
+    color: white;
+   position: absolute;
+   top: 19%;
+   left: 89%;
+}
+.myDiv{
+    margin-top: -3.5%;
+}
+.dslSirDrp3{
+    width: 9%;
+    float: right;
+    margin: 2.3% 2% 0% 0%;;
+}
+.servBtn2{
+    width: 6%;
+    float: right;
+    background: navy;
+    color: white;
+}
+.mybtn{
+  margin-top: 1%;
+  margin-right: 2%;
+}
+.dslBrdr{
+    border: 1px solid gray;
+    width: 97%;
+    height: 300px;
+    margin-left: 1%;
+    margin-top: 6%;
+    overflow: auto;
+}
+.myTitle{
+    position: absolute;
+    top: 72%;
+    left: 0%;
+    width: 97%;
+}
+.titleTd{
+    width: 1%;
+}
+.dlsInptTitl{
+    width: 20%;
+}
+
+.dslSriTitlInpt{
+    width: 100%;
+    /* position: absolute;
+    top: 71%;
+    left: 4%; */
+}
+.titleLbl{
+    margin-top: -2.5%;
+    margin-left: 1%;
+}
+.items{
+    /* position: absolute;
+    top: 80.5%;
+    left: 4%; */
+}
+.dslBtnGrp1{
+    margin-left: 30%;
+}
+.dslBtnGrp2{
+    margin-left: 10%;
+}
+.dslBtnGrp3{
+    width: 9%;
+    float: right;
+}
+.button-row{
+    position: absolute;
+    top: 82%;
+    left: 3%;
+    width: 94%;
+}
+.highlight{
+    background:#BBDEFB;
+    color: white;
+  }
+  .dslItem{
+     width: 17%;
+  }
+/* .dslBtnGrp{
+    margin-top: 1%;
+    margin-left: 18.4%;
+    width: 6%;
+}
+.button-row{
+   
+} */

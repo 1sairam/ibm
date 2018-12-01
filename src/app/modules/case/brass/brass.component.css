@@ -1,0 +1,173 @@
+.container{
+  /* height: 111%; */
+  overflow: auto;
+}
+
+mat-card
+{
+  background-color:#0070c0;
+}
+table.mat-elevation-z8{
+  width: 100%;
+}
+th{
+  font-size: 15px;
+  background-color: aquamarine;
+  color:black;
+  height: 20%;
+}
+td{
+  width: 10%;
+}
+.grid-container {
+  margin-left: 5px;
+  width: 99%;
+  height: 282px;
+  /* overflow: auto;      */
+}
+
+.responseTable{
+  margin-left: 5px;
+  width: 99.5%;
+  height: 165px;
+  overflow: auto;
+  margin-top: -1%;
+  /* border: 1px solid black; */
+
+}
+
+.supplierTable{
+  margin-left: 5px;
+  width: 99.5%;
+  height: 133px;
+  overflow: auto;
+  /* border: 1px solid black; */
+}
+.grid-item
+{
+  width:62%;  
+  display: inline-block;
+  height:auto;
+}
+.grid-item2
+{
+  width:37%;  
+  float: right;
+  height:auto;
+  /* position: absolute; */
+  top:4.5%; 
+}
+.ipLetter{
+  padding-top: 12px;
+  border: 1px solid gray;
+  height: 100%;
+}
+.htable{
+  width:80%;
+  margin-left: 5%;
+  height: 20px;
+}
+.mat-tab-body-content { 
+  overflow: none;
+}
+#btn1
+{
+margin-left: 7.3%;
+color:#ffffff;
+}
+.moreWorkingBtn{
+  margin-left: 20%;
+}
+.refreshBtn{
+  margin-left: 15%;
+}
+.doneBtn{
+  margin-left: 18%
+}
+.table1{
+  width:100%;
+}
+.tr1:hover{
+  background-color: #ddd; 
+}
+.rightalign
+{
+margin-left: 65%;
+margin-top: -2%
+}
+
+th.mat-header-cell{
+  text-align: center;
+  font-size: 14px;
+}
+.blogo
+{
+  float:right
+}
+.btngp
+{
+  text-align: center;margin-top: 1%;
+}
+.btngp2
+{
+  margin-top: 0.5%;
+}
+.lbltxt
+{
+  font-family: 'Times New Roman', Times, serif; font-size: 18px;
+}
+.highlight {
+  background-color: #b2ccdf !important;
+  font-weight: bold;
+  color:white;
+}
+
+.ftable
+{
+  width: 100%; 
+  border: 1px solid black
+}
+.ftd{
+  width: 50%;
+}
+.ftd2{
+  width:10%;
+}
+[_ngcontent-c1].ftable, [_ngcontent-c1].ftable td{
+border:1px solid black;
+
+
+}
+.table1,.table2,.table3{
+ 
+  
+width: 100%;
+overflow: auto;
+  
+}
+.tbl-container
+{
+  
+  overflow:auto;
+  height:220px;
+  background: #f2f2f2;
+}
+.matinp
+{
+  border:1px solid black;
+}
+.material-icons{
+  font-size: 14px;
+  color:grey;cursor: pointer;
+}
+mat-radio-button{
+  margin-left: 190px;
+}
+.td1{
+
+  text-align: center;
+}
+.radioView{
+    margin-left: -10%;  
+
+}

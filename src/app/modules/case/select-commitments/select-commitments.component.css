@@ -1,0 +1,95 @@
+p{
+    padding: 10px;
+  }
+  th{
+    /* font-weight: bold; */
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+  }
+  mat-expansion-panel-header{
+    background-color: darkblue;
+    color: white;
+  }
+  mat-header-cell{
+    color: blue;
+  }
+  .grid-container {
+    margin-left: 5px;
+    width: 99.5%;
+    height: 300px;
+    overflow: auto; 
+    border: 1px solid black; 
+  }
+  table.mat-elevation-z8{
+    width: 100%;
+  }
+  .sideRight{
+    float: right;
+    margin-right: 5px;
+  }
+  .sideMiddle{
+    margin-left: 15%;
+  }
+  .datePicker{
+    margin-left: 15%;
+  }
+  .sideLeft{
+    margin-left: 1%;
+  }
+  .side{
+    float:right;
+    margin-right: 100px;
+  }
+  /* .highlight {
+    background-color: #1976D2 !important;
+    font-weight: bold;
+  } */
+  
+  .result-row:hover {
+    background-color: #BBDEFB;
+    
+  }
+  
+  .datatable> ::ng-deep figure {
+    justify-content: flex-start !important;
+  }
+  
+  mat-grid-tile {
+    justify-content: start;
+  }
+  
+  .datatable{
+    overflow-y:auto;
+  }
+  #table1{
+    width: 55%;
+    margin-left: 35.5%;
+    
+  }
+  .buttonRight{ 
+   float: right;
+  }
+  .highlight{
+    background:#BBDEFB;
+    color: white;
+  }
+  .ftable
+  {
+    width: 100%; 
+    border: 1px solid blue;
+  }
+  .ftd{
+  
+    width: 50%;
+  }
+  .ftd2{
+    width:10%;
+  } 
+  .plannerRight{
+    float: right;
+    margin-top: 2%;
+  }
+  table, .buttonGroup{
+    width: 100%;
+  }

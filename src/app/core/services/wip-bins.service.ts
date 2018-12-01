@@ -10,10 +10,10 @@ export class WipBinsService {
 
   constructor(private http: HttpClient) { }
 
-  private _url: string = "./wipBinsList/";
+  private _url: string = "./wipBinsList";
 
-  getWipBinsList(objId): Observable<WipBins[]> {
-    return this.http.get<WipBins[]>(this._url + objId);
+  getWipBinsList(): Observable<WipBins[]> {
+    return this.http.get<WipBins[]>(this._url);
   }
   
   getCasesInWipBin(){

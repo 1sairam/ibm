@@ -9,10 +9,10 @@ import { Queues } from '../models/queues';
 export class QueuesService {
 
   constructor(private http: HttpClient) { }
-  private _url: string = "./queuesList/";
+  private _url: string = "./queuesList";
 
-  getQueuesList(objId): Observable<Queues[]> {
-    return this.http.get<Queues[]>(this._url + objId);
+  getQueuesList(): Observable<Queues[]> {
+    return this.http.get<Queues[]>(this._url);
   }
 
   getCasesInQueue(){

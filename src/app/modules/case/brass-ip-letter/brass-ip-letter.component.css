@@ -1,0 +1,52 @@
+mat-expansion-panel-header{
+    background-color: darkblue;
+    color: white;
+}
+mat-header-cell{
+    color: blue;
+}
+.senderInput{
+    margin-left: 15%;    
+}
+.sendInput{
+    width: 25%;
+}
+.starTime{
+    float: right;
+    position: absolute;
+    margin-left: 36%;
+}
+.actType{
+    margin-left: 13%; 
+}
+.recipInput{
+    margin-left: 13.5%;
+}
+.ccList{
+    margin-left: 14.8%;
+}
+.ccInput{
+    width: 81%;
+}
+
+textarea{
+    width: 81%;
+    height: 300px;
+    border: 1px solid black;
+    margin-left: 18.2%;
+    overflow: auto;
+    max-width: 81%;    
+    min-width: 81%;
+    max-height: 300px;
+    min-height: 300px;
+    
+}
+.btnGrp{
+    margin-top: 5%;
+}
+.doneButton{
+    float: right;
+}
+.sendButton{
+    margin-left: 50%;
+}

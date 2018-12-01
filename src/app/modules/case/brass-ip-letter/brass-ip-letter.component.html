@@ -1,0 +1,65 @@
+ <mat-expansion-panel>
+      <mat-expansion-panel-header>
+                  Case 2682296: IP Letter
+      </mat-expansion-panel-header>&nbsp;&nbsp;
+          <div>
+            <span>
+              <label>Sender :</label>
+            </span>
+            <span class="senderInput">
+              <mat-form-field class="sendInput">
+                <input matInput>
+            </mat-form-field>
+            </span>
+            <span class="starTime">
+              <label>Start Time :</label>&nbsp;&nbsp;&nbsp;&nbsp;
+              <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>  
+            </span>
+          </div>
+          <div>
+            <span>
+              <label>Action Type :</label>
+            </span>
+            <span class="actType">
+              <mat-form-field>
+                  <mat-select>
+                    <mat-option *ngFor="let secondOrder of secondOrders" [value]="secondOrder">{{secondOrder}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </span>
+          </div>
+          <div>
+            <span>
+              <label>Recipients :</label>
+            </span>
+            <span class="recipInput">
+              <mat-form-field class="sendInput">
+                <input matInput>
+            </mat-form-field>
+            </span>
+          </div>
+          <div>
+            <span>
+              <label>CC List :</label>
+            </span>
+            <span class="ccList">
+              <mat-form-field class="ccInput">
+                <input matInput>
+            </mat-form-field>
+            </span>
+          </div>
+          <div>
+            <label>Message :</label>
+          <div>
+            <textarea></textarea>
+          </div>
+          </div>
+          <div class="btnGrp"> 
+              <button class="sendButton" (click)="listClick()" mat-raised-button color="primary">Send</button>
+              <button class="doneButton" (click)="listClick()" mat-raised-button color="primary">Done</button>
+          </div>
+  </mat-expansion-panel>

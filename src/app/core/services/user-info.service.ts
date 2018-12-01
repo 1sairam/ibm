@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { UserInfo } from '../models/user-info';
-import { Observable, of} from 'rxjs';
+import { Observable, throwError as observableThrowError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,13 @@ export class UserInfoService {
   private _url: string = "./userInfo";
 
   getUserInfo(): Observable<UserInfo> {
-    return this.http.get<UserInfo>(this._url);
+    return this.http
+                .get<UserInfo>(this._url)
+                .pipe(catchError(this.handleError));;
+  }
+
+  private handleError(res: HttpErrorResponse) {
+    console.error(res.error);
+    return observableThrowError(res.error || 'Server error');
   }
 }
