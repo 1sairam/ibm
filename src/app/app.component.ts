@@ -4,6 +4,7 @@ import { UserInfoService } from './core/services/user-info.service';
 import { CaseCompService } from './core/services/case-comp.service';
 import { CaseCompItem } from './core/models/case-comp-item';
 import { UserInfo } from './core/models/user-info';
+import { Dialog } from './shared/util/dialog';
 
 @Component({
   selector: 'bbw-root',
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   userInfo: UserInfo;
 
   constructor(private caseInfoService: CaseInfoService,
+    private dialog : Dialog,
     private caseCompService: CaseCompService,
     private userInfoService: UserInfoService) {
       console.log('construct...');
@@ -83,14 +85,20 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     //Write logic to validate the case and pass case info....
-    //this.caseInfo = this.caseInfoService.getCaseInfo(this.caseId); 
+    //this.userInfoService.testSample().then(data => {
+    this.caseInfoService.getCaseInfo(this.caseId).then(data => {
     this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
     console.log(this.selectCase + "select case");
-    this.caseInfoService.createCaseInfo(caseId);//for all components
+    this.caseInfoService.createCaseInfo(this.caseId,data);//for all components
     this.selectedCaseIndex = this.selectCase;
-    
+    },
+    error =>{
+      this.dialog.openDialog('Case Id not found...! Something went wrong.. ');
+      console.log("something went wrong.. open model");
+    }
+    );
   }
   
   createCase(){

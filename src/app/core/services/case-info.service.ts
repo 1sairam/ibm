@@ -15,10 +15,10 @@ export class CaseInfoService {
 
   constructor(private http: HttpClient) { }
 
-  getCaseInfo(caseId): CaseInfo {
-    this.http.get<CaseInfo>(this._url + caseId).subscribe(data => {this.case = data});
-    this.caseInfo.push(this.case);
-    return this.case;
+  async getCaseInfo(caseId): Promise<CaseInfo> {
+    return await this.http.get<CaseInfo>(this._url + caseId).toPromise();
+    //this.caseInfo.push(this.case);
+    //return this.case;
   }
 
   getSelectedCaseInfo() {
@@ -26,9 +26,9 @@ export class CaseInfoService {
     return this.caseInfo[this.selectedIndex];
   }
 
-  createCaseInfo(caseId){
+  createCaseInfo(caseId,tableCase){
     console.log("create case Info for " + caseId);
-    this.caseInfo.push(new CaseInfo(caseId,null,null));
+    this.caseInfo.push(new CaseInfo(caseId,tableCase));
     this.selectedIndex = this.caseInfo.length-1;//index so we need to decrese
   }
 

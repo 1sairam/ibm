@@ -17,12 +17,14 @@ import { CaseModule } from './modules/case/case.module';
 import { QueuesModule } from './modules/queues/queues.module';
 import { WipbinsModule } from './modules/wipbins/wipbins.module';
 import { ServicesModule } from './core/services/services.module';
+import { WarningMessageDialogComponent } from './shared/components/warning-message-dialog/warning-message-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    WarningMessageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,9 @@ import { ServicesModule } from './core/services/services.module';
     ServicesModule,
   ],
   providers: [],
+  entryComponents:[
+    WarningMessageDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

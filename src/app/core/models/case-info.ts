@@ -1,13 +1,11 @@
-import { ActivityLog } from './activity-log';
-import { CommHistory } from './comm-history';
+import { TableCase } from './table-case';
 
 export class CaseInfo {
     
-    constructor(caseId:string,activity:ActivityLog[],commHistory: CommHistory[]){
+    constructor(caseId:string,tableCase:TableCase){
         this.caseId = caseId;
-        this.activity=activity;
+        this.tableCase = tableCase;
     }
-    "caseId":string;
-    "activity":ActivityLog[];
-    "commHistory" : CommHistory[];
+    "tableCase": TableCase;
+    "caseId": string;
 }
