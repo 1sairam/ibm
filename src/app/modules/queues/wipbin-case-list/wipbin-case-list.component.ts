@@ -8,6 +8,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class WipbinCaseListComponent implements OnInit {
 
+  disabledEt:any;
   public firsrList:any = 'All';
   public secondList:any = 'ID';
   public thiredList:any ='Starts with';
@@ -28,6 +29,9 @@ export class WipbinCaseListComponent implements OnInit {
   displayedColumns: string[] = ['type', 'id', 'sitename', 'age', 'Condition', 'status', 'priority', 'severity', 'title'];
   dataSource = new MatTableDataSource<any>();
   
+  listButton(){
+    
+  }
   
 
 

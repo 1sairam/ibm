@@ -7,6 +7,8 @@ export class CaseInfo {
     }
     "caseId":string;
     "tableCase":any;
+    "tableSite":any;
+    "tableSof":any;
     "tableContact":any;
     "tableAddress":any;
 }

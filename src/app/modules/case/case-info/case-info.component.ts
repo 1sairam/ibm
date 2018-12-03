@@ -142,5 +142,7 @@ custPremises = ["Domestic"];
   selector: 'dialog-content-example-dialog',
   templateUrl: 'more-info-dialog-message.html',
 })
-export class DialogContentExampleDialog {}
+export class DialogContentExampleDialog {
+  data:any;
+}
 
