@@ -16,43 +16,37 @@ mat-card{
     left: 1%;
     width: 76%;
 }
+.wipdrop-td{
+    width: 10%;
+}
+.wipdrop-list{
+    width: 78%;
+}
 .mat-list{
     width: 3%;
 }
-.dslSirDrp1{
-    width: 13%;
-}
-.dslSirInp{
-    width: 26%;
-}
-.dropLeft{
-    margin-left: 11%;
-}
-.plnrTbl{
-    width: 98%;
+.wipbin-tbl{
+    width: 99%;
     position: absolute;
-    top: 13%;
+    top: 14%;
     left: 1%;
 }
-.dropRight{
+wipbin-tbl{
+    border: 1px solid gray;
+}
+.wipdrop-list1{
+    width: 13%;
+}
+.wipdrop-inpt{
+    width: 19%;  
+}
+.leftOne{
+    margin-left: 3%;
+}
+.listBtn{
     float: right;
-    margin-top: 1.3%;
-    margin-right: 2%;
-}
-.Asyn-dropTbl{
-    width: 42%;
-    position: absolute;
-    top: 20%;
-    left: 55%;
-}
-.assDrop{
-
-}
-.assDrpLeft{
-
-}
-.assDrpRit{
-float: right;
+    margin-right: 0.5%;
+    margin-top: 1.5%;
 }
 .plnrBrdr{
     /* height: 230px;
@@ -66,16 +60,31 @@ float: right;
     height: 230px;
     border: 1px solid gray;
     position: absolute;
-    left: 0.5%;
-    width: 96%;
+    left: 1%;
+    width: 98.2%;
     overflow: auto;
-    top: 34%;
+    top: 27%;
+}
+table.mat-table{
+    width: 100%;
+}
+th{
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+}
+.highlight{
+    background:#BBDEFB;
+    color: white;
 }
 .myTitle{
     position: absolute;
-    top: 77%;
+    top: 65%;
     left: 0%;
-    width: 97%;
+    width: 99%;
+}
+.titleTd{
+    width: 1%;
 }
 .dlsInptTitl{
     width: 20%;
@@ -86,36 +95,35 @@ float: right;
     top: 71%;
     left: 4%; */
 }
-.titleTd{
-    width: 1%;
-}
-.button-row{
-    position: absolute;
-    top: 83%;
-    left: 3%;
-    width: 94%;
-}
-.itme-row{
+.itme-tbl{
     width: 100%;
     position: absolute;
-    top: 89%; 
+    top: 25%;
+    left: 1%;
+}
+.btn1{
+    float: right;
+    margin-right: 1%;
+}
+.itm-grp{
+    position: absolute;
+    width: 100%;
+    top: 84%;
     left: 0%;
 }
-.wip-items{
+
+.itm-inpt{
+    width: 50%;
+}
+.itm-td{
     width: 10%;
 }
-.Wip-left{
 
-}
-.wip-btn{
-    margin-left: 13%;
-}
-.wip-btnRT{
-    float: right;
-    margin-right: 3%;
-    margin-top: 1.3%;
-}
-.dsl-container{
-    height: 100%;
-}
+
+
+
+
+
+
+
 

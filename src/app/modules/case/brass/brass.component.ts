@@ -60,6 +60,10 @@ export class BrassComponent implements OnInit,AfterViewInit {
     this.changeToComponent.emit(index);
   }
 
+  sendSirRequestToBackend(){
+    //Write code to send request to backend
+
+  }
   openDialog(){
     
   }

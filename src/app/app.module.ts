@@ -18,6 +18,7 @@ import { QueuesModule } from './modules/queues/queues.module';
 import { WipbinsModule } from './modules/wipbins/wipbins.module';
 import { ServicesModule } from './core/services/services.module';
 import { WarningMessageDialogComponent } from './shared/components/warning-message-dialog/warning-message-dialog.component';
+import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/more-info-dialog.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { WarningMessageDialogComponent } from './shared/components/warning-messa
     AppComponent,
     HeaderComponent,
     WarningMessageDialogComponent,
+    MoreInfoDialogComponent,
   ],
   imports: [
     BrowserModule,

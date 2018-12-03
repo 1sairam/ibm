@@ -98,7 +98,6 @@ table{
     width: 100%;
 }
 th{
-  
     font-size: 15px;
     background-color: aquamarine;
     color:black;
@@ -214,7 +213,7 @@ th.mat-header-cell {
 .highlight{
     background:#BBDEFB;
     color: white;
-  }
+}
   .dslItem{
      width: 17%;
   }

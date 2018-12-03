@@ -26,7 +26,7 @@ export class CommHistoryComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(){
-    this.commHistoryService.getCommHistoryData(this.caseInfo.tableCase.objid).subscribe(data=> this.commHistory = this.dataSource.data =data);
+    this.commHistoryService.getCommHistoryData(this.caseInfo.tableCase.objId).subscribe(data=> this.commHistory = this.dataSource.data =data);
     this.dataSource.data = this.commHistory;
   }
 

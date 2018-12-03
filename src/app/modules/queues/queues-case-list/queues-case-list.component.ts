@@ -16,10 +16,11 @@ export class QueuesCaseListComponent implements OnInit {
   @Input()
   dataToDisplay: MatTableDataSource<any>;
 
-  public firstList: any;
-  public secondList: any;
-  public thirdList: any;
-  public fourthList: any;
+  public firstList:any= 'All';
+  public secondList: any='ID';
+  public thirdList: any='Starts With';
+  public fourthList: any='Descending';
+  
   selectDrop = ["All", "Case", "Subcase", "RQST", "SOLN", "CR"];
   selectedDrop = ["ID", "Age", "Type", "Status", "Priority", "Severity", "Title"];
   selectedDrop1 = ["Starts With", "Ends with", "Contains", "Sounds Like"];

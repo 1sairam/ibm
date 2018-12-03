@@ -17,7 +17,7 @@ import { CommitmentLogComponent } from './commitment-log/commitment-log.componen
 import { SelectCommitmentsComponent } from './select-commitments/select-commitments.component';
 import { HsiaInfoComponent } from './hsia-info/hsia-info.component';
 import { CommHistoryComponent } from './comm-history/comm-history.component';
-
+import {DialogContentExampleDialog} from './case-info/case-info.component';
 
 @NgModule({
   imports: [
@@ -37,7 +37,8 @@ import { CommHistoryComponent } from './comm-history/comm-history.component';
     CommitmentLogComponent,
     SelectCommitmentsComponent,
     HsiaInfoComponent,
-    CommHistoryComponent
+    CommHistoryComponent,
+    DialogContentExampleDialog,
   ],
   entryComponents:[
     CaseInfoComponent,
@@ -47,7 +48,8 @@ import { CommHistoryComponent } from './comm-history/comm-history.component';
     BrassIpLetterComponent,
     CommitmentLogComponent,
     SelectCommitmentsComponent,
-    HsiaInfoComponent
+    HsiaInfoComponent,
+    DialogContentExampleDialog,
   ],
   providers:[
 

@@ -86,16 +86,16 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     let local = true;
     if(local){
-      this.caseIdList.push(caseId);//local to app component
-      this.selectCase = this.caseIdList.length;
-      console.log(this.selectCase + "select case");
-      this.caseInfoService.createCaseInfo(this.caseId,
-        {
-          "objid": "268456887",
-          "castId": "1111",
-        });//for all components
-      this.selectedCaseIndex = this.selectCase;
-    }else{
+      let caseInfo;
+      this.caseInfoService.getLocalCaseInfo().then(data => {
+        caseInfo = data;
+        this.caseInfoService.createCaseInfo(caseId,caseInfo);//for all components
+        this.caseIdList.push(caseId);
+        this.selectCase = this.caseIdList.length;
+        this.selectedCaseIndex = this.selectCase;
+      });  
+    }
+    else{
     //Write logic to validate the case and pass case info....
     //this.userInfoService.testSample().then(data => {
     this.caseInfoService.getCaseInfo(this.caseId).then(data => {

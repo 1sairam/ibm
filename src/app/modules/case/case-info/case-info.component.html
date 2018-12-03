@@ -1,109 +1,194 @@
-  <mat-toolbar style="height: 35px;">
+  <!-- <mat-toolbar style="height: 35px;">
     <span>CASE INFO : {{caseInfo.caseId}}</span>&nbsp;&nbsp;&nbsp;
-  </mat-toolbar>
+  </mat-toolbar> --><br>
     <div class="matExpansionPannel_left">
         <mat-accordion class="example-headers-align">
-          <!-- customer information pannel -->
-              <mat-expansion-panel class="pannelMain" [expanded]="true" hideToggle="false">
-                  <mat-expansion-panel-header class="pannelHead" [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+
+          
+              <!-- case details pannel -->
+              <mat-expansion-panel class="pannel_1">
+                  <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
                     <mat-panel-title>
-                      Customer information
+                      Case Details
                     </mat-panel-title>
                     <!-- <mat-panel-description>
                       Tap the pannel to view details
                     </mat-panel-description> -->
+                  </mat-expansion-panel-header><br>
+                  <!-- <div> -->
+                     <!-- cust id and case title  -->
+                      <span>
+                         <mat-form-field class="custId">
+                             <input matInput placeholder="Cust ID" [(ngModel)]="caseInfo.tableSite.siteId">
+                         </mat-form-field>
+                       
+                         <mat-form-field class="casetitle">
+                             <input matInput placeholder="Case title" [(ngModel)]="caseInfo.tableCase.title">
+                         </mat-form-field>
+                       </span>
+                     <!-- </div> -->
+                     <!-- <div> -->
+                       <!-- name and reported by-->
+                       <span>
+                         <mat-form-field class="name">
+                             <input matInput placeholder="Name" [(ngModel)]="caseInfo.tableSite.xCustLegalName">
+                         </mat-form-field>
+                     
+                         <mat-form-field class="reportedBy">
+                             <input matInput placeholder="Reported By(F/L)" [(ngModel)]="fullName"> 
+                         </mat-form-field>
+                       </span>
+                     <!-- </div> -->
+                     <!-- <div> -->
+                       <span>
+                         <mat-form-field class="mainPhone">
+                             <input matInput placeholder="Main Phone" [(ngModel)]="caseInfo.tableContact.phone">
+                         </mat-form-field>
+                     
+                         <mat-form-field class="email">
+                             <input matInput placeholder="Email" [(ngModel)]="caseInfo.tableContact.eMail">
+                         </mat-form-field>
+                       </span>
+                     <!-- </div> -->
+                     <!-- <div> -->
+                       <span>
+                         <mat-form-field class="billerId">
+                             <input matInput placeholder="Biller ID"  [(ngModel)]="caseInfo.tableSof.billerCode">
+                         </mat-form-field>
+                         <mat-form-field class="type">
+                           <mat-select placeholder="Type" [(value)]="caseInfo.tableCase.xCaseType">
+                             <mat-option *ngFor="let typeValue of types" [value]="typeValue">{{typeValue}}</mat-option>
+                           </mat-select>
+                         </mat-form-field>
+                       </span>
+                     <!-- </div> -->
+                     <!-- <div> -->
+                       <span>
+                         <mat-form-field class="subType">
+                           <mat-select placeholder="Sub Type"  [(value)]="caseInfo.tableCase.xCaseSubtype">
+                             <mat-option *ngFor="let subTypeValue of subTypes" [value]="subTypeValue">{{subTypeValue}}</mat-option>
+                            </mat-select>
+                         </mat-form-field>
+
+                         <!-- <mat-form-field class="prioritySeverity">
+                           <mat-select placeholder="Priority/Severity" [(value)]="caseInfo.tableCase.prioritySeverity">
+                             <mat-option *ngFor="let prioritySeverityValue of priorityAndSeverity">{{prioritySeverityValue}}</mat-option>
+                           </mat-select>
+                         </mat-form-field> -->
+                       </span>
+                     <!-- </div> -->
+                     <div class="case_btns">
+                         <button mat-raised-button	class="btn_ellipsis" (click)="openDialog()">...</button>
+                         <!-- <div><button mat-raised-button	class="btn_catch_all">Catch All</button></div> -->
+                         <!-- <button mat-raised-button	class="btn_site_details">Site Details</button>
+                         <button mat-raised-button	class="btn_contact_details">Contact Details</button> -->
+                     </div>
+                
+                </mat-expansion-panel>
+    
+          <!-- customer information pannel -->
+              <mat-expansion-panel class="pannelMain pannel_2" [expanded]="true" hideToggle="false">
+                  <mat-expansion-panel-header class="pannelHead" [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
+                    <mat-panel-title>
+                      Customer information
+                    </mat-panel-title>
+                
                   </mat-expansion-panel-header>                
-                    <div>
-                      <span class="infoHead">Site ID:</span>
-                      <span class="infoContent_1">132456_1</span>
-                    </div>
-                    <div class="evenRow">
-                      <span class="infoHead">DSL Order ID:</span>
-                      <span class="infoContent_2">FMBO1025323</span>
-                    </div>
-                    <div>
-                      <span class="infoHead">Account Name:</span>
-                      <span class="infoContent_3">Earthlink Business</span>
-                    </div>
-                    <div class="evenRow">
-                      <span class="infoHead">Street Address:</span>
-                      <span class="infoContent_4">123 Main St</span>
-                    </div>
-                    <div>
-                      <span class="infoHead">Unit/Room/Floor:</span>
-                      <span class="infoContent_5">STE 143</span>
-                    </div>
-                    <div class="evenRow">
-                      <span class="infoHead">City:</span>
-                      <span class="infoContent_6">chicago</span>
-                    </div>
-                    <div>
-                      <span class="infoHead">State:</span>
-                      <span class="infoContent_7">IL</span>
-                    </div>
-                    <div class="evenRow">
-                      <span class="infoHead">Zip Code:</span>
-                      <span class="infoContent_8">90210</span>
-                    </div>
+                     <br>
+          
+                  <div>
+                      <!-- Address and Room/Floor  -->
+                       <span>
+                          <mat-form-field class="address">
+                              <input matInput placeholder="Address" [(ngModel)]="caseInfo.tableAddress.address">
+                          </mat-form-field>
+                        
+                          <mat-form-field class="RoomFloor">
+                              <input matInput placeholder="Room/Floor" [(ngModel)]="roomAndFloor">
+                          </mat-form-field>
+                        </span>
+                      </div>
+
+                      <div>
+                          <!-- City and state  -->
+                           <span>
+                              <mat-form-field class="city">
+                                  <input matInput placeholder="City" [(ngModel)]="caseInfo.tableAddress.city">
+                              </mat-form-field>
+                            
+                              <mat-form-field class="state">
+                                  <input matInput placeholder="state" [(ngModel)]="caseInfo.tableAddress.state">
+                              </mat-form-field>
+                            </span>
+                          </div>
+
+                          <div>
+                              <!-- country and zipcode  -->
+                               <span>
+                                  <mat-form-field class="country">
+                                      <input matInput placeholder="Country" [(ngModel)]="caseInfo.tableAddress.xCountry">
+                                  </mat-form-field>
+                                
+                                  <mat-form-field class="zipcode">
+                                      <input matInput placeholder="Zipcode" [(ngModel)]="caseInfo.tableAddress.zipcode">
+                                  </mat-form-field>
+                                </span>
+                              </div>
+
+
                   
                 </mat-expansion-panel>
     
-              <!-- case details pannel -->
-                <mat-expansion-panel class="pannel_2">
+                <!-- more info pannel -->
+                <mat-expansion-panel [expanded]="true" class="pannel_3">
                     <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
                       <mat-panel-title>
-                        Case Details
+                        More Info
                       </mat-panel-title>
-                      <!-- <mat-panel-description>
-                        Tap the pannel to view details
-                      </mat-panel-description> -->
                     </mat-expansion-panel-header>
-                
-                    <div>
-                      <span class="infoHead">Case ID :</span>
-                      <span class="infoContent_2_1">581137</span>
-                    </div>
-                    <div class="evenRow">
-                      <span class="infoHead">Case title :</span>
-                      <span class="infoContent_2_2">DSL New Order(MDS ID:FMOB1025323)</span>
-                    </div>
-                    <div>
-                        <span class="infoHead">Type:</span>
-                        <span class="infoContent_2_3">Request For Service</span>
-                      </div>
-                      <div class="evenRow">
-                          <span class="infoHead">Sub-Type:</span>
-                          <span class="infoContent_2_4">New</span>
-                        </div>
-                        <div>
-                            <span class="infoHead">Priority/Severity:</span>
-                            <span class="infoContent_2_5">2 – Medium</span>
-                          </div>
-                          <div class="evenRow">
-                              <span class="infoHead">Origin:</span>
-                              <span class="infoContent_2_6">DSL CSM</span>
-                            </div>
-                  </mat-expansion-panel>
-      
-                  <!-- contacts pannel -->
-                  <mat-expansion-panel class="pannel_3">
-                      <mat-expansion-panel-header [collapsedHeight]="MAT_TAB_COLLAPSED_HEIGHT" [expandedHeight]="MAT_TAB_EXPANDED_HEIGHT">
-                        <mat-panel-title>
-                          Contacts
-                        </mat-panel-title>
-                        <!-- <mat-panel-description>
-                          Tap the pannel to view details
-                        </mat-panel-description> -->
-                      </mat-expansion-panel-header>
-                  
-                      <mat-form-field>
-                        <input matInput placeholder="First name">
-                      </mat-form-field>
-                  
-                      <mat-form-field>
-                        <input matInput placeholder="Age">
-                      </mat-form-field>
-                    </mat-expansion-panel>
+                       <br>
+                        <span>
+                          <mat-form-field class="project">
+                            <input matInput placeholder="Project #" [(ngModel)]="caseInfo.tableCase.xProjectNum">
+                          </mat-form-field>
+                          
+                          <mat-form-field class="serviceIndicator">
+                            <mat-select placeholder="Service Indicator" [(value)]="caseInfo.tableCase.xServiceIndicator">
+                              <mat-option *ngFor="let serviceIndicatorValue of serviceIndicators" [value]="serviceIndicatorValue">{{serviceIndicatorValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </span>
+                                
+                        <span>
+                          <mat-form-field class="salesOffer">
+                            <mat-select placeholder="Sales Offer" [(value)]="caseInfo.tableSof.salesOffer">
+                              <mat-option *ngFor="let salesOfferValue of salesOffers" [value]="salesOfferValue">{{salesOfferValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field> 
+                          
+                          <mat-form-field class="custQualifier">
+                            <mat-select placeholder="Cust Qualifier" [(value)]="caseInfo.tableSite.xCustSubType">
+                              <mat-option *ngFor="let custQualifierValue of custQualifiers" [value]="custQualifierValue">{{custQualifierValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </span>
+                            
+                        <span>
+                          <mat-form-field class="origin">
+                            <mat-select placeholder="Origin" [(value)]="caseInfo.tableCase.xOrigin">
+                              <mat-option *ngFor="let originValue of origins" [value]="originValue">{{originValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          
+                          <mat-form-field class="custPremises">
+                            <mat-select placeholder="Cust Premises" [(value)]="caseInfo.tableSite.premisesLocation">
+                              <mat-option *ngFor="let custPremisesValue of custPremises" [value]="custPremisesValue">{{custPremisesValue}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+
+                          <!-- <button mat-raised-button (click)="moreInfoDetails('close')"	class="btn_close">close</button> -->
+                        </span>
+              </mat-expansion-panel>
       
                  </mat-accordion>
                  </div>

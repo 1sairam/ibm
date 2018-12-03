@@ -12,17 +12,29 @@
 }  
 .mat-scroll{
     overflow: auto;
+    /* position: static; */
 }
 .mat-scroll2{
     overflow-y: auto;
+    /* position: static; */
 }
 .childHover:hover{
     cursor: pointer;
+
     /* font-family: bold; */
-    background: rgb(255, 249, 249);
-    width: 90%;
+    /* background:darkgrey; */
     /* color: blue; */
 }
-.mat-grid-tile{
-    
+.alignItm{
+    margin-left: -16%;
 }
+/* .mat-grid-tile{
+    position: absolute;
+    left: 1%;
+    top: 1%;
+} */
+
+  /* .mat-grid-tile{
+      position: static;
+  } */
+  

@@ -1,11 +1,12 @@
-import { TableCase } from './table-case';
+
 
 export class CaseInfo {
     
-    constructor(caseId:string,tableCase:TableCase){
+    constructor(caseId:string){
         this.caseId = caseId;
-        this.tableCase = tableCase;
     }
-    "tableCase": TableCase;
-    "caseId": string;
+    "caseId":string;
+    "tableCase":any;
+    "tableContact":any;
+    "tableAddress":any;
 }

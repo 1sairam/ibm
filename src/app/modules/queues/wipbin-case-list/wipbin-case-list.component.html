@@ -1,0 +1,143 @@
+<div>
+    <mat-card>Wipbin Clarify - RDC</mat-card>
+  </div>
+  <div class="planner-dropdown">
+  <table class="wipbin-drop">
+    <tr>
+    <td class="mat-list"><mat-label>List</mat-label></td>
+    <td class="wipdrop-td">
+      <mat-form-field class="wipdrop-list">
+      <mat-select [(ngModel)]="firsrList">
+          <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+        </mat-select>
+      </mat-form-field>
+    </td>
+  <td><mat-label>whose</mat-label></td>
+  </tr>
+  </table>
+  </div>
+  <div class="planner-dropdown"> 
+    <table class="wipbin-tbl">
+      <tr>
+       <td>
+        <mat-form-field class="wipdrop-list1">
+          <mat-select [(ngModel)]="secondList">
+            <mat-option *ngFor="let drop1 of selectDrop2" [value]="drop1">{{drop1}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+      
+        <mat-form-field class="wipdrop-list1 leftOne">
+          <mat-select [(ngModel)]="thiredList">
+            <mat-option *ngFor="let drop2 of selectedDrop3" [value]="drop2">{{drop2}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+       
+        <mat-form-field class="wipdrop-inpt leftOne">
+          <input matInput type="text">
+              <!-- <input matInput type="text" [value]="enteredText" [(ngModel)]="selectedOptions"> -->
+        </mat-form-field>
+  
+          <button class="dslSirDrp leftOne" mat-raised-button [disabled]="disabledEt">E/T</button>
+        
+          <mat-form-field class="wipdrop-list1 leftOne">
+            <mat-select [(ngModel)]="fourthList">
+              <mat-option *ngFor="let drop3 of selectedDrop4" [value]="drop3">{{drop3}}</mat-option> 
+            </mat-select>
+          </mat-form-field>
+        <button class="listBtn" mat-raised-button (click)="listButton()">List</button>
+      </td>
+      </tr>
+    </table>
+  </div>
+  <div class="plnrBrdr">
+        <table mat-table [dataSource]="dataToDisplay" class="mat-elevation-z8">
+   
+                <!-- Position Column -->
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef> Type </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.type}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="id">
+                  <th mat-header-cell *matHeaderCellDef> ID </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.id}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="sitename">
+                  <th mat-header-cell *matHeaderCellDef> Special Order</th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.sitename}} </td>
+                </ng-container>
+              
+                <!-- age Column -->
+                <ng-container matColumnDef="age">
+                  <th mat-header-cell *matHeaderCellDef> Site </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.age}} </td>
+                </ng-container>
+                <!--Condition-->
+                <ng-container matColumnDef="Condition">
+                  <th mat-header-cell *matHeaderCellDef>Condition </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.condition}} </td>
+                </ng-container>
+                <!--Status-->
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> Status </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.status}} </td>
+                </ng-container>
+             
+                <!--Priority-->
+                <ng-container matColumnDef="priority">
+                  <th mat-header-cell *matHeaderCellDef> Priority </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.priority}} </td>
+                </ng-container>
+                <!--Serveri-->
+                <ng-container matColumnDef="severity">
+                  <th mat-header-cell *matHeaderCellDef> Severity </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.severity}} </td>
+                </ng-container>
+                <!--Title-->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef> Title </th>
+                  <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.title}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns;"
+                                              [ngClass]="{'highlight': selectedTyp == row}"
+                                                                  (click)="highlight(row)"
+                                                                  (click)="setClickedRow(row)"></tr>
+              </table>
+   </div>
+   <table class="myTitle">
+    <tr>
+      <td class="titleTd"><label>Title</label></td>
+      <td class="dlsInptTitl">
+        <mat-form-field class="dslSriTitlInpt">
+          <input matInput type="text"> 
+        </mat-form-field>
+      </td>
+    </tr>
+   </table>
+   <table class="itm-grp">
+    <tr>
+        <td class="itm-td">
+        <mat-form-field class="itm-inpt">
+            <input matInput type="text"> 
+        </mat-form-field><mat-label>Items</mat-label> 
+        </td>
+        <td><button class="btn1" mat-raised-button (click)="listButton()">Open</button></td>
+        <td> <button class="btn1" mat-raised-button (click)="listButton()">Dispatch</button></td>
+        <td><button class="btn1" mat-raised-button (click)="listButton()">Done</button></td>
+    </tr>
+
+   </table>
+   <!-- <div class="item-grp"> 
+    <mat-form-field class="itm-inpt">
+        <input matInput type="text"> 
+    </mat-form-field> 
+    <mat-label>Itmes</mat-label>
+    <button class="btn1" mat-raised-button (click)="listButton()">Open</button>
+    <button class="btn1" mat-raised-button (click)="listButton()">Dispatch</button>
+    <button class="btnq" mat-raised-button (click)="listButton()">Done</button>
+   </div> -->

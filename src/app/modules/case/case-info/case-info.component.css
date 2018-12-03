@@ -71,18 +71,13 @@
     background-color: #3f51b5;
     color: white;
   }
-  .btn_two{
+  .btn_two,.btn_three,.btn_six{
     margin-left: 3%;
     width: 15%;
     background-color: #3f51b5;
     color: white;
   }
-  .btn_three{
-    margin-left: 3%;
-    width: 15%;
-    background-color: #3f51b5;
-    color: white;
-  }
+  
   .btn_four{
     margin: 2%;
     margin-left: 47%;
@@ -96,12 +91,7 @@
     background-color: #3f51b5;
     color: white;
   }
-  .btn_six{
-    margin-left: 3%;
-    width: 15%;
-    background-color: #3f51b5;
-    color: white;
-  }
+  
   .btn_seven{
     margin-left: 47%;
     width: 15%;
@@ -130,55 +120,7 @@
     display: inline-flex;
   }
   
-  .infoHead{
-    font-weight: bold;
-  }
-  .infoContent_1{
-    margin-left: 51%;
-  }
-  .infoContent_2{
-    margin-left: 40%;
-  }
-  .infoContent_3{
-    margin-left: 36%;
-  }
-  .infoContent_4{
-    margin-left: 36%;
-  }
-  .infoContent_5{
-    margin-left: 33%;
-  }
-  .infoContent_6{
-    margin-left: 55%;
-  }
-  .infoContent_7{
-    margin-left: 53%;
-  }
-  .infoContent_8{
-    margin-left: 47%;
-  }
   
-  .infoContent_2_1{
-    margin-left: 16%;
-  }
-  .infoContent_2_2{
-    margin-left: 12%;
-  }
-  .infoContent_2_3{
-    margin-left: 22%;
-  }
-  .infoContent_2_4{
-    margin-left: 13%;
-  }
-  .infoContent_2_5{
-    margin-left: 1%;
-  }
-  .infoContent_2_6{
-    margin-left: 19%;
-  }
-  .evenRow{
-    background-color: lightgray;
-  }
   .matExpansionPannel_right{
     margin-left: 2%;
     margin-right: 2%;
@@ -212,8 +154,17 @@
   }
   
   
+  .custId,.name,.mainPhone,.billerId,.subType,.address,.city,.zipcode,.project,.salesOffer,.origin,.country{
+    margin-right: 6%;
+  }
+
+  .btn_site_details{
+    margin-left: 5%;
+  }
   
-  
+  .btn_contact_details{
+    margin-left: 30%;
+  }
   
   
   
