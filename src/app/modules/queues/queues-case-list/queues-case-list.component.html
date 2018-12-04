@@ -1,5 +1,5 @@
 <div>
-  <mat-card>Queue DSL Planner-SIR Error</mat-card>
+  <mat-card>{{headerInfo.node}} {{headerInfo.title}}</mat-card>
 </div>
 <div class="">
 <table class="listDrop2">
@@ -55,25 +55,25 @@
      <!-- Position Column -->
      <ng-container matColumnDef="type">
        <th mat-header-cell *matHeaderCellDef> Type </th>
-       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.type}} </td>
+       <!-- <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.type}} </td> -->
      </ng-container>
    
      <!-- Name Column -->
      <ng-container matColumnDef="id">
        <th mat-header-cell *matHeaderCellDef> ID </th>
-       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.id}} </td>
+       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.idNumber}} </td>
      </ng-container>
    
      <!-- Weight Column -->
      <ng-container matColumnDef="special">
        <th mat-header-cell *matHeaderCellDef> Special Order</th>
-       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.special}} </td>
+       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.xSpecialOrder}} </td>
      </ng-container>
    
      <!-- Symbol Column -->
-     <ng-container matColumnDef="site">
+     <ng-container matColumnDef="name">
        <th mat-header-cell *matHeaderCellDef> Site </th>
-       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.site}} </td>
+       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.name}} </td>
      </ng-container>
      <!--Age-->
      <ng-container matColumnDef="age">
@@ -91,9 +91,9 @@
        <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.status}} </td>
      </ng-container>
      <!--Type-->
-     <ng-container matColumnDef="type1">
+     <ng-container matColumnDef="type">
        <th mat-header-cell *matHeaderCellDef>Type </th>
-       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.type1}} </td>
+       <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.type}} </td>
      </ng-container>
      <!--Priority-->
      <ng-container matColumnDef="priority">
@@ -137,7 +137,7 @@
  <tr>
    <td class="dslItem">
      <mat-form-field class="items">
-       <input matInput [value]="queuesCaseList.length"> 
+       <input matInput [value]="queuesCase.length"> 
      </mat-form-field>
    </td>
    <td><mat-label>Items</mat-label></td>

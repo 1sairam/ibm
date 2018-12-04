@@ -9,12 +9,24 @@ import { QueuesCaseList } from '../../../core/models/queues-case-list';
 })
 export class QueuesCaseListComponent implements OnInit {
 
+    //Type pending..
+    displayedColumns: string[] = ['type', 'id', 'special', 'name', 'age', 'Condition', 'status', 'type', 'priority', 'severity', 'title'];
+    dataSource = new MatTableDataSource<any>();
+    queuesCase: QueuesCaseList[]=[];
+    selectedTyp: QueuesCaseList;
 
   ngOnInit() {
   }
 
+  
   @Input()
-  dataToDisplay: MatTableDataSource<any>;
+  set dataToDisplay(dataToDisplay:QueuesCaseList[]){
+    this.dataSource.data = dataToDisplay;
+    this.queuesCase = dataToDisplay;
+  }
+
+  @Input()
+  headerInfo: any;
 
   public firstList:any= 'All';
   public secondList: any='ID';
@@ -26,12 +38,7 @@ export class QueuesCaseListComponent implements OnInit {
   selectedDrop1 = ["Starts With", "Ends with", "Contains", "Sounds Like"];
   selectedDrop2 = ["Descending", "Ascending"];
 
-  
-  displayedColumns: string[] = ['type', 'id', 'special', 'site', 'age', 'Condition', 'status', 'type', 'priority', 'severity', 'title'];
-  dataSource = new MatTableDataSource<any>();
-  queuesCaseList: QueuesCaseList[] = [];
-  queuesCase: QueuesCaseList;
-  selectedTyp: QueuesCaseList;
+
 
   selectedRow: number;
 

@@ -138,9 +138,9 @@ export class QueuesHostComponent {
   allQueuesList : Queues[]=[];
 
   queuesCaseListData: QueuesCaseList[] = [];
-  selectedTyp:QueuesCaseList;
-
   wipBinsCaseListData : WipbinsCaseList[] = [];
+
+  selectedTyp:QueuesCaseList;
 
 
   showSir : any = "i am from sir pending ";
@@ -154,19 +154,44 @@ export class QueuesHostComponent {
   viewWipBinsWindow=false;
   viewQueuesWindow=false;
 
-  displayScreen(value){
-    if(value == 'WIP Bins'){
-      this.viewWipBinsWindow = !this.viewWipBinsWindow;
-      this.viewQueuesWindow = false;
-    }else if(value == 'Queues'){
-      this.viewQueuesWindow = !this.viewQueuesWindow;
-      this.viewWipBinsWindow = false;
-    }
+  displayScreen(node){
+
+    // if(value == 'WIP Bins'){
+    //   this.viewWipBinsWindow = !this.viewWipBinsWindow;
+    //   this.viewQueuesWindow = false;
+    // }else if(value == 'Queues'){
+    //   this.viewQueuesWindow = !this.viewQueuesWindow;
+    //   this.viewWipBinsWindow = false;
+    // }
+
   }
 
-  getCaseListFor(value) {
+  headerInfo:any = {
+    "title" : "",
+    "node" : ""
+  };
+
+  getCaseListFor(node) {
+    console.log(node);
     this.dataToDisplay.data = [];
-    //this._dslPlnrSirService.getDslPlnrSir().subscribe(data => this.dataToDisplay.data = data);
+    this.headerInfo.title = node.item.title;
+    //Wipbins
+    if(node.item.dialogId == 375){
+      this.headerInfo.node = 'WipBins ';
+      this.viewWipBinsWindow = true;
+      this.viewQueuesWindow =false;
+      console.log('node.item.objid' + node.item.objid);
+      this.wipBinsService.getCasesInWipBin(node.item.objid).subscribe(data => this.wipBinsCaseListData = data);
+      console.log('seleted wipbins list item');
+    //Queues
+    }else if(node.item.dialogId == 376){
+      this.headerInfo.node = 'Queues ';
+      this.viewQueuesWindow =true;
+      this.viewWipBinsWindow = false;
+      console.log('node.item.objid' + node.item.objid);
+      this.queuesService.getCasesInQueue(node.item.objid).subscribe(data => this.queuesCaseListData = data);
+      console.log('seleted queues list item');
+    }
   }
 
   

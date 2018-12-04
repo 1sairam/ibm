@@ -1,0 +1,22 @@
+[
+{
+    "objid":"123456",
+    "title":"four",
+    "sTitle":"string",
+    "description":"string",
+    "rankingRule":"string",
+    "iconId":"string",
+    "dialogId":"375"
+
+},
+{
+    "objid":"123456",
+    "title":"five",
+    "sTitle":"string",
+    "description":"string",
+    "rankingRule":"string",
+    "iconId":"string",
+    "dialogId":"375"
+
+}
+]

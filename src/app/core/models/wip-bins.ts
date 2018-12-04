@@ -6,5 +6,4 @@ export class WipBins {
     "rankingRule":string;
     "iconId":string;
     "dialogId":string;
-    "wipbinOwner2user":string;
 }

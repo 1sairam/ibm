@@ -1,0 +1,23 @@
+[
+    {
+        "objid":"123456",
+        "title":"one",
+        "sTitle":"string",
+        "description":"string",
+        "rankingRule":"string",
+        "iconId":"string",
+        "dialogId":"376",
+        "queue2monitor":null
+    
+    },
+    {
+        "objid":"123456",
+        "title":"two",
+        "sTitle":"string",
+        "description":"string",
+        "rankingRule":"string",
+        "iconId":"string",
+        "dialogId":"376",
+        "queue2monitor":"hi"
+    }
+    ]
