@@ -16,7 +16,7 @@
   </span>
   <span class="sideRight">
       <mat-form-field >
-          <input matInput [matDatepicker]="picker" [(ngModel)]="datePick">
+          <input matInput [matDatepicker]="picker" [(ngModel)]="userInput">
           <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Create Date'"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>  
@@ -26,10 +26,10 @@
 <!--Radio Buttons-->
 <div id="table1">&nbsp;
     <span class="siteRadio_1">
-        <mat-radio-button  value="1" [checked]="isSelected">Local Time</mat-radio-button>
+        <mat-radio-button  name="checkTime" [value]="localTime" [checked]="isSelectedRadio">Local Time</mat-radio-button>
     </span>
     <span class="siteRadio_2">
-        <mat-radio-button value="2" >Site Time</mat-radio-button>
+        <mat-radio-button name="checkTime" [value]="siteTime">Site Time</mat-radio-button>
     </span>
 
 <span>
@@ -90,12 +90,8 @@
               {{activityLog.length}}
           </td>     
       
-          <td style="text-align: center">
+          <td>
               <button mat-raised-button color="primary" [disabled]="isOpenButtonDisabled" (click)="openButton()">Open</button>                
-          </td>
-          <td>&nbsp;</td>
-          <td class="DoneBtn">
-              <button  mat-raised-button color="primary">Done</button>      
           </td>
       </tr>
   </table>

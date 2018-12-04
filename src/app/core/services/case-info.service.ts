@@ -11,7 +11,7 @@ export class CaseInfoService {
   case: CaseInfo;
   selectedIndex: number;
 
-  private _url: string = "./caseInfo";
+  private _url: string = "./caseInfo/";
   private _caseInfoMocksUrl = "app/core/mocks/case-info.json";
 
   constructor(private http: HttpClient) { }

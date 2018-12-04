@@ -9,12 +9,18 @@ import { HttpClient ,HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 export class ActivityLogService {
 
   private _url: string = "./activityLog/";
+  //private _url: string = "app/core/mocks/activityLog.json";
   
   constructor(private http: HttpClient) { }
 
-  getActivityLogData(caseId): Observable<ActivityLog[]>{
-    console.log(this._url + caseId);
-    return this.http.get<ActivityLog[]>(this._url + caseId);
+  getActivityLogData(caseObjId): Observable<ActivityLog[]>{
+    console.log(this._url + caseObjId);
+    return this.http.get<ActivityLog[]>(this._url + caseObjId);
   }
 
+  getActivityLogWithFilter(caseObjId,option,subOpt,sortOpt,queryInput){
+    this._url += caseObjId;
+    this._url += '?option='+option+'&subOpt='+subOpt+'&sortOpt='+sortOpt+'&qryInput='+queryInput;
+    return this.http.get<ActivityLog[]>(this._url);
+  }
 }

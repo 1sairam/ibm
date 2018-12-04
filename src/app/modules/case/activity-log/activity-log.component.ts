@@ -12,24 +12,24 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
 
   @Output() changeToComponent = new EventEmitter<number>();
   activityLog: ActivityLog[] = [];
-  @Input() caseId: string;
+  @Input() caseInfo: any;
 
   constructor(private activityLogService: ActivityLogService) {
     this.isOpenButtonDisabled = true;
     this.isDateDisabled=true;
-    this.isSelected=true;
+    this.isSelectedRadio=true;
     this.selectedRow = 0;
   }
     selectedRow: number;
     isOpenButtonDisabled: boolean;
     isDateDisabled:boolean;
-    isSelected:boolean;
+    isSelectedRadio:boolean;
 
   ngOnInit() {
     
   }
   ngAfterViewInit(){
-    this.activityLogService.getActivityLogData(this.caseId).subscribe(data=> this.activityLog = this.dataSource.data =data);
+    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objId).subscribe(data=> this.activityLog = this.dataSource.data =data);
     this.dataSource.data = this.activityLog;
   }
 
@@ -49,7 +49,7 @@ private map= new Map<string, string[]>([
 ])
 firstOrder:string="Create Date";
 secondOrder:string ="earlier than";
-thirdOrder:string="Descending";
+thirdList:string="Descending";
 get firstOrders():string[]{
   this.secondOrder = this.map.get(this.firstOrder)[0];
   return Array.from(this.map.keys());
@@ -61,10 +61,11 @@ get secondOrders():string[]{
   thirdOrders = ["Ascending", "Descending"];
   selectedAct: ActivityLog;
 
-  public firstList: any;
-  public secondList: any;
-  public thirdList: any;
-  public datePick: any;
+  public firstList: any ="";
+  public secondList: any="";
+  public userInput: any="";
+  localTime:any;
+  siteTime:any;
   
 
 
@@ -85,7 +86,19 @@ get secondOrders():string[]{
     alert(this.selectedAct.addnlInfo);
   }
   listClick() {
-    //alert(this.firstList + " " + this.secondList + " " + this.thirdList + " " + this.datePick);
+    this.dataSource.data = [];
+    let option = 'other';
+    let subOpt = this.secondOrder;
+    let queryInput = this.userInput;
+    console.log(this.userInput);
+    let sortOpt = this.thirdList;
 
-  }
+    if(this.firstOrder == 'Create Date'){
+      option = 'createDate';
+    }
+
+  this.activityLogService.getActivityLogWithFilter(this.caseInfo.tableCase.objId,option,subOpt,sortOpt,queryInput)
+                         .subscribe(data=> this.activityLog = this.dataSource.data =data);
+                         this.dataSource.data = this.activityLog;
+  }  
 }
