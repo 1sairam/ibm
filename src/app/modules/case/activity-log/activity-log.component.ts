@@ -29,7 +29,7 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
     
   }
   ngAfterViewInit(){
-    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objId).subscribe(data=> this.activityLog = this.dataSource.data =data);
+    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> this.activityLog = this.dataSource.data =data);
     this.dataSource.data = this.activityLog;
   }
 
@@ -97,7 +97,7 @@ get secondOrders():string[]{
       option = 'createDate';
     }
 
-  this.activityLogService.getActivityLogWithFilter(this.caseInfo.tableCase.objId,option,subOpt,sortOpt,queryInput)
+  this.activityLogService.getActivityLogWithFilter(this.caseInfo.tableCase.objid,option,subOpt,sortOpt,queryInput)
                          .subscribe(data=> this.activityLog = this.dataSource.data =data);
                          this.dataSource.data = this.activityLog;
   }  
