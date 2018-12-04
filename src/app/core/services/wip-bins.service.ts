@@ -20,7 +20,8 @@ export class WipBinsService {
   }
   
  getCasesInWipBin(elmObjid):Observable<WipbinsCaseList[]>{
-    this._url2 += elmObjid;
-    return this.http.get<WipbinsCaseList[]>(this._url2);
+    let url = this._url2;
+    url += elmObjid;
+    return this.http.get<WipbinsCaseList[]>(url);
   }
 }

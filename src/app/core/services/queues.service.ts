@@ -23,7 +23,8 @@ export class QueuesService {
   }
 
   getCasesInQueue(elmObjid):Observable<QueuesCaseList[]>{
-    this._url2 += elmObjid;
-    return this.http.get<QueuesCaseList[]>(this._url3);
+    let url = this._url3;
+    url += elmObjid;
+    return this.http.get<QueuesCaseList[]>(url);
   }
 }

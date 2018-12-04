@@ -181,6 +181,7 @@ export class QueuesHostComponent {
       this.viewWipBinsWindow = true;
       this.viewQueuesWindow =false;
       console.log('node.item.objid' + node.item.objid);
+      //this.wipBinsCaseListData = [{"wipObjid":268981011,"elmObjid":271492082,"clarifyState":16386,"idNumber":"2642500","age":"2009-01-09 16:45:38.0","condition":"Open","sCondition":null,"status":"Solving","sStatus":null,"title":"DSL New Order (CSM ID: CSM556930 )","sTitle":null,"priority":"2 - Medium","sPriority":null,"severity":"Medium","sSeverity":null,"xCaseSubtype":"New","name":"PREFIX TEST TRACES","sName":null,"xSpecialOrder":null},{"wipObjid":268981011,"elmObjid":271492323,"clarifyState":2,"idNumber":"2642587","age":"2006-07-17 14:21:53.0","condition":"Open","sCondition":null,"status":"Solving","sStatus":null,"title":"DSL New Order (CSM ID: CSM557122 )","sTitle":null,"priority":"2 - Medium","sPriority":null,"severity":"Medium","sSeverity":null,"xCaseSubtype":"New","name":"att","sName":null,"xSpecialOrder":null}];
       this.wipBinsService.getCasesInWipBin(node.item.objid).subscribe(data => this.wipBinsCaseListData = data);
       console.log('seleted wipbins list item');
     //Queues

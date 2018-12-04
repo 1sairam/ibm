@@ -39,7 +39,7 @@ export class WipbinCaseListComponent implements OnInit {
   selectedDrop4=['Ascending', 'Descending']
 
   //type pending
-  displayedColumns: string[] = ['type', 'id', 'name', 'age', 'Condition', 'status', 'priority', 'severity', 'title'];
+  displayedColumns: string[] = ['type', 'idNumber', 'name', 'age', 'condition', 'status', 'priority', 'severity', 'title'];
   
   
   listButton(){

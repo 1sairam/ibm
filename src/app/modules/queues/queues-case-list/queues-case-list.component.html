@@ -50,7 +50,7 @@
 </table> -->
 </div>
 <div class="plnrBrdr">
- <table mat-table [dataSource]="dataToDisplay" class="mat-elevation-z8">
+ <table mat-table [dataSource]="queuesCase" class="mat-elevation-z8">
    
      <!-- Position Column -->
      <ng-container matColumnDef="type">
@@ -59,7 +59,7 @@
      </ng-container>
    
      <!-- Name Column -->
-     <ng-container matColumnDef="id">
+     <ng-container matColumnDef="idNumber">
        <th mat-header-cell *matHeaderCellDef> ID </th>
        <td mat-cell *matCellDef="let queuesCase"> {{queuesCase.idNumber}} </td>
      </ng-container>
