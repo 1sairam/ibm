@@ -60,7 +60,7 @@ get secondOrders():string[]{
   let orders = this.map.get(this.firstOrder);
   return orders;
 }
-setDefault(){
+setDefault(val){
     this.userTextInput = "";
     this.userInput = "";
 }
