@@ -168,7 +168,7 @@ th.mat-header-cell {
 }
 .myTitle{
     position: absolute;
-    top: 60%;
+    top: 68%;
     left: 0%;
     width: 97%;
 }
@@ -206,7 +206,7 @@ th.mat-header-cell {
 }
 .button-row{
     position: absolute;
-    top: 77%;
+    top: 80%;
     left: 3%;
     width: 94%;
 }
@@ -217,6 +217,9 @@ th.mat-header-cell {
   .dslItem{
      width: 17%;
   }
+  .pagination-row{
+    margin-top: 47%;
+}
 /* .dslBtnGrp{
     margin-top: 1%;
     margin-left: 18.4%;

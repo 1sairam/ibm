@@ -52,6 +52,12 @@ secondOrder:string ="earlier than";
 thirdList:string="Descending";
 get firstOrders():string[]{
   this.secondOrder = this.map.get(this.firstOrder)[0];
+  //clearing the inputs
+  if(this.firstOrder != 'Create Date'){
+    this.userTextInput = "";
+  }else{
+    this.userInput = "";
+  }
   return Array.from(this.map.keys());
 }
 get secondOrders():string[]{

@@ -79,7 +79,7 @@ th{
 }
 .myTitle{
     position: absolute;
-    top: 65%;
+    top: 69%;
     left: 0%;
     width: 99%;
 }
@@ -108,7 +108,7 @@ th{
 .itm-grp{
     position: absolute;
     width: 100%;
-    top: 84%;
+    top: 79%;
     left: 0%;
 }
 
@@ -119,8 +119,9 @@ th{
     width: 10%;
 }
 
-
-
+.pagination-row{
+    margin-top: 49%;
+}
 
 
 

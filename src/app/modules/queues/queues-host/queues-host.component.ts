@@ -133,6 +133,7 @@ export class DynamicDataSource {
 })
 export class QueuesHostComponent {
 
+  isLoading = false;
   wipBinsList : WipBins[]=[];
   queuesList : Queues[]=[];
   allQueuesList : Queues[]=[];
@@ -175,6 +176,7 @@ export class QueuesHostComponent {
     console.log(node);
     this.dataToDisplay.data = [];
     this.headerInfo.title = node.item.title;
+    this.isLoading = true;
     //Wipbins
     if(node.item.dialogId == 375){
       this.headerInfo.node = 'WipBins ';
@@ -182,7 +184,13 @@ export class QueuesHostComponent {
       this.viewQueuesWindow =false;
       console.log('node.item.objid' + node.item.objid);
       //this.wipBinsCaseListData = [{"wipObjid":268981011,"elmObjid":271492082,"clarifyState":16386,"idNumber":"2642500","age":"2009-01-09 16:45:38.0","condition":"Open","sCondition":null,"status":"Solving","sStatus":null,"title":"DSL New Order (CSM ID: CSM556930 )","sTitle":null,"priority":"2 - Medium","sPriority":null,"severity":"Medium","sSeverity":null,"xCaseSubtype":"New","name":"PREFIX TEST TRACES","sName":null,"xSpecialOrder":null},{"wipObjid":268981011,"elmObjid":271492323,"clarifyState":2,"idNumber":"2642587","age":"2006-07-17 14:21:53.0","condition":"Open","sCondition":null,"status":"Solving","sStatus":null,"title":"DSL New Order (CSM ID: CSM557122 )","sTitle":null,"priority":"2 - Medium","sPriority":null,"severity":"Medium","sSeverity":null,"xCaseSubtype":"New","name":"att","sName":null,"xSpecialOrder":null}];
-      this.wipBinsService.getCasesInWipBin(node.item.objid).subscribe(data => this.wipBinsCaseListData = data);
+      this.wipBinsService.getCasesInWipBin(node.item.objid).subscribe(data => {
+        this.wipBinsCaseListData = data;
+        this.isLoading = false;
+      },error=>{
+        this.isLoading = false;
+      });
+      
       console.log('seleted wipbins list item');
     //Queues
     }else if(node.item.dialogId == 376){
@@ -190,7 +198,12 @@ export class QueuesHostComponent {
       this.viewQueuesWindow =true;
       this.viewWipBinsWindow = false;
       console.log('node.item.objid' + node.item.objid);
-      this.queuesService.getCasesInQueue(node.item.objid).subscribe(data => this.queuesCaseListData = data);
+      this.queuesService.getCasesInQueue(node.item.objid).subscribe(data => {
+        this.queuesCaseListData = data;
+        this.isLoading = false;
+      },error=>{
+        this.isLoading = false;
+      });
       console.log('seleted queues list item');
     }
   }

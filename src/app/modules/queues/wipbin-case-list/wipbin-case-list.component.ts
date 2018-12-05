@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { WipbinsCaseList } from '../../../core/models/wipbins-case-list';
 
 @Component({
@@ -22,7 +22,10 @@ export class WipbinCaseListComponent implements OnInit {
   set dataToDisplay(dataToDisplay:WipbinsCaseList[]){
     this.dataSource.data = dataToDisplay;
     this.wipBinCase = dataToDisplay;
+    this.dataSource.paginator = this.paginator;
   }
+  
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @Input()
   headerInfo: any;
@@ -30,7 +33,9 @@ export class WipbinCaseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }
+
   selectDrop = ["All", "Case", "Subcase", "RQST", "SOLN", "CR", 'Quote/contact', 'Opportunity'];
   selectDrop2=['ID', 'Condition', 'Age', 'Status', 'Priority', 'Severity', 'Title']
   selectedDrop3=['Starts with','<', '>'];
@@ -39,11 +44,9 @@ export class WipbinCaseListComponent implements OnInit {
   //type pending
   displayedColumns: string[] = ['type', 'idNumber', 'name', 'age', 'condition', 'status', 'priority', 'severity', 'title'];
   
-  
   listButton(){
     
   }
   
-
 
 }

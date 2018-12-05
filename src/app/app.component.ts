@@ -15,12 +15,14 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   title = 'BroadBand Workflow';
   caseIdList: string[] = [];
-  caseId: string;
+  caseId: string="";
   selectedCaseIndex: number = 0;//default
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
 
+  isLoading=true;
+  
   constructor(private caseInfoService: CaseInfoService,
     private dialog : Dialog,
     private caseCompService: CaseCompService,
@@ -29,9 +31,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+    this.isLoading = false;
     console.log('after...');
   }
   ngOnInit() {
+
     //Intial Load Get user Info ,wipbins and queues data
     console.log('before...');
     this.userInfoService.getUserInfo().subscribe(data => {this.userInfo = data});
@@ -80,11 +84,13 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   getCaseInfo(caseId) {
+
     console.log(caseId);
     if (caseId == null || caseId.length < 1) {
       this.dialog.openDialog('Please Enter Case Id.. ');
       return;
     }
+    this.isLoading = true;
     let local = false;
     if(local){
       let caseInfo;
@@ -94,6 +100,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.caseIdList.push(caseId);
         this.selectCase = this.caseIdList.length;
         this.selectedCaseIndex = this.selectCase;
+        this.isLoading = false;
       });  
     }
     else{
@@ -106,10 +113,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     console.log(this.selectCase + "select case");
     this.caseInfoService.createCaseInfo(this.caseId,data);//for all components
     this.selectedCaseIndex = this.selectCase;
+    this.isLoading = false;
     },
     error =>{
       this.dialog.openDialog('Case Id not found...! Something went wrong.. ');
       console.log("something went wrong.. open model");
+      this.isLoading = false;
     }
     );
    }
@@ -134,6 +143,5 @@ export class AppComponent implements OnInit, AfterViewInit {
   //will be called from child wipbins
   viewCase(caseId){
     console.log(caseId);
-
   }
 }

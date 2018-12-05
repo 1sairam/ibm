@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { QueuesCaseList } from '../../../core/models/queues-case-list';
 
 @Component({
@@ -16,13 +16,15 @@ export class QueuesCaseListComponent implements OnInit {
     selectedTyp: QueuesCaseList;
 
   ngOnInit() {
+    this.dataSource.paginator = this.paginator;
   }
-
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   
   @Input()
   set dataToDisplay(dataToDisplay:QueuesCaseList[]){
     this.dataSource.data = dataToDisplay;
     this.queuesCase = dataToDisplay;
+    this.dataSource.paginator = this.paginator;
   }
 
   @Input()
