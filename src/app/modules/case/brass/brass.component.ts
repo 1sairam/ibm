@@ -7,6 +7,8 @@ import { CaseInfo } from '../../../core/models/case-info';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Dialog } from '../../../shared/util/dialog';
 import{SirCreationDialogComponent} from '../../../shared/components/sir-creation-dialog/sir-creation-dialog.component';
+import { ActivityLogService } from '../../../core/services/activity-log.service';
+import { ActivityLog } from '../../../core/models/activity-log';
 
 @Component({
   selector: 'bbw-brass',
@@ -18,13 +20,13 @@ export class BrassComponent implements OnInit,AfterViewInit {
 
   fileNameDialogRef: MatDialogRef<SirCreationDialogComponent>;
   basedOnSirResponse:boolean=false;
-  brassResponse: BrassResponse[] = [];
+  activityLog: ActivityLog[] = [];
   caseInfo: CaseInfo;//default
   foods:any[] = [];
   foo
 
 
-  constructor( private dialogBox : Dialog,private brassService: BrassService,private caseInfoService:CaseInfoService,public dialog: MatDialog) { 
+  constructor( private activityLogService: ActivityLogService,private dialogBox : Dialog,private brassService: BrassService,private caseInfoService:CaseInfoService,public dialog: MatDialog) { 
     this.selectedRow = 0;
   }
 
@@ -36,11 +38,11 @@ export class BrassComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(){
-    this.brassService.getBrassResponseData(this.caseInfo.caseId).subscribe(data=> this.brassResponse = this.dataSource.data =data);
-    this.dataSource.data = this.brassResponse;
+    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> this.activityLog = this.dataSource.data =data);
+    this.dataSource.data = this.activityLog;
   }
 
-  selectedAct: BrassResponse;
+  selectedAct: ActivityLog;
 
   size: number = 0;
   selectedIndex: number = -1;
