@@ -4,6 +4,9 @@ import { BrassResponse } from 'src/app/core/models/brass';
 import { BrassService } from '../../../core/services/brass.service';
 import { CaseInfoService } from '../../../core/services/case-info.service';
 import { CaseInfo } from '../../../core/models/case-info';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Dialog } from '../../../shared/util/dialog';
+import{SirCreationDialogComponent} from '../../../shared/components/sir-creation-dialog/sir-creation-dialog.component';
 
 @Component({
   selector: 'bbw-brass',
@@ -13,13 +16,15 @@ import { CaseInfo } from '../../../core/models/case-info';
 export class BrassComponent implements OnInit,AfterViewInit {
   @Output() changeToComponent = new EventEmitter<number>();
 
+  fileNameDialogRef: MatDialogRef<SirCreationDialogComponent>;
+  basedOnSirResponse:boolean=false;
   brassResponse: BrassResponse[] = [];
   caseInfo: CaseInfo;//default
   foods:any[] = [];
   foo
 
 
-  constructor(private brassService: BrassService,private caseInfoService:CaseInfoService) { 
+  constructor( private dialogBox : Dialog,private brassService: BrassService,private caseInfoService:CaseInfoService,public dialog: MatDialog) { 
     this.selectedRow = 0;
   }
 
@@ -59,12 +64,22 @@ export class BrassComponent implements OnInit,AfterViewInit {
   changeComp(index){
     this.changeToComponent.emit(index);
   }
-
-  sendSirRequestToBackend(){
-    //Write code to send request to backend
-
-  }
   openDialog(){
-    
+   
+    this.fileNameDialogRef=this.dialog.open(SirCreationDialogComponent,{
+      data: this.caseInfo.caseId
+    });
+
+    this.fileNameDialogRef.afterClosed().subscribe(result => {
+      this.basedOnSirResponse=result;
+      if(result){
+        this.dialogBox.openDialog("Thank you, Service Instance Request created sucessFully !!");
+      }else{
+        this.dialogBox.openDialog("Sorry , Service Instance Request not created ");
+      }
+      console.log('The dialog was closed result'+result);
+     
+      
+    });
   }
 }

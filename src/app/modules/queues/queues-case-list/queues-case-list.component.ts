@@ -10,7 +10,7 @@ import { QueuesCaseList } from '../../../core/models/queues-case-list';
 export class QueuesCaseListComponent implements OnInit {
 
     //Type pending..
-    displayedColumns: string[] = ['type', 'idNumber', 'special', 'name', 'age', 'Condition', 'status', 'type', 'priority', 'severity', 'title'];
+    displayedColumns: string[] = ['type1', 'idNumber', 'special', 'name', 'age', 'Condition', 'status', 'type', 'priority', 'severity', 'title'];
     dataSource = new MatTableDataSource<any>();
     queuesCase: QueuesCaseList[]=[];
     selectedTyp: QueuesCaseList;

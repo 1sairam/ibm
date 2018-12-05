@@ -18,6 +18,7 @@ import { SelectCommitmentsComponent } from './select-commitments/select-commitme
 import { HsiaInfoComponent } from './hsia-info/hsia-info.component';
 import { CommHistoryComponent } from './comm-history/comm-history.component';
 import {DialogContentExampleDialog} from './case-info/case-info.component';
+import {SirCreationDialogComponent} from '../../shared/components/sir-creation-dialog/sir-creation-dialog.component';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import {DialogContentExampleDialog} from './case-info/case-info.component';
     HsiaInfoComponent,
     CommHistoryComponent,
     DialogContentExampleDialog,
+    SirCreationDialogComponent
   ],
   entryComponents:[
     CaseInfoComponent,
@@ -50,6 +52,8 @@ import {DialogContentExampleDialog} from './case-info/case-info.component';
     SelectCommitmentsComponent,
     HsiaInfoComponent,
     DialogContentExampleDialog,
+    SirCreationDialogComponent
+
   ],
   providers:[
 
