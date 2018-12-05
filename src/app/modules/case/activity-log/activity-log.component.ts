@@ -81,9 +81,8 @@ get secondOrders():string[]{
   }
 
   openButton() {
-
     console.log(this.selectedRow);
-    alert(this.selectedAct.addnlInfo);
+    alert(this.selectedAct.addInfo);
   }
   
   listClick() {

@@ -1,6 +1,6 @@
 export interface ActivityLog {
-    title:string,
+    actName:string,
     entryTime:string,
     loginName:string,
-    addnlInfo:string
+    addInfo:string
 }
