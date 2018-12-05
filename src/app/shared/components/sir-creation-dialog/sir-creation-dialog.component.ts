@@ -55,7 +55,7 @@ export class SirCreationDialogComponent  {
       return this.http.get<SirResponse[]>(this._url,{params :new HttpParams().set('caseId',this.caseId)});
       
     }
-    onCancelClick(resp){
+    onCancelClick(){
      this.dialogRef.close();
 
     }
