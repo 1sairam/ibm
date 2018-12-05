@@ -19,8 +19,9 @@ export class ActivityLogService {
   }
 
   getActivityLogWithFilter(caseObjId,option,subOpt,sortOpt,queryInput){
-    this._url += caseObjId;
-    this._url += '?option='+option+'&subOpt='+subOpt+'&sortOpt='+sortOpt+'&qryInput='+queryInput;
-    return this.http.get<ActivityLog[]>(this._url);
+    let url = this._url;
+    url += caseObjId;
+    url += '?option='+option+'&subOpt='+subOpt+'&sortOpt='+sortOpt+'&qryInput='+queryInput;
+    return this.http.get<ActivityLog[]>(url);
   }
 }
