@@ -1,7 +1,7 @@
 <div>    
   <span class="sideLeft">
       <mat-form-field>
-          <mat-select  [(ngModel)]="firstOrder">
+          <mat-select  [(ngModel)]="firstOrder"  (ngModelChange)=setDefault($event)>
             <mat-option *ngFor="let firstOrder of firstOrders" [value]="firstOrder">{{firstOrder}}</mat-option>            
           </mat-select>
         </mat-form-field>          
@@ -15,12 +15,14 @@
         </mat-form-field>
   </span>
   <span class="sideRight">
-      <mat-form-field >
-          <input *ngIf="firstOrder != 'Create Date'" matInput [(ngModel)]="userTextInput">
-          <input *ngIf="firstOrder == 'Create Date';" matInput [matDatepicker]="picker" [(ngModel)]="userInput">
+      <mat-form-field *ngIf="firstOrder != 'Create Date'">
+          <input matInput [(ngModel)]="userTextInput">
+      </mat-form-field>
+      <mat-form-field *ngIf="firstOrder == 'Create Date';">
+          <input matInput [matDatepicker]="picker" [(ngModel)]="userInput">
           <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Create Date'"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>  
+      </mat-form-field>  
   </span>   
 </div>
 

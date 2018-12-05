@@ -23,7 +23,8 @@ export class BrassComponent implements OnInit,AfterViewInit {
   activityLog: ActivityLog[] = [];
   caseInfo: CaseInfo;//default
   foods:any[] = [];
-  foo
+  foo:any;
+  isLoading=true;
 
 
   constructor( private activityLogService: ActivityLogService,private dialogBox : Dialog,private brassService: BrassService,private caseInfoService:CaseInfoService,public dialog: MatDialog) { 
@@ -34,11 +35,20 @@ export class BrassComponent implements OnInit,AfterViewInit {
 
 
   ngOnInit() {
+   this.isLoading = false;
    this.caseInfo = this.caseInfoService.getSelectedCaseInfo();
   }
 
   ngAfterViewInit(){
-    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> this.activityLog = this.dataSource.data =data);
+    this.isLoading = true;
+    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> {
+      this.activityLog = this.dataSource.data =data;
+      this.isLoading = false;
+    },
+    error => {
+      this.isLoading = false;
+    }
+    );
     this.dataSource.data = this.activityLog;
   }
 

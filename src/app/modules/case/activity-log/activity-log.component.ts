@@ -53,16 +53,16 @@ thirdList:string="Descending";
 get firstOrders():string[]{
   this.secondOrder = this.map.get(this.firstOrder)[0];
   //clearing the inputs
-  if(this.firstOrder != 'Create Date'){
-    this.userTextInput = "";
-  }else{
-    this.userInput = "";
-  }
+  
   return Array.from(this.map.keys());
 }
 get secondOrders():string[]{
   let orders = this.map.get(this.firstOrder);
   return orders;
+}
+setDefault(){
+    this.userTextInput = "";
+    this.userInput = "";
 }
   thirdOrders = ["Ascending", "Descending"];
   selectedAct: ActivityLog;
