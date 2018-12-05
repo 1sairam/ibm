@@ -16,7 +16,8 @@
   </span>
   <span class="sideRight">
       <mat-form-field >
-          <input matInput [matDatepicker]="picker" [(ngModel)]="userInput">
+          <input *ngIf="firstOrder != 'Create Date'" matInput [(ngModel)]="userTextInput">
+          <input *ngIf="firstOrder == 'Create Date';" matInput [matDatepicker]="picker" [(ngModel)]="userInput">
           <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Create Date'"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>  

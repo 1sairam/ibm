@@ -85,12 +85,18 @@ get secondOrders():string[]{
     alert(this.selectedAct.addInfo);
   }
   
+  userTextInput:any="";
   listClick() {
     this.dataSource.data = [];
     let option = this.firstOrder;
     let subOpt = this.secondOrder;
-    let queryInput = this.userInput;
-    console.log(this.userInput);
+    let queryInput = "";
+    if(this.firstOrder != 'Create Date'){
+      queryInput = this.userTextInput;
+    }else{
+      queryInput = this.userInput;
+    }
+    console.log(queryInput);
     let sortOpt = this.thirdList;
 
   this.activityLogService.getActivityLogWithFilter(this.caseInfo.tableCase.objid,option,subOpt,sortOpt,queryInput)
