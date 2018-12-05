@@ -10,7 +10,7 @@ import { QueuesCaseList } from '../models/queues-case-list';
 export class QueuesService {
 
   constructor(private http: HttpClient) { }
-  private _url1: string = "./queuesList";
+  private _url1: string = "./myQueuesList/";
   private _url2: string = "./allQueuesList";
   private _url3: string = "./casesInQueue/";
   //private _url1: string = "app/core/mocks/queues.json";
@@ -19,7 +19,7 @@ export class QueuesService {
     return await this.http.get<Queues[]>(this._url1).toPromise();
   }
   async getAllQueuesList(): Promise<Queues[]> {
-    return await this.http.get<Queues[]>(this._url1).toPromise();
+    return await this.http.get<Queues[]>(this._url2).toPromise();
   }
 
   getCasesInQueue(elmObjid):Observable<QueuesCaseList[]>{

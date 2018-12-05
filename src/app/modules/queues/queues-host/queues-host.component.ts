@@ -204,19 +204,26 @@ export class QueuesHostComponent {
     database.setDefaults();
     this.dataSource.data = database.initialData();
     database.setQueues([]);//Need to be implemented..
-    if(this.wipBinsList.length <= 0) {//get wipbins
-      this.wipBinsService.getWipBinsList().then(data=>{
-          this.wipBinsList = data;
-          database.setWipBins(this.wipBinsList);
+    //if(this.wipBinsList.length <= 0) {
+          //get wipbins
+          this.wipBinsService.getWipBinsList().then(data=>{
+            this.wipBinsList = data;
+            database.setWipBins(this.wipBinsList);
+            this.dataSource.data = database.initialData();
+          }); 
+          //get my queues
+          this.queuesService.getMyQueuesList().then(data => {
+            this.queuesList = data;
+            database.setQueues(this.queuesList);
+            this.dataSource.data = database.initialData();
+          });
           //get all queues
           this.queuesService.getAllQueuesList().then(data => {
             this.allQueuesList = data;
             database.setAllQueues(this.allQueuesList);
             this.dataSource.data = database.initialData();
           });
-      });
-      
-    }
+    //}
   }
 
   treeControl: FlatTreeControl<DynamicFlatNode>;
