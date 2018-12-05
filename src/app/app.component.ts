@@ -82,6 +82,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   getCaseInfo(caseId) {
     console.log(caseId);
     if (caseId == null || caseId.length < 1) {
+      this.dialog.openDialog('Please Enter Case Id.. ');
       return;
     }
     let local = false;

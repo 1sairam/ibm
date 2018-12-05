@@ -30,8 +30,6 @@ export class WipbinCaseListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.headerInfo.node = "";
-    this.headerInfo.title = "";
   }
   selectDrop = ["All", "Case", "Subcase", "RQST", "SOLN", "CR", 'Quote/contact', 'Opportunity'];
   selectDrop2=['ID', 'Condition', 'Age', 'Status', 'Priority', 'Severity', 'Title']
