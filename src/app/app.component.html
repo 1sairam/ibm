@@ -31,7 +31,7 @@
         <mat-tab-group [selectedIndex]="selectCase" (selectedIndexChange)="setSelected($event)">
             <mat-tab *ngFor="let caseId of caseIdList; let index = index">
                 <ng-template mat-tab-label class="strong">
-                    {{caseId}} &nbsp;<i class="medium icon-controls-optionsoff red" (click)="removeCase(index)"></i>
+                    {{caseId}} &nbsp;<i class="medium mat-cancel-icon spaces" (click)="removeCase(index)"><strong>X</strong></i>
                 </ng-template>
                 <bbw-case-host [caseCompItems]="caseCompList"></bbw-case-host>
             </mat-tab>
