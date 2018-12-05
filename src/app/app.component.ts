@@ -85,7 +85,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.dialog.openDialog('Please Enter Case Id.. ');
       return;
     }
-    let local = true;
+    let local = false;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {

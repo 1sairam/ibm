@@ -85,6 +85,7 @@ get secondOrders():string[]{
     console.log(this.selectedRow);
     alert(this.selectedAct.addnlInfo);
   }
+  
   listClick() {
     this.dataSource.data = [];
     let option = this.firstOrder;
