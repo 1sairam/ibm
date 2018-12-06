@@ -220,11 +220,16 @@ th.mat-header-cell {
   .pagination-row{
     margin-top: 47%;
 }
-/* .dslBtnGrp{
-    margin-top: 1%;
-    margin-left: 18.4%;
-    width: 6%;
+
+td.mat-cell{
+    text-align: center;
 }
-.button-row{
-   
-} */
+th.mat-header-cell {
+    text-align: center;
+}
+th{
+    /* font-weight: bold; */
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+}

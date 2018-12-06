@@ -66,28 +66,28 @@ export class QueuesCaseListComponent implements OnInit {
     this.selectedRowIndex = row;
     this.disabledButton = false;
   }
-  openButton() {
+  viewCase() {
 
     console.log(this.selectedRow);
     //alert(this.selectedTyp.age);
   }
-  openButton1() {
+  rejectCase() {
 
     console.log(this.selectedRow);
     //alert(this.selectedTyp.status);
   }
-  openButton2() {
+  acceptCase() {
 
     console.log(this.selectedRow);
-    alert(this.selectedTyp.title);
+    //alert(this.selectedTyp.title);
   }
   listButton() {
-    console.log('hi Anji');
-    alert(this.firstList + "...." + this.secondList + "...." + this.thirdList + "...." + this.fourthList);
+
+   // alert(this.firstList + "...." + this.secondList + "...." + this.thirdList + "...." + this.fourthList);
     // alert(this.panelSirAsc.value)
   }
   listClick() {
-    alert("hi");
+    
   }
 
 }

@@ -50,7 +50,7 @@
 </table> -->
 </div>
 <div class="plnrBrdr">
- <table mat-table [dataSource]="queuesCase" class="mat-elevation-z8">
+ <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
    
      <!-- Position Column -->
      <ng-container matColumnDef="type1">
@@ -141,9 +141,9 @@
      </mat-form-field>
    </td>
    <td><mat-label>Items</mat-label></td>
-   <td><button class="dslBtnGrp1" mat-raised-button (click)="openButton()" [disabled]="disabledButton">View</button></td>
-   <td><button class="dslBtnGrp2" mat-raised-button (click)="openButton1()" [disabled]="disabledButton">Reject</button></td>
-   <td><button class="dslBtnGrp2" mat-raised-button (click)="openButton2()" [disabled]="disabledButton">Accept</button></td>
+   <td><button class="dslBtnGrp1" mat-raised-button (click)="viewCase()" [disabled]="disabledButton">View</button></td>
+   <td><button class="dslBtnGrp2" mat-raised-button (click)="rejectCase()" [disabled]="disabledButton">Reject</button></td>
+   <td><button class="dslBtnGrp2" mat-raised-button (click)="acceptCase()" [disabled]="disabledButton">Accept</button></td>
    <td class="dslDon"><button class="dslBtnGrp3" mat-raised-button>Done</button></td>
  </tr>
 </table>

@@ -30,6 +30,19 @@ export class WipbinCaseListComponent implements OnInit {
   @Input()
   headerInfo: any;
 
+  selectedRow: number;
+  selectedTyp:any;
+  disabledButton:any;
+  selectedRowIndex: number = -1;
+  setClickedRow(row) {
+    this.selectedTyp = row;
+    this.disabledButton = false;
+  }
+  highlight(row) {
+    this.selectedRowIndex = row;
+    this.disabledButton = false;
+  }
+
   constructor() { }
 
   ngOnInit() {
@@ -45,6 +58,13 @@ export class WipbinCaseListComponent implements OnInit {
   displayedColumns: string[] = ['type', 'idNumber', 'name', 'age', 'condition', 'status', 'priority', 'severity', 'title'];
   
   listButton(){
+    
+  }
+  openCase(){
+    
+  }
+
+  dispatch(){
     
   }
   

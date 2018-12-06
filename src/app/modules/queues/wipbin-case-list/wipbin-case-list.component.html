@@ -50,7 +50,7 @@
     </table>
   </div>
   <div class="plnrBrdr">
-        <table mat-table [dataSource]="wipBinCase" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
    
                 <!-- Position Column -->
                 <ng-container matColumnDef="type">
@@ -126,12 +126,12 @@
     <tr>
         <td class="itm-td">
         <mat-form-field class="itm-inpt">
-            <input matInput type="text"> 
+            <input [disabled]="true" [value]="wipBinCase.length" matInput type="text"> 
         </mat-form-field><mat-label>Items</mat-label> 
         </td>
-        <td><button class="btn1" mat-raised-button (click)="listButton()">Open</button></td>
-        <td> <button class="btn1" mat-raised-button (click)="listButton()">Dispatch</button></td>
-        <td><button class="btn1" mat-raised-button (click)="listButton()">Done</button></td>
+        <td><button class="btn1" mat-raised-button [disabled]="disabledButton" (click)="openCase()">Open</button></td>
+        <td> <button class="btn1" mat-raised-button [disabled]="disabledButton" (click)="dispatchCase()">Dispatch</button></td>
+        <td><button class="btn1" mat-raised-button>Done</button></td>
     </tr>
 
    </table>

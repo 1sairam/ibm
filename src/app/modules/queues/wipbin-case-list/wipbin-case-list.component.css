@@ -123,6 +123,18 @@ th{
     margin-top: 49%;
 }
 
+td.mat-cell{
+    text-align: center;
+}
+th.mat-header-cell {
+    text-align: center;
+}
+th{
+    /* font-weight: bold; */
+    font-size: 15px;
+    background-color: aquamarine;
+    color:black;
+}
 
 
 
