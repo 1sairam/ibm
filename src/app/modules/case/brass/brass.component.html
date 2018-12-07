@@ -53,11 +53,11 @@
                </fieldset>
   
         </div>
-            
+    <div><label>Brass Response :</label></div>
 
     
     <!--Mat Table-->
-<div class="responseTable"> Brass Response : 
+    <div class="responseTable">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <!-- Position Column -->
@@ -92,41 +92,12 @@
   </div>
   <table>
       <tr>
-          <td>Supplier Working :</td>
-          <td><button  class="btn1" mat-raised-button color="primary" [disabled]="basedOnSirResponse"(click)="openDialog()">SIR</button></td>
-          <td><button  class="btn2" mat-raised-button color="primary">UPDATE</button></td>
-          <td><button  class="btn3" mat-raised-button color="primary">ADDITIONAL INFO</button></td>
+            <td><button class="sirBtn" mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openDialog()">SIR</button></td>
+            <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td>
+            <td><button class="addInfoBtn" mat-raised-button color="primary">ADDITIONAL INFO</button></td>
       </tr>
   </table >
-  &nbsp;
-    <!--Mat Table-->
-<div class="supplierTable">  
-  <table mat-table [dataSource]="dataSource1" class="mat-elevation-z8">  
-    <!-- Position Column -->
-    <ng-container matColumnDef="Last Updated">
-        <th mat-header-cell *matHeaderCellDef> Last Updated </th>
-        <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="Status">
-        <th mat-header-cell *matHeaderCellDef> Status </th>
-           <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="Notes">
-      <th mat-header-cell *matHeaderCellDef> Notes </th>
-      <td mat-cell *matCellDef="let worklog"> {{worklog}} </td>
-    </ng-container>    
-  
-    <tr mat-header-row *matHeaderRowDef="displayedColumns1; sticky: true"></tr>
-    <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns1;" 
-                                    [ngClass]="{'highlight': selectedAct == row}"
-                                    (click)="setClickedRow(row)"></tr>
-    </table>      
-  </div>
-            
+    <br><br>
         <div class="button-row btngp2">
           <mat-label>Sort By:</mat-label> <mat-form-field><mat-select disabled placeholder="Last updated">
               <mat-option *ngFor="let food of foods" [value]="food.value">
