@@ -6,7 +6,7 @@
  <tr>
    <td>
    <mat-form-field class="dslSirDrp">
-     <mat-select placeholder="List" [(ngModel)]="firstList">
+     <mat-select [(ngModel)]="firstList">
        <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
      </mat-select>
    </mat-form-field>
@@ -23,7 +23,7 @@
      </mat-form-field>
   
      <mat-form-field class="dslSirDrp1 dropLeft">
-       <mat-select placeholder="Whose" [(ngModel)]="thirdList">
+       <mat-select [(ngModel)]="thirdList">
            <mat-option *ngFor="let drop2 of selectedDrop1" [value]="drop2">{{drop2}}</mat-option>
        </mat-select>
      </mat-form-field>

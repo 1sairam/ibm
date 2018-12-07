@@ -20,7 +20,7 @@ export class SirCreationDialogComponent  {
 
   buttonDisabled: boolean;
 
-  private _url: string ='http://zlp41098.vci.att.com:30372/ordermgmtservice/v1/service/createSirRequest';
+  private _url: string ='../ordermgmtservice/v1/service/createSirRequest';
 
   constructor(
     public dialogRef: MatDialogRef<SirCreationDialogComponent>,

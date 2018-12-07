@@ -14,4 +14,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  invalidateSession(){
+    location.href="./invalidateSession";
+  }
+
 }

@@ -3,5 +3,5 @@
     <span>Broadband Workflow</span>
     <span class="header-fill-remaining-space"></span>
     <span>{{userInfo?.loginName}} | {{userInfo?.userAttuid}}</span>&nbsp;<i class="icon-oneperson white"></i> 
-    <button mat-button class="white">Logout&nbsp;<i class="small icon-controls-poweronoff white" role="img"></i></button>
+    <button (click)="invalidateSession();" mat-button class="white">Logout&nbsp;<i class="small icon-controls-poweronoff white" role="img"></i></button>
 </mat-toolbar>
