@@ -106,12 +106,12 @@ export class AppComponent implements OnInit, AfterViewInit {
     else{
     //Write logic to validate the case and pass case info....
     //this.userInfoService.testSample().then(data => {
-    this.caseInfoService.getCaseInfo(this.caseId).then(data => {
+    this.caseInfoService.getCaseInfo(caseId).then(data => {
     this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
     console.log(this.selectCase + "select case");
-    this.caseInfoService.createCaseInfo(this.caseId,data);//for all components
+    this.caseInfoService.createCaseInfo(caseId,data);//for all components
     this.selectedCaseIndex = this.selectCase;
     this.isLoading = false;
     },
