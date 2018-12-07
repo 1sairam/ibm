@@ -1,0 +1,40 @@
+.headerTitle{
+    background-color: #3f51b5;
+    color: white;
+}
+
+mat-dialog-content{
+    width: 40%;
+    height: 50%;
+}
+
+.row_one,.row_three,.row_five{
+    /* margin: 1%; */
+    background-color: lightgray;
+    height: 48px;
+  }
+
+  .closeBtn{
+    margin-left: 35%;
+    background-color: #3f51b5;
+    color: white;
+  }
+
+  .project{
+    margin-left: 43%;
+  }
+  .serviceIndicator{
+    margin-left: 32%;
+  }
+  .salesOffer{
+    margin-left: 39%;
+  }
+  .custQualifier{
+    margin-left: 35%;
+  }
+  .origin{
+    margin-left: 45%;
+  }
+  .custPremises{
+    margin-left: 35%;
+  }

@@ -11,4 +11,10 @@ export class CaseInfo {
     "tableSof":any;
     "tableContact":any;
     "tableAddress":any;
+    "tableQueue":any;
+    "tableWipbin":any;
+    "tableUser":any;
+    "tableCondition":any;
+    "tableGbstElm":any;
+
 }

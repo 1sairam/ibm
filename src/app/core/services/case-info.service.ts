@@ -10,6 +10,7 @@ export class CaseInfoService {
   caseInfo: CaseInfo[] = [];
   case: CaseInfo;
   selectedIndex: number;
+  moreInfoDetails : any;
 
   private _url: string = "./caseInfo/";
   private _caseInfoMocksUrl = "app/core/mocks/case-info.json";
@@ -30,6 +31,11 @@ export class CaseInfoService {
   getSelectedCaseInfo() {
     console.log(this.selectedIndex +":"+this.caseInfo );
     return this.caseInfo[this.selectedIndex];
+  }
+
+  //getting the more info values
+  getCaseInfoMoreDetails(details){
+    this.moreInfoDetails = details;
   }
 
   createCaseInfo(caseId,caseInfo:CaseInfo){

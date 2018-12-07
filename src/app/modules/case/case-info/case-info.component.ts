@@ -2,7 +2,7 @@ import { Component, OnInit, Output,EventEmitter  } from '@angular/core';
 import { CaseInfoService } from '../../../core/services/case-info.service';
 import { CaseInfo } from '../../../core/models/case-info';
 import {MatDialog} from '@angular/material';
-
+import { MoreInfoDialogComponent } from '../../../shared/components/more-info-dialog/more-info-dialog.component'
 @Component({
   selector: 'bbw-case-info',
   templateUrl: './case-info.component.html',
@@ -31,6 +31,8 @@ export class CaseInfoComponent implements OnInit {
       this.caseInfo.tableAddress.xCountry = "USA";
     }
     console.log("caseInfo:"+this.caseInfo);
+    //sending the more info values
+    this.caseInfoService.getCaseInfoMoreDetails(this.caseInfo);
   }
 
   types = [
@@ -58,76 +60,24 @@ export class CaseInfoComponent implements OnInit {
                   "Fraud Resumption",
                   "Fraud & Abuse request"
               ];
-// priorityAndSeverity = [
-//                         "Please Specify",
-//                         "0-Critical",
-//                         "1-High",
-//                         "2-Medium",
-//                         "3-Low",
-//                         "4-No Rush"
-//                       ];
-serviceIndicators = ["MIS","VPN","WSS","DSL"];
-salesOffers = ["DSL","AVTS","Please Specify","MIS"];
-custQualifiers = [
-                    ".com",
-                    "Concert",
-                    "Domestic",
-                    "DSP",
-                    "Government",
-                    "GV Resale",
-                    "International",
-                    "ISP",
-                    "Internal",
-                    "MARO",
-                    "NTS Carrier",
-                    "NTS Hosting",
-                    "Regular Corporate",
-                    "Re-Marketer",
-                    "Reseller Direct",
-                    "VAR/Agent",
-                    "Wholesale",
-                    "WH End User",
-                    "N/A",
-                    ""
-                 ];
-origins = [
-            "Please Specify",
-            "CCOM",
-            "Customers",
-            "DSL BRS",
-            "DSL CSM",
-            "DSL MDS",
-            "DSL On-Line",
-            "EasyLink",
-            "Email",
-            "E-Order",
-            "Fax",
-            "Letter",
-            "Line-Split Requested",
-            "MIS Provisioning",
-            "MNS",
-            "NetSolve",
-            "Network Care",
-            "Other",
-            "Phone",
-            "VISP Partner Request",
-            "VISP_Partner",
-            "VISP End User Request",
-            "VISP_end_user",
-            "Web MIS SOF",
-            "World Wide Web",
-            "Website Services(EW3)",
-            "Web LCM site",
-            "Web WSS SOF"
-          ];
-custPremises = ["Domestic"];
+priorityAndSeverity = [
+                        "Please Specify",
+                        "0-Critical",
+                        "1-High",
+                        "2-Medium",
+                        "3-Low",
+                        "4-No Rush"
+                      ];
 
   changeComp(index){
     this.changeToComponent.emit(index);
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogRef = this.dialog.open(MoreInfoDialogComponent, {
+      width: '35%',
+      height : '70%'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -135,14 +85,7 @@ custPremises = ["Domestic"];
   }
 
   MAT_TAB_COLLAPSED_HEIGHT = '35px';
-  MAT_TAB_EXPANDED_HEIGHT = '25px';
+  MAT_TAB_EXPANDED_HEIGHT = '27px';
 }
 
-@Component({
-  selector: 'dialog-content-example-dialog',
-  templateUrl: 'more-info-dialog-message.html',
-})
-export class DialogContentExampleDialog {
-  data:any;
-}
 

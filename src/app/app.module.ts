@@ -42,7 +42,8 @@ import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/mo
   ],
   providers: [],
   entryComponents:[
-    WarningMessageDialogComponent
+    WarningMessageDialogComponent,
+    MoreInfoDialogComponent
   ],
   bootstrap: [AppComponent]
 })

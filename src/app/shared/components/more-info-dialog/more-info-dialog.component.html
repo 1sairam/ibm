@@ -1,3 +1,59 @@
-<p>
-  more-info-dialog works!
-</p>
+<h1 mat-dialog-title class="headerTitle">Case Info : More Details</h1>
+
+<div mat-dialog-content>
+      <div class="row_one">
+        <label>Project # : </label>
+        <mat-form-field class="project">
+          <input matInput [(ngModel)]="details.tableCase.xProjectNum" [disabled]="true"> 
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label>Service Indicator : </label>
+        <mat-form-field class="serviceIndicator">
+          <mat-select [(value)]="details.tableCase.xServiceIndicator" [disabled]="true">
+            <mat-option *ngFor="let serviceIndicatorValue of serviceIndicators" [value]="serviceIndicatorValue">{{serviceIndicatorValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+              
+      <div class="row_three">
+        <label>Sales Offer : </label>
+        <mat-form-field class="salesOffer">
+          <mat-select [(value)]="details.tableSof.salesOffer" [disabled]="true">
+            <mat-option *ngFor="let salesOfferValue of salesOffers" [value]="salesOfferValue">{{salesOfferValue}}</mat-option>
+          </mat-select>
+        </mat-form-field> 
+      </div>
+
+      <div>
+        <label>Cust Qualifier : </label>
+        <mat-form-field class="custQualifier">
+          <mat-select [(value)]="details.tableSite.xCustSubType" [disabled]="true">
+            <mat-option *ngFor="let custQualifierValue of custQualifiers" [value]="custQualifierValue">{{custQualifierValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+          
+      <div class="row_five">
+        <label>Origin : </label>
+        <mat-form-field class="origin">
+          <mat-select [(value)]="details.tableCase.xOrigin" [disabled]="true">
+            <mat-option *ngFor="let originValue of origins" [value]="originValue">{{originValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <label>Cust Premises : </label>
+        <mat-form-field class="custPremises">
+          <mat-select [(value)]="details.tableSite.premisesLocation" [disabled]="true">
+            <mat-option *ngFor="let custPremisesValue of custPremises" [value]="custPremisesValue">{{custPremisesValue}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+</div>
+<div mat-dialog-actions>
+  <button class="closeBtn" mat-button (click)="closeDialog()">Close</button>
+  <!-- <button mat-button [mat-dialog-close] cdkFocusInitial>Close</button> -->
+</div>

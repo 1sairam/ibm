@@ -22,7 +22,9 @@
     margin-left: 2%;
     margin-right: 2%;
   }
-  
+  .example-headers-align{
+    width:80%;
+  }
   .example-headers-align .mat-expansion-panel-header{
     flex-basis:0;
     background-color: #3f51b5;
@@ -106,18 +108,14 @@
     width: 20%;
     height: 20%;
     border-color: 1px solid black;
-  }
-  /* .pannelMain:hover .pannelHead{
-    background-color: black;
-  } */
-  
+  } 
   
   .matExpansionPannel_left{
     margin-left: 2%;
     margin-right: 2%;
     margin-top:1%;
-    width: 30%;
-    display: inline-flex;
+    width: 34%;
+    display: inline-block;
   }
   
   
@@ -126,9 +124,7 @@
     margin-right: 2%;
     margin-top: 0%;
     margin-bottom: 3%;
-    /* display: inline-flex; */
-    /* position: relative; */
-    width: 60%;
+    width: 56%;
     float: right;
     
   }
@@ -153,17 +149,100 @@
     margin-top: 2%;
   }
   
-  
-  .custId,.name,.mainPhone,.billerId,.subType,.address,.city,.zipcode,.project,.salesOffer,.origin,.country{
-    margin-right: 6%;
+  .row_one{
+    margin: 1%;
+  }
+  .row_one,.row_three,.row_five,.row_seven,.row_nine{
+    background-color: lightgray;
+    height: 46px;
   }
 
-  .btn_site_details{
-    margin-left: 5%;
+  /* case details field styles */
+  .custId{
+    margin-left: 40%;
   }
+  .casetitle{
+    margin-left: 37%;
+  }
+  .name{
+    margin-left: 41%;
+  }
+  .reportedBy{
+    margin-left: 25%;
+  }
+  .mainPhone{
+    margin-left: 33%;
+  }
+  .email{
+    margin-left: 43%;
+  }
+  .billerId{
+    margin-left: 40%;
+  }
+  .type{
+    margin-left: 44%;
+  }
+  .subType{
+    margin-left: 37%;
+  }
+  .prioritySeverity{
+    margin-left: 29%;
+  }
+
+  /* customer info field styles */
+  .address{
+    margin-left: 40%;
+  }
+  .roomFloor{
+    margin-left:35%;
+  }
+  .city{
+    margin-left: 47%;
+  }
+  .state{
+    margin-left: 45%;
+  }
+  .country{
+    margin-left: 42%;
+  }
+  .zipcode{
+    margin-left: 42%;
+  }
+
+  /* case info other detail field styles */
+  .queue{
+    margin-left: 43%;
+  }
+  .wipBin{
+    margin-left: 42%;
+  }
+  .owner{
+    margin-left: 43%;
+  }
+  .condition{
+    margin-left: 39%;
+  }
+  .status{
+    margin-left: 43%;
+  }
+  .createDate{
+    margin-left: 35%;
+  }
+  .workCenter{
+    margin-left: 35%;
+  }
+
+  .btn_site_details,.btn_contact_details{
+    margin-left: 13%;
+    background-color: #3f51b5;
+    color: white;
   
-  .btn_contact_details{
-    margin-left: 30%;
+  }
+
+  .btn_more_info{
+    background-color: #3f51b5;
+    color: white;
+  
   }
   
   
