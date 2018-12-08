@@ -4,14 +4,14 @@
       <div class="row_one">
         <label>Project # : </label>
         <mat-form-field class="project">
-          <input matInput [(ngModel)]="details.tableCase.xProjectNum" [disabled]="true"> 
+          <input matInput [(ngModel)]="details.tableCase.xprojectNum" [disabled]="true"> 
         </mat-form-field>
       </div>
 
       <div>
         <label>Service Indicator : </label>
         <mat-form-field class="serviceIndicator">
-          <mat-select [(value)]="details.tableCase.xServiceIndicator" [disabled]="true">
+          <mat-select [(value)]="details.tableCase.xserviceIndicator" [disabled]="true">
             <mat-option *ngFor="let serviceIndicatorValue of serviceIndicators" [value]="serviceIndicatorValue">{{serviceIndicatorValue}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -29,7 +29,7 @@
       <div>
         <label>Cust Qualifier : </label>
         <mat-form-field class="custQualifier">
-          <mat-select [(value)]="details.tableSite.xCustSubType" [disabled]="true">
+          <mat-select [(value)]="details.tableSite.xcustSubtype" [disabled]="true">
             <mat-option *ngFor="let custQualifierValue of custQualifiers" [value]="custQualifierValue">{{custQualifierValue}}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -38,7 +38,7 @@
       <div class="row_five">
         <label>Origin : </label>
         <mat-form-field class="origin">
-          <mat-select [(value)]="details.tableCase.xOrigin" [disabled]="true">
+          <mat-select [(value)]="details.tableCase.xorigin" [disabled]="true">
             <mat-option *ngFor="let originValue of origins" [value]="originValue">{{originValue}}</mat-option>
           </mat-select>
         </mat-form-field>
