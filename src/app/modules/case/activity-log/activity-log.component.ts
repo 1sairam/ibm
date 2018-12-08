@@ -100,7 +100,9 @@ setDefault(val){
     if(this.firstOrder != 'Create Date'){
       queryInput = this.userTextInput;
     }else{
+      try{
       queryInput = this.userInput.getDate() +'/' +this.userInput.getMonth()+'/'+this.userInput.getFullYear();
+      }catch(err){}
     }
     console.log(queryInput);
     let sortOpt = this.thirdList;
