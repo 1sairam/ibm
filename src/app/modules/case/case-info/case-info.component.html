@@ -51,7 +51,7 @@
                      <div>
                        <label>Email : </label>
                         <mat-form-field class="email">
-                            <input matInput  [(ngModel)]="caseInfo.tableContact.eMail" [disabled]="true">
+                            <input matInput  [(ngModel)]="caseInfo.tableContact.email" [disabled]="true">
                         </mat-form-field>
                      </div>
                     
@@ -64,7 +64,7 @@
                      <div>
                        <label>Type : </label>
                         <mat-form-field class="type">
-                            <mat-select  [(value)]="caseInfo.tableCase.xCaseType" [disabled]="true">
+                            <mat-select  [(value)]="caseInfo.tableCase.xcaseType" [disabled]="true">
                               <mat-option *ngFor="let typeValue of types" [value]="typeValue">{{typeValue}}</mat-option>
                             </mat-select>
                           </mat-form-field>
@@ -72,7 +72,7 @@
                      <div class="row_nine">
                        <label>Sub Type : </label>
                          <mat-form-field class="subType">
-                           <mat-select [(value)]="caseInfo.tableCase.xCaseSubtype">
+                           <mat-select [(value)]="caseInfo.tableCase.xcaseSubtype">
                              <mat-option *ngFor="let subTypeValue of subTypes" [value]="subTypeValue">{{subTypeValue}}</mat-option>
                             </mat-select>
                          </mat-form-field>
@@ -184,7 +184,7 @@
                     <div class="row_five">
                         <label>Status : </label>
                         <mat-form-field class="status">
-                            <input matInput [(ngModel)]="caseInfo.tableGbstElm.status" [disabled]="true">
+                            <input matInput [(ngModel)]="caseInfo.tableGbstElm.title" [disabled]="true">
                         </mat-form-field>
                     </div>
 
