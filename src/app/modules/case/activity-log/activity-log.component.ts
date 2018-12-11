@@ -47,20 +47,19 @@ private map= new Map<string, string[]>([
   ['User',['starts with','ends with','contains','sounds like']],
   ['Additional Information',['starts with','ends with','contains','sounds like']],
 ])
-firstOrder:string="Create Date";
-secondOrder:string ="earlier than";
+firstOrderSelected:string="Create Date";
+secondOrderSelected:string ="earlier than";
 thirdList:string="Descending";
 get firstOrders():string[]{
-  this.secondOrder = this.map.get(this.firstOrder)[0];
-  //clearing the inputs
-  
   return Array.from(this.map.keys());
 }
 get secondOrders():string[]{
-  let orders = this.map.get(this.firstOrder);
+  let orders = this.map.get(this.firstOrderSelected);
   return orders;
 }
+
 setDefault(val){
+    this.secondOrderSelected = this.map.get(this.firstOrderSelected)[0];
     this.userTextInput = "";
     this.userInput = "";
 }
@@ -94,10 +93,10 @@ setDefault(val){
   userTextInput:any="";
   listClick() {
     this.dataSource.data = [];
-    let option = this.firstOrder;
-    let subOpt = this.secondOrder;
+    let option = this.firstOrderSelected;
+    let subOpt = this.secondOrderSelected;
     let queryInput = "";
-    if(this.firstOrder != 'Create Date'){
+    if(this.firstOrderSelected != 'Create Date'){
       queryInput = this.userTextInput;
     }else{
       try{
