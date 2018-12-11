@@ -100,8 +100,8 @@ setDefault(val){
     if(this.firstOrder != 'Create Date'){
       queryInput = this.userTextInput;
     }else{
-      try{ 
-      queryInput = this.userInput.getDate() +'/' +(this.userInput.getMonth()+1)+'/'+this.userInput.getFullYear();
+      try{
+      queryInput = (this.userInput.getMonth()+1)+'/'+this.userInput.getDate() +'/' +this.userInput.getFullYear();
       }catch(err){}
     }
     console.log(queryInput);
