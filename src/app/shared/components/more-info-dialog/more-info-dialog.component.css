@@ -21,20 +21,34 @@ mat-dialog-content{
   }
 
   .project{
-    margin-left: 43%;
+    margin-left: 15%;
+     width: 65%;
   }
   .serviceIndicator{
-    margin-left: 32%;
+    margin-left: 4%;
+     width: 65%;
   }
   .salesOffer{
-    margin-left: 39%;
+    margin-left: 12%;
+     width: 65%;
   }
   .custQualifier{
-    margin-left: 35%;
+    margin-left: 8%;
+     width: 65%;
   }
   .origin{
-    margin-left: 45%;
+    margin-left: 18%;
+     width: 65%;
   }
   .custPremises{
-    margin-left: 35%;
+    margin-left: 8%;
+     width: 65%;
+  }
+
+  label{
+    font-weight: bold;
+  }
+
+  .opt{
+    color: black;
   }

@@ -30,7 +30,7 @@
         <label>Cust Qualifier : </label>
         <mat-form-field class="custQualifier">
           <mat-select [(value)]="details.tableSite.xcustSubtype" [disabled]="true">
-            <mat-option *ngFor="let custQualifierValue of custQualifiers" [value]="custQualifierValue">{{custQualifierValue}}</mat-option>
+            <mat-option class="opt" *ngFor="let custQualifierValue of custQualifiers" [value]="custQualifierValue">{{custQualifierValue}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
