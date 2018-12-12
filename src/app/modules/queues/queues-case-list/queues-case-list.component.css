@@ -2,9 +2,9 @@
     border: 1px solid gray;
 } */
 mat-card{
-    background: navy;
-    color: white;
-    height: 5px;
+    background-color: #3f51b5;
+    color:white;
+    padding: 1.5%;
     width: 96%;
     position: absolute;
     left: 0%;
@@ -99,11 +99,11 @@ table{
 }
 th{
     font-size: 15px;
-    background-color: aquamarine;
-    color:black;
+    background-color: #3f51b5;
+    color:white;
 }
 .result-row:hover {
-    background-color: #bbdebb; 
+    /* background-color: #bbdebb;  */
 }
 .dslSirDrp{
     width: 12.5%;
@@ -220,16 +220,6 @@ th.mat-header-cell {
   .pagination-row{
     margin-top: 47%;
 }
-
-td.mat-cell{
-    text-align: center;
-}
-th.mat-header-cell {
-    text-align: center;
-}
-th{
-    /* font-weight: bold; */
-    font-size: 15px;
-    background-color: aquamarine;
-    color:black;
+tr.mat-header-row{
+    height: 45px;
 }

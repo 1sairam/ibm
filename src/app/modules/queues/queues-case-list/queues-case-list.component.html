@@ -17,14 +17,14 @@
  <tr>
    <td>
      <mat-form-field class="dslSirDrp1 dropLeft1">
-       <mat-select [(ngModel)]="secondList">
-         <mat-option *ngFor="let drop1 of selectedDrop" [value]="drop1">{{drop1}}</mat-option>
+       <mat-select [(ngModel)]="drop2">
+         <mat-option *ngFor="let drop2 of selectDrop2" [value]="drop2">{{drop2}}</mat-option>
        </mat-select>
      </mat-form-field>
   
      <mat-form-field class="dslSirDrp1 dropLeft">
-       <mat-select [(ngModel)]="thirdList">
-           <mat-option *ngFor="let drop2 of selectedDrop1" [value]="drop2">{{drop2}}</mat-option>
+       <mat-select  [(ngModel)]="drop3">
+           <mat-option *ngFor="let drop3 of selectedDrop3" [value]="drop3">{{drop3}}</mat-option>
        </mat-select>
      </mat-form-field>
 
@@ -37,7 +37,7 @@
  
      <mat-form-field class="dslSirDrp1 dropLeft">
        <mat-select [(ngModel)]="fourthList">
-           <mat-option *ngFor="let drop3 of selectedDrop2" [value]="drop3" >{{drop3}}</mat-option>
+           <mat-option *ngFor="let drop4 of selectedDrop4" [value]="drop4" >{{drop4}}</mat-option>
        </mat-select>
      </mat-form-field>
  <button class="dslSirDrp1 dropRight" mat-raised-button (click)="listButton()">List</button>
@@ -141,10 +141,10 @@
      </mat-form-field>
    </td>
    <td><mat-label>Items</mat-label></td>
-   <td><button class="dslBtnGrp1" mat-raised-button (click)="viewCase()" [disabled]="disabledButton">View</button></td>
-   <td><button class="dslBtnGrp2" mat-raised-button (click)="rejectCase()" [disabled]="disabledButton">Reject</button></td>
-   <td><button class="dslBtnGrp2" mat-raised-button (click)="acceptCase()" [disabled]="disabledButton">Accept</button></td>
-   <td class="dslDon"><button class="dslBtnGrp3" mat-raised-button>Done</button></td>
+   <td><button class="dslBtnGrp1" color="primary" mat-raised-button (click)="viewCase()" [disabled]="disabledButton">View</button></td>
+   <td><button class="dslBtnGrp2" color="primary" mat-raised-button (click)="rejectCase()" [disabled]="disabledButton">Reject</button></td>
+   <td><button class="dslBtnGrp2" color="primary" mat-raised-button (click)="acceptCase()" [disabled]="disabledButton">Accept</button></td>
+   <td class="dslDon"><button color="primary" class="dslBtnGrp3" mat-raised-button>Done</button></td>
  </tr>
 </table>
 </div>

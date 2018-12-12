@@ -1,5 +1,6 @@
 .mat-tree-node{
     margin-left: -12%;
+    min-height: 23px;
 }
 .hostSimple{
     padding-left: 12%;
@@ -24,6 +25,9 @@
     /* font-family: bold; */
     /* background:darkgrey; */
     /* color: blue; */
+}
+[class*="small icon-"] {
+    cursor: pointer;
 }
 .alignItm{
     margin-left: -16%;

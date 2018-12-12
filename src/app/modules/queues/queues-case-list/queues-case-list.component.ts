@@ -14,7 +14,27 @@ export class QueuesCaseListComponent implements OnInit {
     dataSource = new MatTableDataSource<any>();
     queuesCase: QueuesCaseList[]=[];
     selectedTyp: QueuesCaseList;
+private map= new Map<string, string[]>([
+  ['ID',['Starts With','ends With','Contains','Sounds Like']],
+  ['Age',['<','>']],
+  ['Condition',['Starts With','ends with','Contains','Sounds Like']],
+  ['Status',['Starts With','ends With','Contains','Sounds Like']],
+  ['Priority',['Starts With','ends With','Contains','Sounds Like']],
+  ['Severity',['Starts With','ends With','Contains','Sounds Like']],
+  ['Title',['Starts With','ends With','Contains','Sounds Like']],
+])
+drop2:string="ID";
+drop3:string ="Starts With";
 
+get selectDrop2():string[]{
+  this.drop3 = this.map.get(this.drop2)[0];
+  return Array.from(this.map.keys());
+}
+
+get selectedDrop3():string[]{
+  let orders = this.map.get(this.drop2);
+  return orders;
+}
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
   }
@@ -31,14 +51,10 @@ export class QueuesCaseListComponent implements OnInit {
   headerInfo: any;
 
   public firstList:any= 'All';
-  public secondList: any='ID';
-  public thirdList: any='Starts With';
-  public fourthList: any='Descending';
+  public fourthList: any='Ascending';
   
   selectDrop = ["All", "Case", "Subcase", "RQST", "SOLN", "CR"];
-  selectedDrop = ["ID", "Age", "Type", "Status", "Priority", "Severity", "Title"];
-  selectedDrop1 = ["Starts With", "Ends with", "Contains", "Sounds Like"];
-  selectedDrop2 = ["Descending", "Ascending"];
+  selectedDrop4 = ["Descending", "Ascending"];
 
 
 

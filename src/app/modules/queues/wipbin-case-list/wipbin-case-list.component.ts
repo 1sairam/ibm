@@ -10,14 +10,38 @@ import { WipbinsCaseList } from '../../../core/models/wipbins-case-list';
 export class WipbinCaseListComponent implements OnInit {
 
   disabledEt:any;
-  public firsrList:any = 'All';
-  public secondList:any = 'ID';
-  public thiredList:any ='Starts with';
+  public firstList:any = 'All';
+    // public secondList:any = 'ID';
+    // public thiredList:any ='Starts with';
   public fourthList:any ='Ascending';
 
+  public selectedTyp;
+  disabledButton=true;
   dataSource = new MatTableDataSource<any>();
   wipBinCase:any;
+  selectedRow: number;
+//Drop-Downs Values
+private map= new Map<string, string[]>([
+  ['ID',['Starts With','ends With','Contains','Sounds Like']],
+  ['Age',['<','>']],
+  ['Condition',['Starts With','ends with','Contains','Sounds Like']],
+  ['Status',['Starts With','ends With','Contains','Sounds Like']],
+  ['Priority',['Starts With','ends With','Contains','Sounds Like']],
+  ['Severity',['Starts With','ends With','Contains','Sounds Like']],
+  ['Title',['Starts With','ends With','Contains','Sounds Like']],
+])
+drop2:string="ID";
+drop3:string ="Starts With";
+get selectDrop2():string[]{
+  this.drop3 = this.map.get(this.drop2)[0];
+  //clearing the inputs
   
+  return Array.from(this.map.keys());
+}
+get selectedDrop3():string[]{
+  let orders = this.map.get(this.drop2);
+  return orders;
+}
   @Input()
   set dataToDisplay(dataToDisplay:WipbinsCaseList[]){
     this.dataSource.data = dataToDisplay;
@@ -30,9 +54,6 @@ export class WipbinCaseListComponent implements OnInit {
   @Input()
   headerInfo: any;
 
-  selectedRow: number;
-  selectedTyp:any;
-  disabledButton:any;
   selectedRowIndex: number = -1;
   setClickedRow(row) {
     this.selectedTyp = row;
@@ -50,11 +71,8 @@ export class WipbinCaseListComponent implements OnInit {
   }
 
   selectDrop = ["All", "Case", "Subcase", "RQST", "SOLN", "CR", 'Quote/contact', 'Opportunity'];
-  selectDrop2=['ID', 'Condition', 'Age', 'Status', 'Priority', 'Severity', 'Title']
-  selectedDrop3=['Starts with','<', '>'];
   selectedDrop4=['Ascending', 'Descending']
 
-  //type pending
   displayedColumns: string[] = ['type', 'idNumber', 'name', 'age', 'condition', 'status', 'priority', 'severity', 'title'];
   
   listButton(){

@@ -7,7 +7,7 @@
     
     <td class="wipdrop-td">
       <mat-form-field class="wipdrop-list">
-      <mat-select [(ngModel)]="firsrList">
+      <mat-select [(ngModel)]="firstList">
           <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
         </mat-select>
       </mat-form-field>
@@ -21,14 +21,14 @@
       <tr>
        <td>
         <mat-form-field class="wipdrop-list1">
-          <mat-select [(ngModel)]="secondList">
-            <mat-option *ngFor="let drop1 of selectDrop2" [value]="drop1">{{drop1}}</mat-option> 
+          <mat-select [(ngModel)]="drop2">
+            <mat-option *ngFor="let drop2 of selectDrop2" [value]="drop2">{{drop2}}</mat-option> 
           </mat-select>
         </mat-form-field>
       
         <mat-form-field class="wipdrop-list1 leftOne">
-          <mat-select [(ngModel)]="thiredList">
-            <mat-option *ngFor="let drop2 of selectedDrop3" [value]="drop2">{{drop2}}</mat-option> 
+          <mat-select [(ngModel)]="drop3">
+            <mat-option *ngFor="let drop3 of selectedDrop3" [value]="drop3">{{drop3}}</mat-option> 
           </mat-select>
         </mat-form-field>
        
@@ -41,10 +41,10 @@
         
           <mat-form-field class="wipdrop-list1 leftOne">
             <mat-select [(ngModel)]="fourthList">
-              <mat-option *ngFor="let drop3 of selectedDrop4" [value]="drop3">{{drop3}}</mat-option> 
+              <mat-option *ngFor="let drop4 of selectedDrop4" [value]="drop4">{{drop4}}</mat-option> 
             </mat-select>
           </mat-form-field>
-        <button class="listBtn" mat-raised-button (click)="listButton()">List</button>
+        <button class="listBtn" color="primary" mat-raised-button (click)="listButton()">List</button>
       </td>
       </tr>
     </table>
@@ -129,18 +129,9 @@
             <input [disabled]="true" [value]="wipBinCase.length" matInput type="text"> 
         </mat-form-field><mat-label>Items</mat-label> 
         </td>
-        <td><button class="btn1" mat-raised-button [disabled]="disabledButton" (click)="openCase()">Open</button></td>
-        <td> <button class="btn1" mat-raised-button [disabled]="disabledButton" (click)="dispatchCase()">Dispatch</button></td>
-        <td><button class="btn1" mat-raised-button>Done</button></td>
+        <td><button class="btn1" color="primary" mat-raised-button [disabled]="disabledButton" (click)="openCase()">Open</button></td>
+        <td> <button class="btn1" color="primary" mat-raised-button [disabled]="disabledButton" (click)="dispatchCase()">Dispatch</button></td>
+        <td><button class="btn1" color="primary" mat-raised-button>Done</button></td>
     </tr>
 
    </table>
-   <!-- <div class="item-grp"> 
-    <mat-form-field class="itm-inpt">
-        <input matInput type="text"> 
-    </mat-form-field> 
-    <mat-label>Itmes</mat-label>
-    <button class="btn1" mat-raised-button (click)="listButton()">Open</button>
-    <button class="btn1" mat-raised-button (click)="listButton()">Dispatch</button>
-    <button class="btnq" mat-raised-button (click)="listButton()">Done</button>
-   </div> -->
