@@ -12,16 +12,48 @@
     </mat-form-field>&nbsp;&nbsp;
     <button mat-flat-button color="primary" (click)="getCaseInfo(caseId);caseId='';">Open</button>
     <span class="header-fill-remaining-space"></span>
-    <button mat-button color="primary" (click)="createCase()"><i class="small icon-controls-subscribe"></i> Create Case</button>
-    <button mat-button color="primary"><i class="small icon-people-groupcollaboration"></i> Contacts</button>
-    <button mat-button color="primary"><i class="small icon-location-geofence"></i> Sites</button>
-    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();"><i class="small icon-content-seriessubscribetablet" ></i> WIP Bins / Queues </button>
-    <button mat-button color="primary"><i class="small icon-documents-searchfind" role="img" aria-label=""></i> Advanced Search </button>
-    <button color="primary" mat-button [matMenuTriggerFor]="menu"><i class="small icon-content-listguide"></i> Menu</button>
-    <mat-menu #menu="matMenu">
-        <button mat-menu-item>Apps</button>
-        <button mat-menu-item>Actions</button>
+    <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Accept</button>
+    <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Dispatch</button>
+    <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Move</button>
+    <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Assign</button>
+    <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Reject-Forward</button>
+    <button mat-button color="primary"><i class="small icon-location-geofence"></i> Yank</button>
+    <!-- <button mat-button color="primary" (click)="createCase()"><i class="small icon-controls-subscribe"></i> Create Case</button> -->
+    <button color="primary" mat-button [matMenuTriggerFor]="new"><i class="small icon-content-listguide"></i> New </button>
+    <mat-menu #new="matMenu">
+        <button mat-menu-item (click)="createCase()">Case</button>
+        <button mat-menu-item>Contact</button>
+        <button mat-menu-item>Site</button>
+        <button mat-menu-item>Contract</button>
+        <button mat-menu-item>Account</button>
     </mat-menu>
+    <button color="primary" mat-button [matMenuTriggerFor]="select"><i class="small icon-content-listguide"></i> Select </button>
+    <mat-menu #select="matMenu">
+        <button mat-menu-item>Contacts</button>
+        <button mat-menu-item>Sites</button>
+        <button mat-menu-item>Contracts</button>
+        <button mat-menu-item>Accounts</button>
+    </mat-menu>
+    <button color="primary" mat-button [matMenuTriggerFor]="actions"><i class="small icon-content-listguide"></i> Actions </button>
+    <mat-menu #actions="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="log">Log</button>
+            <button mat-menu-item>Change Status</button>
+            <button mat-menu-item>Change Contact/Site</button>
+            <button mat-menu-item>Close Task</button>
+            <button mat-menu-item>Reopen Task</button>
+    </mat-menu>
+    <mat-menu #log="matMenu">
+            <button mat-menu-item>Log Phone Call</button>
+            <button mat-menu-item>Log Commitment</button>
+            <button mat-menu-item>Log Notes</button>
+            <button mat-menu-item>Log Research</button>
+            <button mat-menu-item>Log Email</button>
+    </mat-menu>
+    <!-- <button mat-button color="primary"><i class="small icon-people-groupcollaboration"></i> Contacts</button>
+    <button mat-button color="primary"><i class="small icon-location-geofence"></i> Sites</button> -->
+    <button mat-button color="primary" (click)="wipBinsSideNav.toggle();"><i class="small icon-content-seriessubscribetablet" ></i> WIP Bins / Queues </button>
+    <!-- <button mat-button color="primary"><i class="small icon-documents-searchfind" role="img" aria-label=""></i> Advanced Search </button> -->
+
 </mat-toolbar>
 <!--Actual content Area-->
 <mat-drawer-container class="main-sidenav-queues-wipbins" [hasBackdrop]="true">

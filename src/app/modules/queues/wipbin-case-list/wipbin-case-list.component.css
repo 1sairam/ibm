@@ -5,7 +5,7 @@ mat-card{
     background: #3f51b5;
     color: white;
     padding: 1.5%;
-    width: 96%;
+    width: 97%;
     position: absolute;
     left: 0%;
     top: 0%;
@@ -24,7 +24,7 @@ mat-card{
     /* width: 17%; */
 }
 td.mat-cell{
-    text-align: center;
+    /* text-align: center; */
 }
 th.mat-header-cell {
     text-align: center;

@@ -12,8 +12,8 @@ table.mat-elevation-z8{
 }
 th{
   font-size: 15px;
-  background-color: aquamarine;
-  color:black;
+  background-color: #3f51b5;
+  color:white;
   height: 20%;
 }
 td{
@@ -28,12 +28,13 @@ td{
 
 .responseTable{
   margin-left: 5px;
-  width: 99.5%;
+  width: 98.5%;
   height: 220px;
   overflow: auto;
   margin-top: -1%;
   border: 1px solid gray;
   margin-top: 1%;
+  margin-bottom: 6px;
 }
 
 .grid-item
@@ -56,8 +57,8 @@ td{
   height: 100%;
 }
 .htable{
-  width:80%;
-  margin-left: 5%;
+  width:102%;
+  margin-left: 0%;
   height: 20px;
 }
 .mat-tab-body-content { 
@@ -170,4 +171,10 @@ mat-radio-button{
 .radioView{
     margin-left: -10%;  
 
+}
+.align-left{
+  margin-left: 0px;
+}
+.align-middle{
+  text-align: center;
 }

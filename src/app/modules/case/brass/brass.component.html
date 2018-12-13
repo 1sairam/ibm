@@ -35,23 +35,20 @@
         </div>
         
         <div class="grid-item2">
-           <fieldset class="ipLetter">
-               <legend>IP Letter</legend>
-               <mat-radio-group class="radioView">
-               <mat-radio-button [checked]="true" value="1">View</mat-radio-button>
-               </mat-radio-group>
-               <p class="rightalign"><button mat-raised-button color="primary" (click)="createIpMail(4)">Create IP mail</button></p>
-               <p class="rightalign"></p>
-               <p class="rightalign">
-                   <label style="margin-right: 40px;">Letter type :</label><br>
-               <mat-form-field><mat-select placeholder="Please Specify">
-               <mat-option *ngFor="let food of foods" [value]="food.value">
-               {{food.viewValue}}
-               </mat-option>
-               </mat-select></mat-form-field>
-               </p>
-               </fieldset>
-  
+               
+                <label>IP Letter: </label><br>
+                <mat-radio-group >
+                        <mat-radio-button class="align-left" [checked]="true" value="1">View</mat-radio-button>
+                </mat-radio-group>&nbsp;&nbsp;&nbsp;
+               <button mat-raised-button color="primary" (click)="createIpMail(4)">Create IP mail</button><br>
+               <label>Letter type :</label>
+               <mat-form-field>
+                    <mat-select placeholder="Please Specify">
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                    </mat-select>
+                </mat-form-field>
         </div>
     <div><label>Brass Response :</label></div>
 
@@ -90,30 +87,15 @@
                                         (click)="setClickedRow(row)"></tr>
         </table>      
   </div>
-  <table>
+  <table class="align-middle">
       <tr>
-            <td><button class="sirBtn" mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openDialog()">SIR</button></td>
-            <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td>
-            <td><button class="addInfoBtn" mat-raised-button color="primary">ADDITIONAL INFO</button></td>
+            <td><button mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openDialog()">SIR</button></td>
+            <!-- <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td> -->
+            <td><button  mat-raised-button color="primary">Addtional Info</button></td>
+            <td><button  mat-raised-button color="primary">More Working</button></td>
+            <td><button  mat-raised-button color="primary">Refresh</button></td>
       </tr>
   </table >
     <br><br>
-        <div class="button-row btngp2">
-          <mat-label>Sort By:</mat-label> <mat-form-field><mat-select disabled placeholder="Last updated">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-              </mat-option>
-              </mat-select></mat-form-field>
-              <span><mat-form-field><mat-select disabled placeholder="Descending">
-                  <mat-option *ngFor="let food of foods" [value]="food.value">
-                  {{food.viewValue}}
-                  </mat-option>
-                  </mat-select></mat-form-field></span> 
-  <button class="moreWorkingBtn" mat-raised-button color="primary">More Working</button>
-        
-  <button class="refreshBtn" mat-raised-button color="primary">Refresh</button>
-        
-  <button class="doneBtn" mat-raised-button color="primary" (click)="changeComp(0)">Done</button>
-</div>
 <mat-progress-spinner style="margin-top:-34%;left: 45%;z-index:125;" *ngIf="isLoading" color="success" mode="indeterminate"></mat-progress-spinner>
 </div>            
