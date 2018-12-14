@@ -1,10 +1,11 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit,ViewChild } from '@angular/core';
 import { CaseInfoService } from './core/services/case-info.service';
 import { UserInfoService } from './core/services/user-info.service';
 import { CaseCompService } from './core/services/case-comp.service';
 import { CaseCompItem } from './core/models/case-comp-item';
 import { UserInfo } from './core/models/user-info';
 import { Dialog } from './shared/util/dialog';
+import { CaseHostComponent } from './modules/case/case-host/case-host.component';
 
 @Component({
   selector: 'bbw-root',
@@ -13,6 +14,7 @@ import { Dialog } from './shared/util/dialog';
 })
 export class AppComponent implements OnInit, AfterViewInit {
 
+  @ViewChild(CaseHostComponent) caseHost: CaseHostComponent;
   title = 'BroadBand Workflow';
   caseIdList: string[] = [];
   caseId: string="";
@@ -91,7 +93,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     this.isLoading = true;
-    let local = false;
+    let local = true;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {
@@ -126,6 +128,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   
   createCase(){
     //this.getCaseInfo('untitled');
+  }
+
+  
+  openLogCommitment(){
+    this.caseHost.loadComponent(9);
   }
 
   setSelected(index) {

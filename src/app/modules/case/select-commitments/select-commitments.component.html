@@ -1,80 +1,74 @@
-<mat-accordion>
-  <mat-expansion-panel>
-          <mat-expansion-panel-header>
-                  Case 2682296: Select Commitments
-          </mat-expansion-panel-header>&nbsp;
+<br>
 <div>
   List Commitments whose
-  <span class="plannerRight">Planner : <mat-form-field><input matInput></mat-form-field></span>
-</div>  
-<br><br><br><br>
+  <span class="planner">Planner :
+    <mat-form-field class="plannerText">
+      <input matInput>
+    </mat-form-field>
+  </span>
+</div>
+<br>
+<div>
+  <span class="sideLeft">
+    <mat-form-field>
+      <mat-select [(ngModel)]="firstOrder" (ngModelChange)=setDefault($event)>
+        <mat-option *ngFor="let firstOrder of firstOrders" [value]="firstOrder">{{firstOrder}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+  <span class="sideMiddle">
+    <mat-form-field>
+      <mat-select [(ngModel)]="secondOrder">
+        <mat-option *ngFor="let secondOrder of secondOrders" [value]="secondOrder">{{secondOrder}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+  <span class="datePicker">
+    <mat-form-field *ngIf="firstOrder != 'Commit Date'">
+      <input matInput [(ngModel)]="userTextInput">
+    </mat-form-field>
+    <mat-form-field *ngIf="firstOrder == 'Commit Date';">
+      <input matInput [matDatepicker]="picker" [(ngModel)]="userInput">
+      <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Commit Date'"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </span>
+  <span class="sideRight">
+    <mat-form-field>
+      <mat-select [(ngModel)]="thirdList">
+        <mat-option *ngFor="let thirdOrder of thirdOrders" [value]="thirdOrder">{{thirdOrder}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </span>
+  <span class="showListBtn">
+    <button mat-raised-button color="primary">Show List</button>
+  </span>
+</div>
+<br><br><br>
 
-  <div>    
-      <span class="sideLeft">
-          <mat-form-field>
-              <mat-select [(value)]="selected2">
-                <mat-option value="option1">Activity</mat-option>
-                <mat-option value="option02">Commit Date</mat-option>
-                <mat-option value="option3">User</mat-option>
-                <mat-option value="option4">Additional Information</mat-option>
-              </mat-select>
-            </mat-form-field>          
-      </span>
-    
-      <span class="sideMiddle">
-          <mat-form-field>
-              <mat-select [(value)]="selected">
-                <mat-option value="option1">earlier than</mat-option>
-                <mat-option value="option2">later than</mat-option>
-    
-              </mat-select>
-            </mat-form-field>
-      </span>
-      <span class="datePicker">
-          <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>  
-      </span> 
-      <span class="sideRight">
-          <mat-form-field>
-              <mat-select [(value)]="selected">
-                <mat-option value="option1">Ascending</mat-option>
-                <mat-option value="option2">later than</mat-option>
-    
-              </mat-select>
-            </mat-form-field>
-      </span>  
-    </div><br>
-    <div class="buttonRight" >
-    <button mat-raised-button color="primary">List</button>
-    </div>
-    <br><br><br>
-
-    <!--Mat Table-->
+<!--Mat Table-->
 <div class="grid-container">
-    <div class="data-table" >
+  <div class="data-table">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    
+
       <!-- Position Column -->
       <ng-container matColumnDef="Title">
-          <th mat-header-cell *matHeaderCellDef> Title </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.title}} </td>
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.title}} </td>
       </ng-container>
-    
+
       <!-- Name Column -->
       <ng-container matColumnDef="Warning Date">
-          <th mat-header-cell *matHeaderCellDef> Warning Date </th>
-             <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.warningDate}} </td>
+        <th mat-header-cell *matHeaderCellDef> Warning Date </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.warningDate}} </td>
       </ng-container>
-    
+
       <!-- Weight Column -->
       <ng-container matColumnDef="Commit Date">
         <th mat-header-cell *matHeaderCellDef> Commit Date </th>
         <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.commitDate}} </td>
       </ng-container>
-    
+
       <!-- Symbol Column -->
       <ng-container matColumnDef="Condition">
         <th mat-header-cell *matHeaderCellDef> Condition </th>
@@ -82,70 +76,36 @@
       </ng-container>
 
       <ng-container matColumnDef="Original Date">
-          <th mat-header-cell *matHeaderCellDef> Original Date </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.originalDate}} </td>
+        <th mat-header-cell *matHeaderCellDef> Original Date </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.originalDate}} </td>
       </ng-container>
 
       <ng-container matColumnDef="Complete Date">
-          <th mat-header-cell *matHeaderCellDef> Complete Date </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.completeDate}} </td>
+        <th mat-header-cell *matHeaderCellDef> Complete Date </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.completeDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Offset">
+        <th mat-header-cell *matHeaderCellDef> Offset </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.of}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="Organization/Function">
-          <th mat-header-cell *matHeaderCellDef> Organization/Function </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.organization}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Problem Description">
-        <th mat-header-cell *matHeaderCellDef> Problem Description </th>
-        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.problemDescription}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Location Information">
-          <th mat-header-cell *matHeaderCellDef> Location Information </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.locationInformation}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Information Status">
-          <th mat-header-cell *matHeaderCellDef> Information Status </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.informationStatus}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Task Workable">
-          <th mat-header-cell *matHeaderCellDef> Task Workable </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.taskWorkable}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Of">
-          <th mat-header-cell *matHeaderCellDef> Of </th>
-          <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.of}} </td>
-      </ng-container>
-    
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns;" 
-                                      [ngClass]="{'highlight': selectedRowIndex == row}"
-                                      (click)="highlight(row)"></tr>
-      </table>      
-    </div>
-    </div>
-    <br><br>
-    <div>
-      <table class="buttonGroup">
-        <tr>
-          <td><b>Items : </b>{{SelectCommitments.length}}</td>
-
-          <td><button class="deleteRecord" mat-raised-button color="primary">Delete Record</button></td>
-          
-          <td><button class="reset" mat-raised-button color="primary">Reset</button></td>
-          
-          <td><button class="fullfillDate" mat-raised-button color="primary">Fullfill Date</button></td>
-          
-          <td><button class="new" mat-raised-button color="primary">New</button></td>
-          
-          <td><button class="primary" mat-raised-button color="primary">Done</button></td>
-        </tr>
-      </table>
-    </div>
-
-</mat-expansion-panel>
-</mat-accordion>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedAct == row}"
+        (click)="setClickedRow(row)"></tr>
+    </table>
+  </div>
+</div>
+<br><br>
+<div>
+  <table class="buttonGroup">
+    <tr>
+      <td><b>Items : </b>{{selectCommitment.length}}</td>
+      <td><button class="deleteRecord" mat-raised-button color="primary" (click)="delete()" [disabled]="deleteDisabled">Delete
+          Record</button></td>
+      <td><button class="reset" mat-raised-button color="primary">Reset</button></td>
+      <td><button class="fullfillDate" mat-raised-button color="primary">Fullfill Date</button></td>
+      <td><button class="new" mat-raised-button color="primary">New</button></td>
+      <td><button class="done" (click)="changeComp(0)" mat-raised-button color="primary">Done</button></td>
+    </tr>
+  </table>
+</div>

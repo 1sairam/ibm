@@ -3,5 +3,6 @@ export interface CommHistory {
     schedCmpltime:string,
     xOrigTime:string,
     actCmpltime:string,
+    xJepSum1:string,
     xOffsetLoi:string,
 }

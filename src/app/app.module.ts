@@ -19,6 +19,7 @@ import { WipbinsModule } from './modules/wipbins/wipbins.module';
 import { ServicesModule } from './core/services/services.module';
 import { WarningMessageDialogComponent } from './shared/components/warning-message-dialog/warning-message-dialog.component';
 import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/more-info-dialog.component';
+import { SelectCommitDeleteDialogComponent } from './shared/components/select-commit-delete-dialog/select-commit-delete-dialog.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/mo
     HeaderComponent,
     WarningMessageDialogComponent,
     MoreInfoDialogComponent,
+    SelectCommitDeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,8 @@ import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/mo
   providers: [],
   entryComponents:[
     WarningMessageDialogComponent,
-    MoreInfoDialogComponent
+    MoreInfoDialogComponent,
+    SelectCommitDeleteDialogComponent
   ],
   bootstrap: [AppComponent]
 })

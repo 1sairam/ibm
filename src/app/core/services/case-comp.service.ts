@@ -28,6 +28,7 @@ export class CaseCompService {
       new CaseCompItem(SelectCommitmentsComponent),
       new CaseCompItem(HsiaInfoComponent),
       new CaseCompItem(CommHistoryComponent),
+      new CaseCompItem(SelectCommitmentsComponent),
     ]
   }
 }
