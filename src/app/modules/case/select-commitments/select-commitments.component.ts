@@ -5,6 +5,8 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 import { MatTableDataSource } from '@angular/material';
 import { SelectCommitmentService } from '../../../core/services/log-commitment.service';
 import { SelectCommitDeleteDialogComponent } from '../../../shared/components/select-commit-delete-dialog/select-commit-delete-dialog.component';
+import { CaseInfo } from 'src/app/core/models/case-info';
+import { CaseInfoService } from '../../../core/services/case-info.service';
 
 @Component({
   selector: 'bbw-select-commitments',
@@ -14,7 +16,7 @@ import { SelectCommitDeleteDialogComponent } from '../../../shared/components/se
 export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
 
   @Output() changeToComponent = new EventEmitter<number>();
-  @Input() caseInfo: any;
+  caseInfo: CaseInfo;
 
   deleteDialogStatus: boolean = false;
   deleteDialog: boolean = false;
@@ -27,7 +29,7 @@ export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
   selected: any;
   SelectCommitments = [];
 
-  constructor(private selectCommitmentService: SelectCommitmentService, public dialog: MatDialog) {
+  constructor(private selectCommitmentService: SelectCommitmentService, public dialog: MatDialog,private caseInfoService:CaseInfoService) {
     this.selectedRow = 0;
     this.deleteDisabled = true;
     this.dataLength = 0;
@@ -39,18 +41,14 @@ export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.caseInfo = this.caseInfoService.getSelectedCaseInfo();
   }
 
   ngAfterViewInit() {
-      this.selectCommitmentService.getSelectCommitmentData(this.caseInfo)
+      this.selectCommitmentService.getSelectCommitmentData(this.caseInfo.tableCase.objid)
       .subscribe(data => this.selectCommitment = this.dataSource.data = data);
        this.dataSource.data = this.selectCommitment;
-     }
-
-  // ngAfterViewInit() {
-  //   this.selectCommitmentService.getSelectCommitmentData(this.caseInfo.tableCase.objid).subscribe(data => this.selectCommitment = this.dataSource.data = data);
-  //   this.dataSource.data = this.selectCommitment;
-  // }
+  }
 
   selectedAct: SelectCommitment;
   displayedColumns: string[] = ['Title', 'Warning Date', 'Commit Date', 'Condition', 'Original Date', 'Complete Date', 'Offset'];
@@ -61,19 +59,18 @@ private map= new Map<string, string[]>([
   ['Title',['starts with','ends with','contains','sounds like']],
   ['Commit Date',['earlier than','later than']]  
 ])
-firstOrder:string="Commit Date";
-secondOrder:string ="earlier than";
+  firstOrderSelected: string = "Commit Date";
+  secondOrderSelected: string = "earlier than";
 thirdList:string="Ascending";
 get firstOrders():string[]{
-  this.secondOrder = this.map.get(this.firstOrder)[0]; 
-  
   return Array.from(this.map.keys());
 }
 get secondOrders():string[]{
-  let orders = this.map.get(this.firstOrder);
+    let orders = this.map.get(this.firstOrderSelected);
   return orders;
 }
 setDefault(val){
+    this.secondOrderSelected = this.map.get(this.firstOrderSelected)[0];
     this.userTextInput = "";
     this.userInput = "";
 }
@@ -84,24 +81,25 @@ setDefault(val){
   public userInput: any="";
   userTextInput:any="";
 
-  listClick() {
+  showListClick() {
     this.dataSource.data = [];
-    let option = this.firstOrder;
-    let subOpt = this.secondOrder;
+    let option = this.firstOrderSelected;
+    let subOpt = this.secondOrderSelected;
     let queryInput = "";
-    if(this.firstOrder != 'Commit Date'){
+    if(this.firstOrderSelected != 'Commit Date'){
       queryInput = this.userTextInput;
     }else{
-      try{ 
-      queryInput = this.userInput.getDate() +'/' +(this.userInput.getMonth()+1)+'/'+this.userInput.getFullYear();
+      try{
+      queryInput = (this.userInput.getMonth()+1)+'/'+this.userInput.getDate() +'/' +this.userInput.getFullYear();
       }catch(err){}
     }
     console.log(queryInput);
     let sortOpt = this.thirdList;
-    this.selectCommitmentService.getSelectCommitmentWithFilter(this.caseInfo.tableCase.objid,option,subOpt,sortOpt,queryInput)
-    .subscribe(data=> this.selectCommitment = this.dataSource.data =data);
+
+    this.selectCommitmentService.getSelectCommitmentWithFilter(this.caseInfo.tableCase.objid, option, subOpt, sortOpt, queryInput)
+      .subscribe(data => this.selectCommitment = this.dataSource.data = data);
     this.dataSource.data = this.selectCommitment;
-}  
+  }
 
   //Delete Set Row
   setRow(index, direction?) {

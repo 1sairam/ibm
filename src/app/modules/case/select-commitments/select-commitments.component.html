@@ -1,4 +1,6 @@
-<br>
+<div class="header">
+  <p>Select Commitment :</p>
+</div>
 <div>
   List Commitments whose
   <span class="planner">Planner :
@@ -7,29 +9,29 @@
     </mat-form-field>
   </span>
 </div>
-<br>
+
 <div>
   <span class="sideLeft">
     <mat-form-field>
-      <mat-select [(ngModel)]="firstOrder" (ngModelChange)=setDefault($event)>
+      <mat-select [(ngModel)]="firstOrderSelected" (ngModelChange)=setDefault($event)>
         <mat-option *ngFor="let firstOrder of firstOrders" [value]="firstOrder">{{firstOrder}}</mat-option>
       </mat-select>
     </mat-form-field>
   </span>
   <span class="sideMiddle">
     <mat-form-field>
-      <mat-select [(ngModel)]="secondOrder">
+      <mat-select [(ngModel)]="secondOrderSelected">
         <mat-option *ngFor="let secondOrder of secondOrders" [value]="secondOrder">{{secondOrder}}</mat-option>
       </mat-select>
     </mat-form-field>
   </span>
   <span class="datePicker">
-    <mat-form-field *ngIf="firstOrder != 'Commit Date'">
+    <mat-form-field *ngIf="firstOrderSelected != 'Commit Date'">
       <input matInput [(ngModel)]="userTextInput">
     </mat-form-field>
-    <mat-form-field *ngIf="firstOrder == 'Commit Date';">
+    <mat-form-field *ngIf="firstOrderSelected == 'Commit Date';">
       <input matInput [matDatepicker]="picker" [(ngModel)]="userInput">
-      <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrder != 'Commit Date'"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="firstOrderSelected != 'Commit Date'"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </span>
@@ -41,7 +43,7 @@
     </mat-form-field>
   </span>
   <span class="showListBtn">
-    <button mat-raised-button color="primary">Show List</button>
+    <button mat-raised-button color="primary" (click)="showListClick()">Show List</button>
   </span>
 </div>
 <br><br><br>
@@ -82,6 +84,26 @@
 
       <ng-container matColumnDef="Complete Date">
         <th mat-header-cell *matHeaderCellDef> Complete Date </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.completeDate}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Organization/Function">
+        <th mat-header-cell *matHeaderCellDef> Organization/Function </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Problem Description">
+        <th mat-header-cell *matHeaderCellDef> Problem Description </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Location Information">
+        <th mat-header-cell *matHeaderCellDef> Location Information </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Information Status">
+        <th mat-header-cell *matHeaderCellDef> Information Status </th>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Task Workable">
+        <th mat-header-cell *matHeaderCellDef> Task Workable </th>
         <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.completeDate}} </td>
       </ng-container>
       <ng-container matColumnDef="Offset">

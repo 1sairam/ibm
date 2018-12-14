@@ -8,24 +8,16 @@ import { SelectCommitment } from '../../core/models/SelectCommitment';
 })
 export class SelectCommitmentService {
 
-  private _url: string = "app/core/mocks/selectCommitment.json";
+  private _url1: string = "app/core/mocks/selectCommitment.json";
+  private _url2: string = "./commitLog/";
+  private _url = this._url2;
 
   constructor(private http: HttpClient) { }
+
   getSelectCommitmentData(caseInfo): Observable<SelectCommitment[]> {
     console.log(this._url);
     return this.http.get<SelectCommitment[]>(this._url);
   }
-
-  deleteRecord(caseInfo: string): Observable<any> {
-    let params = new HttpParams().set('requestforDelete', caseInfo);
-    let url = "";
-    return this.http.post(url, {}, { params: params });
-}
-
-  // getSelectCommitmentData(caseObjId): Observable<SelectCommitment[]> {
-  //   console.log(this._url + caseObjId);
-  //   return this.http.get<SelectCommitment[]>(this._url + caseObjId);
-  // }
 
   getSelectCommitmentWithFilter(caseObjId, option, subOpt, sortOpt, queryInput) {
     let url = this._url;
@@ -33,10 +25,13 @@ export class SelectCommitmentService {
     url += '?option=' + option + '&subOpt=' + subOpt + '&sortOpt=' + sortOpt + '&qryInput=' + queryInput;
     return this.http.get<SelectCommitment[]>(url);
   }
+  
+  deleteRecord(caseInfo: string): Observable<any> {
+    let params = new HttpParams().set('requestforDelete', caseInfo);
+    let url = "";
+    return this.http.post(url, {}, { params: params });
+  }
 
-//   deleteRecord(caseObjId: string): Observable<any> {
-//     let params = new HttpParams().set('requestforDelete', caseObjId);
-//     let url = "";
-//     return this.http.post(url, {}, { params: params });
-// }
+  
+
 }
