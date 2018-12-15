@@ -51,7 +51,16 @@ export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
   }
 
   selectedAct: SelectCommitment;
-  displayedColumns: string[] = ['Title', 'Warning Date', 'Commit Date', 'Condition', 'Original Date', 'Complete Date', 'Offset'];
+  displayedColumns: string[] = [
+    'Title', 'Warning Date', 'Commit Date', 'Condition', 'Original Date', 
+    'Complete Date', 
+    'Organization/Function', 
+    'Problem Description', 
+    'Location Information', 
+    'Information Status', 
+    'Task Workable', 
+    'Offset'
+  ];
 
 
   //Drop-Downs Values

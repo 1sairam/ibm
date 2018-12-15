@@ -13,6 +13,7 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
   @Output() changeToComponent = new EventEmitter<number>();
   activityLog: ActivityLog[] = [];
   @Input() caseInfo: any;
+  isLoading=true;
 
   constructor(private activityLogService: ActivityLogService) {
     this.isOpenButtonDisabled = true;
@@ -26,10 +27,17 @@ export class ActivityLogComponent implements OnInit,AfterViewInit {
     isSelectedRadio:boolean;
 
   ngOnInit() {
-    
+    this.isLoading = false;
   }
   ngAfterViewInit(){
-    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> this.activityLog = this.dataSource.data =data);
+    this.isLoading = true;
+    this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> {
+      this.activityLog = this.dataSource.data =data;
+      this.isLoading = false;
+    },error=>{
+      this.isLoading = false;
+    }
+    );
     this.dataSource.data = this.activityLog;
   }
 
@@ -105,9 +113,15 @@ setDefault(val){
     }
     console.log(queryInput);
     let sortOpt = this.thirdList;
-
+    this.isLoading = true;
   this.activityLogService.getActivityLogWithFilter(this.caseInfo.tableCase.objid,option,subOpt,sortOpt,queryInput)
-                         .subscribe(data=> this.activityLog = this.dataSource.data =data);
+                         .subscribe(
+                           data=> {
+                             this.activityLog = this.dataSource.data =data;
+                             this.isLoading = false;
+                          },error=>{
+                            this.isLoading = false;
+                         });
                          this.dataSource.data = this.activityLog;
-  }  
+  }
 }

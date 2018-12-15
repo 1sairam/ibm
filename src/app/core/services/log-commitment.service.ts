@@ -14,9 +14,9 @@ export class SelectCommitmentService {
 
   constructor(private http: HttpClient) { }
 
-  getSelectCommitmentData(caseInfo): Observable<SelectCommitment[]> {
+  getSelectCommitmentData(objid): Observable<SelectCommitment[]> {
     console.log(this._url);
-    return this.http.get<SelectCommitment[]>(this._url);
+    return this.http.get<SelectCommitment[]>(this._url + objid);
   }
 
   getSelectCommitmentWithFilter(caseObjId, option, subOpt, sortOpt, queryInput) {

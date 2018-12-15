@@ -85,11 +85,19 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.caseCompList = this.caseCompService.getCaseCompList();
   }
 
+  checkNumber(caseId){
+    var reg = new RegExp(/^\d+$/);
+    return reg.test(caseId);
+  }
   getCaseInfo(caseId) {
 
     console.log(caseId);
-    if (caseId == null || caseId.length < 1) {
-      this.dialog.openDialog('Please Enter Case Id.. ');
+    if ((caseId == null || caseId.length < 1)) {
+      this.dialog.openDialog('Please Enter Case ID.');
+      return;
+    }
+    if(!this.checkNumber(caseId)){
+      this.dialog.openDialog('Invalid Case ID. Please enter valid Case ID');
       return;
     }
     this.isLoading = true;
@@ -118,7 +126,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.isLoading = false;
     },
     error =>{
-      this.dialog.openDialog('Case Id not found...! Something went wrong.. ');
+      this.dialog.openDialog('Case ID ('+ caseId +') not found. Please enter valid case ID.');
       console.log("something went wrong.. open model");
       this.isLoading = false;
     }

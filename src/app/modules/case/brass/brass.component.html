@@ -85,7 +85,8 @@
         <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns;" 
                                         [ngClass]="{'highlight': selectedAct == row}"
                                         (click)="setClickedRow(row)"></tr>
-        </table>      
+        </table>  
+        <mat-progress-spinner style="margin-top:8%;left: 45%;z-index:125;" *ngIf="isLoading" color="success" mode="indeterminate"></mat-progress-spinner>    
   </div>
   <table class="align-middle">
       <tr>
@@ -93,9 +94,8 @@
             <!-- <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td> -->
             <td><button  mat-raised-button color="primary">Addtional Info</button></td>
             <td><button  mat-raised-button color="primary">More Working</button></td>
-            <td><button  mat-raised-button color="primary">Refresh</button></td>
+            <td><button  mat-raised-button color="primary" (click)="refreshLog();">Refresh</button></td>
       </tr>
   </table >
     <br><br>
-<mat-progress-spinner style="margin-top:-34%;left: 45%;z-index:125;" *ngIf="isLoading" color="success" mode="indeterminate"></mat-progress-spinner>
 </div>            

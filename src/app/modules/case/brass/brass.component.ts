@@ -40,6 +40,10 @@ export class BrassComponent implements OnInit,AfterViewInit {
   }
 
   ngAfterViewInit(){
+    this.refreshLog();
+  }
+
+  refreshLog(){
     this.isLoading = true;
     this.activityLogService.getActivityLogData(this.caseInfo.tableCase.objid).subscribe(data=> {
       this.activityLog = this.dataSource.data =data;

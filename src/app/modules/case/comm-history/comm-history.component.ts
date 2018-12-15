@@ -13,6 +13,7 @@ export class CommHistoryComponent implements OnInit,AfterViewInit {
   @Output() changeToComponent = new EventEmitter<number>();
 
   @Input() caseInfo: CaseInfo;
+  isLoading:boolean = true;
   
   commHistory: CommHistory[] = [];
 
@@ -22,11 +23,20 @@ export class CommHistoryComponent implements OnInit,AfterViewInit {
    selectedRow: number;
 
   ngOnInit() {
-    
+    this.isLoading = false;
   }
 
   ngAfterViewInit(){
-    this.commHistoryService.getCommHistoryData(this.caseInfo.tableCase.objid).subscribe(data=> this.commHistory = this.dataSource.data =data);
+    this.isLoading = true;
+    this.commHistoryService.getCommHistoryData(this.caseInfo.tableCase.objid).subscribe(data=> 
+      {
+        this.commHistory = this.dataSource.data = data;
+        this.isLoading = false;
+      },
+      error => {
+        this.isLoading = false;
+      }
+      );
     this.dataSource.data = this.commHistory;
   }
 

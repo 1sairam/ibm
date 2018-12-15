@@ -62,7 +62,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="Warning Date">
         <th mat-header-cell *matHeaderCellDef> Warning Date </th>
-        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.warningDate}} </td>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.warningTime}} </td>
       </ng-container>
 
       <!-- Weight Column -->
@@ -108,7 +108,7 @@
       </ng-container>
       <ng-container matColumnDef="Offset">
         <th mat-header-cell *matHeaderCellDef> Offset </th>
-        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.of}} </td>
+        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.xOffsetLoi}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
