@@ -4,23 +4,23 @@
   <table class="htable" >
                <tr>
                  <td>Action Type</td>
-                 <td><mat-form-field><mat-select disabled placeholder="Please Specify">
+                 <td><mat-form-field><mat-select placeholder="Please Specify">
                      <mat-option ng-disabled="disabled" *ngFor="let food of foods" [value]="food.value">
                      {{food.viewValue}}
                      </mat-option>
                      </mat-select>
                     </mat-form-field>
                 </td>
-                 <td><button id="btn2" mat-raised-button disabled>Action</button></td>
+                 <td><button id="btn2" mat-raised-button >Action</button></td>
                 </tr>
                 <tr>
                    <td>IP Action Type</td>
-                   <td><mat-form-field><mat-select disabled placeholder="Please Specify">
+                   <td><mat-form-field><mat-select placeholder="Please Specify">
                        <mat-option *ngFor="let food of foods" [value]="food.value">
                        {{food.viewValue}}
                        </mat-option>
                        </mat-select></mat-form-field></td>
-                   <td><button id="btn2" mat-raised-button disabled>IP Action</button></td>
+                   <td><button id="btn2" mat-raised-button >IP Action</button></td>
                   </tr>
                   <tr>
                      <td>Fetch type</td>
@@ -29,7 +29,7 @@
                          {{food.viewValue}}
                          </mat-option>
                          </mat-select></mat-form-field></td>
-                     <td><button id="btn2" mat-raised-button disabled>Fetch</button></td>
+                     <td><button id="btn2" mat-raised-button >Fetch</button></td>
                     </tr>
                  </table>
         </div>
@@ -93,7 +93,6 @@
             <td><button mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openDialog()">SIR</button></td>
             <!-- <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td> -->
             <td><button  mat-raised-button color="primary">Addtional Info</button></td>
-            <td><button  mat-raised-button color="primary">More Working</button></td>
             <td><button  mat-raised-button color="primary" (click)="refreshLog();">Refresh</button></td>
       </tr>
   </table >
