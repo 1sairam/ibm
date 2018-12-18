@@ -17,7 +17,7 @@
     <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Move</button>
     <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Assign</button>
     <button mat-button color="primary" disabled><i class="small icon-location-geofence"></i> Reject-Forward</button>
-    <button mat-button color="primary"><i class="small icon-location-geofence"></i> Yank</button>
+    <button mat-button color="primary" (click)="openYankDialog();"><i class="small icon-location-geofence"></i> Yank</button>
     <!-- <button mat-button color="primary" (click)="createCase()"><i class="small icon-controls-subscribe"></i> Create Case</button> -->
     <button color="primary" mat-button [matMenuTriggerFor]="new"><i class="small icon-content-listguide"></i> New </button>
     <mat-menu #new="matMenu">
@@ -60,7 +60,7 @@
     <mat-drawer class="side-nav-width-queues-wipbins" #wipBinsSideNav [mode]="'over'">
         <!--Display Area for Queues and WipBins-->
         <!-- Pending... -->
-        <bbw-queues-host></bbw-queues-host>
+        <bbw-queues-host [wipBinsSideNav]="wipBinsSideNav"></bbw-queues-host>
     </mat-drawer>
     <mat-drawer-content>
         <!--  I am content for case Ids INFO Pending... -->

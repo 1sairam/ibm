@@ -131,7 +131,7 @@
         </td>
         <td><button class="btn1" color="primary" mat-raised-button [disabled]="disabledButton" (click)="openCase()">Open</button></td>
         <td> <button class="btn1" color="primary" mat-raised-button [disabled]="disabledButton" (click)="dispatchCase()">Dispatch</button></td>
-        <td><button class="btn1" color="primary" mat-raised-button>Done</button></td>
+        <td><button class="btn1" color="primary" mat-raised-button (click)="wipBinsSideNav.toggle();">Done</button></td>
     </tr>
 
    </table>

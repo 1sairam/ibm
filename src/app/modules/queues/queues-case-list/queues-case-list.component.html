@@ -144,7 +144,7 @@
    <td><button class="dslBtnGrp1" color="primary" mat-raised-button (click)="viewCase()" [disabled]="disabledButton">View</button></td>
    <td><button class="dslBtnGrp2" color="primary" mat-raised-button (click)="rejectCase()" [disabled]="disabledButton">Reject</button></td>
    <td><button class="dslBtnGrp2" color="primary" mat-raised-button (click)="acceptCase()" [disabled]="disabledButton">Accept</button></td>
-   <td class="dslDon"><button color="primary" class="dslBtnGrp3" mat-raised-button>Done</button></td>
+   <td class="dslDon"><button color="primary" class="dslBtnGrp3" (click)="wipBinsSideNav.toggle();" mat-raised-button>Done</button></td>
  </tr>
 </table>
 </div>

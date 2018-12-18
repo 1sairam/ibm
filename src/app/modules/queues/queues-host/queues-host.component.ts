@@ -133,6 +133,10 @@ export class DynamicDataSource {
 })
 export class QueuesHostComponent {
 
+
+  @Input()
+  wipBinsSideNav:any;
+
   isLoading = false;
   wipBinsList : WipBins[]=[];
   queuesList : Queues[]=[];

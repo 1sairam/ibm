@@ -6,6 +6,9 @@ import { CaseCompItem } from './core/models/case-comp-item';
 import { UserInfo } from './core/models/user-info';
 import { Dialog } from './shared/util/dialog';
 import { CaseHostComponent } from './modules/case/case-host/case-host.component';
+import { YankCase } from './core/models/yank-case';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { YankCreationDialogComponent } from '../app/modules/dialogs/yank-creation-dialog/yank-creation-dialog.component';
 
 @Component({
   selector: 'bbw-root',
@@ -18,17 +21,20 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'BroadBand Workflow';
   caseIdList: string[] = [];
   caseId: string="";
+  basedOnYankResponse:boolean=false;
+  dialogRef: MatDialogRef<YankCreationDialogComponent>;
   selectedCaseIndex: number = 0;//default
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
 
+  YabkResponseMessage:YankCase;
   isLoading=true;
   
   constructor(private caseInfoService: CaseInfoService,
     private dialog : Dialog,
     private caseCompService: CaseCompService,
-    private userInfoService: UserInfoService) {
+    private userInfoService: UserInfoService, public yankDialog: MatDialog) {
       console.log('construct...');
   }
 
@@ -101,7 +107,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     this.isLoading = true;
-    let local = false;
+    let local = true;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {
@@ -117,6 +123,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     //Write logic to validate the case and pass case info....
     //this.userInfoService.testSample().then(data => {
     this.caseInfoService.getCaseInfo(caseId).then(data => {
+
+    if(data == null || data == undefined){
+      this.showMessage(caseId);
+      return;
+    }
     this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
@@ -126,21 +137,24 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.isLoading = false;
     },
     error =>{
-      this.dialog.openDialog('Case ID ('+ caseId +') not found. Please enter valid case ID.');
-      console.log("something went wrong.. open model");
-      this.isLoading = false;
+      this.showMessage(caseId);
     }
     );
    }
   }
   
+  showMessage(caseId){
+    this.dialog.openDialog('Case ID ('+ caseId +') not found. Please enter valid case ID.');
+    console.log("something went wrong.. open model");
+    this.isLoading = false;
+  }
   createCase(){
     //this.getCaseInfo('untitled');
   }
 
   
   openLogCommitment(){
-    this.caseHost.loadComponent(9);
+   //this.caseHost.loadComponent(9);
   }
 
   setSelected(index) {
@@ -158,5 +172,25 @@ export class AppComponent implements OnInit, AfterViewInit {
   //will be called from child wipbins
   viewCase(caseId){
     console.log(caseId);
+  }
+  
+  openYankDialog(){
+   
+    this.dialogRef=this.yankDialog.open(YankCreationDialogComponent,{
+      //data: this.caseInfo.caseId
+    });
+
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.YabkResponseMessage=result;
+      if(this.YabkResponseMessage.status == 200){
+        this.dialog.openDialog("Thank you,"+this.YabkResponseMessage.message+" !!");
+      }else if(this.YabkResponseMessage.status == 700){
+        console.log('no thanks clicked');
+        }else{
+        this.dialog.openDialog("Sorry, Service Instance Request not created, Reason "+this.YabkResponseMessage.message);
+      }
+      console.log('The dialog was closed result'+result);
+    }
+    );
   }
 }

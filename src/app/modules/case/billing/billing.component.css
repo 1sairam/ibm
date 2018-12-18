@@ -1,0 +1,160 @@
+/* .paymentLbl{ margin-left: -2%;} */
+.tableGrp{
+    width: 100%;
+}
+.paymentDropdown{
+    width: 12%;
+    margin-left: 1%;
+}
+.geoLbl{
+    margin-left: 1%;
+}
+.mncLbl{
+    margin-left: 7%;
+}
+.billing-inpt{
+    width: 23.6%;
+    margin-left: 1.6%;
+}
+.accountInpt, .externalInpt{
+    margin-left: 5.5%;
+    width: 16.5%;
+}
+.grcLbl{
+    margin-left: 2.6%;
+}
+.grcInpt{
+    width: 23.6%;
+    margin-left: 1.6%;
+}
+.billingLbl{
+    margin-left: 1%;
+}
+.billingInpt{
+    width: 23.6%;
+    margin-left: 3.5%;
+}
+.socLbl{
+    margin-left: 1.5%;
+}
+.socInpt{
+    margin-left: 2.5%;
+}
+.oclLbl{
+    margin-left: 1.5%;
+}
+.oclCheckbox{
+    margin-left: 4%;
+}
+.alternateInpt{
+    margin-left: 2.5%;
+    width: 20%;
+}
+.contractLbl{
+    margin-left: 1%;
+}
+.contractInpt{
+    margin-left: 2%;
+    width: 24%;
+}
+.bilstartInpt{
+   width: 15%;
+}
+.serdiscInpt{
+    width: 20%;
+    margin-left: 2%;
+}
+.serstartInpt{
+    width: 20%;
+    margin-left: 2%;
+}
+.billstartLble{
+
+}
+.serstartLbl{
+
+}
+.btnGrp{
+    background: #3f51b5;
+    color: white;
+    margin-left: 2%;
+}
+.myDiv{
+    border: 1px solid gray;
+}
+.bgateBtn{
+    background: #3f51b5;
+    color: white;
+    /* margin-left: -2%; */
+}
+.sidBtn1{
+    background: #3f51b5;
+    color: white;
+    float: right;
+}
+.sidBtn{
+    background: #3f51b5;
+    color: white;
+    /* margin-left: 30.1%; */
+    float: right;
+    margin-right: 2%;
+}    
+.alterLblTd{
+    width: 12%;
+}
+
+table, tr, td{
+    /* border: 1px solid gray; */
+}
+
+
+
+
+
+/* .paymentDropdown{
+    width: 45%;
+    margin-left: 2%;
+}
+.billing-inpt{
+    width: 80%;
+    float: right;
+    margin-right: 8%;
+    margin-top: -2%;
+}
+.accountInpt{
+    margin-left: 3%;
+    width: 90%;
+    margin-top: -2%;
+}
+
+.accountTd{
+    width: 14.6%;
+}
+.billerIdLbl{
+    width: 10%;
+}
+.grcBlrInpt{
+    width: 80%;
+    margin-left: 11%;
+    margin-top: -2%;
+}
+.externalLbl{
+    width: 18.7%;
+}
+.externalInpt{
+    width: 90%;
+    margin-left: 3%;
+    margin-top: -2%;
+}
+.socInpt{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: -2%;
+}
+.oclLbl{
+    width: 12.7%;
+}
+table{
+    width: 100%;
+}
+ */

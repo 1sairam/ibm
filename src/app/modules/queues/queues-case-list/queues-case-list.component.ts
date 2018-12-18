@@ -9,6 +9,9 @@ import { QueuesCaseList } from '../../../core/models/queues-case-list';
 })
 export class QueuesCaseListComponent implements OnInit {
 
+  @Input()
+  wipBinsSideNav:any;
+  
     //Type pending..
     displayedColumns: string[] = ['type1', 'idNumber', 'special', 'name', 'age', 'Condition', 'status', 'type', 'priority', 'severity', 'title'];
     dataSource = new MatTableDataSource<any>();

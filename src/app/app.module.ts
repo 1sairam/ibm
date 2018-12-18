@@ -20,7 +20,7 @@ import { ServicesModule } from './core/services/services.module';
 import { WarningMessageDialogComponent } from './shared/components/warning-message-dialog/warning-message-dialog.component';
 import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/more-info-dialog.component';
 import { SelectCommitDeleteDialogComponent } from './shared/components/select-commit-delete-dialog/select-commit-delete-dialog.component';
-
+import { YankCreationDialogComponent } from './modules/dialogs/yank-creation-dialog/yank-creation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { SelectCommitDeleteDialogComponent } from './shared/components/select-co
     WarningMessageDialogComponent,
     MoreInfoDialogComponent,
     SelectCommitDeleteDialogComponent,
+    YankCreationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +47,8 @@ import { SelectCommitDeleteDialogComponent } from './shared/components/select-co
   entryComponents:[
     WarningMessageDialogComponent,
     MoreInfoDialogComponent,
-    SelectCommitDeleteDialogComponent
+    SelectCommitDeleteDialogComponent,
+    YankCreationDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

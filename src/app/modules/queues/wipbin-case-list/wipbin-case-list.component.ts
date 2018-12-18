@@ -9,6 +9,9 @@ import { WipbinsCaseList } from '../../../core/models/wipbins-case-list';
 })
 export class WipbinCaseListComponent implements OnInit {
 
+  @Input()
+  wipBinsSideNav:any;
+  
   disabledEt:any;
   public firstList:any = 'All';
     // public secondList:any = 'ID';

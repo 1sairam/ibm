@@ -1,0 +1,55 @@
+<mat-card>Yank</mat-card>
+<table class="table1">
+  <tr>
+      <td class="yankEnter"><mat-label>Enter Task ID:</mat-label></td>
+  </tr>
+</table>
+<table class="table2">
+  <tr>
+    <td><mat-label>Type</mat-label></td>
+    <td>
+      <mat-form-field class="yankDrop">
+        <mat-select [(ngModel)]="SelectCase">
+          <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+        </mat-select>
+      </mat-form-field>
+    </td>
+  </tr>
+</table>
+<table class="table3">
+  <tr>
+      <td class="idtd"><mat-label class="labl-id">ID:</mat-label></td>
+      <td class="tabletd3">
+        <mat-form-field class="yankInpt">
+          <input matInput [(ngModel)]="selectedCaseId" type="text"> 
+        </mat-form-field>
+      </td>
+  </tr>
+</table>
+<table class="table4">
+  <tr>
+    <td><button class="cancelBtn" color="primary" mat-raised-button (click)="onCancelClick()">Cancel</button></td>
+    <td><button class="yankBtn" color="primary" mat-raised-button (click)="onOkClick()">Yank</button></td>
+  </tr>
+</table>
+
+
+<!-- <div>
+    <mat-label>Enter Task ID:</mat-label>   
+</div>
+<div class="yankDiv">
+      <mat-label class="lblType">Type:</mat-label>
+      <mat-form-field class="yankDrop">
+        <mat-select>
+          <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+        </mat-select>
+      </mat-form-field>
+</div>
+
+<div class="yankDiv2">
+    <mat-label class="labl-id">ID:</mat-label>
+    <mat-form-field class="yankInpt">
+      <input matInput type="text"> 
+    </mat-form-field>
+</div> -->
+

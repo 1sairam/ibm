@@ -1,0 +1,72 @@
+<div>
+    <mat-card>BGATE Error</mat-card>
+  <table>
+    <tr>
+      <td class="custTd">
+        <mat-label class="custIdLbl" >Cust ID/Name:</mat-label>
+        <mat-form-field class="custIdInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-form-field class="custNamInpt inptItm">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-form-field class="custDrop inptItm">
+          <mat-select [(ngModel)]="drop">
+            <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-label class="billerLbl inptItm">Biller ID:</mat-label>
+        <mat-form-field class="billerInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <div class="errorDiv">
+    <table>
+      
+    </table>
+  </div>
+  <table>
+    <tr>
+      <td>
+        <mat-label class="recordLbl">Record Type:</mat-label>
+        <mat-form-field class="RecordInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="errorLbl">Error Number:</mat-label>
+        <mat-form-field class="errorInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <!-- <mat-label class="errordesLbl">Error Description:</mat-label>
+        <mat-form-field class="errordesInpt">
+          <input matInput type="text"> 
+        </mat-form-field>  -->
+        <button class="errorBtn" (click)="clearDialog()" mat-button>Error Clear</button>
+      </td>
+    </tr>
+  </table>
+  <mat-label class="">Error Description:</mat-label>
+  <mat-form-field class="errordes">
+    <input matInput type="text"> 
+  </mat-form-field> 
+<table>
+  <tr>
+    <td class="errorTd"><mat-label>Error Message:</mat-label></td>
+    <td>
+      <textarea class="textInpt">
+      </textarea>
+    </td>
+    <td class="resubTd">
+    <button class="resubBtn" mat-button>RESUBMIT</button>
+    </td>
+  </tr>
+</table>
+ 
+        <!-- <mat-label class="messageLbl">Error Message:</mat-label>
+        <textarea class="textInpt">
+
+        </textarea>
+        <button class="resubBtn" mat-button>RESUBMIT</button> -->
+
+</div>

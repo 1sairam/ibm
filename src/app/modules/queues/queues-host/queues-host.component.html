@@ -18,8 +18,8 @@
         </mat-tree>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="8" [rowspan]="1.3" class="mat-scroll2">
-    <bbw-wipbin-case-list *ngIf="viewWipBinsWindow" [dataToDisplay]="wipBinsCaseListData" [headerInfo]="headerInfo" ></bbw-wipbin-case-list>
-    <bbw-queues-case-list *ngIf="viewQueuesWindow" [dataToDisplay]="queuesCaseListData" [headerInfo]="headerInfo"></bbw-queues-case-list>
+    <bbw-wipbin-case-list *ngIf="viewWipBinsWindow" [wipBinsSideNav]="wipBinsSideNav" [dataToDisplay]="wipBinsCaseListData" [headerInfo]="headerInfo" ></bbw-wipbin-case-list>
+    <bbw-queues-case-list *ngIf="viewQueuesWindow" [wipBinsSideNav]="wipBinsSideNav" [dataToDisplay]="queuesCaseListData" [headerInfo]="headerInfo"></bbw-queues-case-list>
   </mat-grid-tile>
   
 </mat-grid-list>

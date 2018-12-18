@@ -18,6 +18,9 @@ import { SelectCommitmentsComponent } from './select-commitments/select-commitme
 import { HsiaInfoComponent } from './hsia-info/hsia-info.component';
 import { CommHistoryComponent } from './comm-history/comm-history.component';
 import {SirCreationDialogComponent} from '../../shared/components/sir-creation-dialog/sir-creation-dialog.component';
+import { BgateErrorDialogComponent } from '../dialogs/bgate-error-dialog/bgate-error-dialog.component';
+import { SiidDialogComponent } from '../dialogs/siid-dialog/siid-dialog.component';
+import { BillingComponent } from '../case/billing/billing.component';
 
 @NgModule({
   imports: [
@@ -38,7 +41,11 @@ import {SirCreationDialogComponent} from '../../shared/components/sir-creation-d
     SelectCommitmentsComponent,
     HsiaInfoComponent,
     CommHistoryComponent,
-    SirCreationDialogComponent
+    SirCreationDialogComponent,
+    SiidDialogComponent,
+    BgateErrorDialogComponent,
+    BillingComponent,
+
   ],
   entryComponents:[
     CaseInfoComponent,
@@ -49,7 +56,10 @@ import {SirCreationDialogComponent} from '../../shared/components/sir-creation-d
     CommitmentLogComponent,
     SelectCommitmentsComponent,
     HsiaInfoComponent,
-    SirCreationDialogComponent
+    SirCreationDialogComponent,
+    SiidDialogComponent,
+    BgateErrorDialogComponent,
+    BillingComponent,
 
   ],
   providers:[
