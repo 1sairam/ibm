@@ -1,0 +1,202 @@
+<div>
+  <table class="tableGrp">
+    <tr>
+      <td>
+        <mat-label class="paymentLbl">Payment Method:</mat-label>
+
+        <mat-form-field class="paymentDropdown">
+          <mat-select [(ngModel)]="selectedDropdown">
+            <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+        <mat-label class="mncLbl">MNC:</mat-label>
+        <mat-form-field class="billing-inpt">
+          <input matInput type="text"> 
+        </mat-form-field>
+        <mat-label class="geoLbl">GEO Code:</mat-label>
+        <mat-form-field class="billing-inpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <table class="tableGrp">
+    <tr>
+      <td>
+        <mat-label class="paymentLbl">Account ID:</mat-label>
+        <mat-form-field class="accountInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="grcLbl">GRC:</mat-label>
+        <mat-form-field class="grcInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="billingLbl">Billing ID:</mat-label>
+        <mat-form-field class="billingInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <table class="tableGrp">
+    <tr>
+      <td>
+        <mat-label class="paymentLbl">External ID:</mat-label>
+        <mat-form-field class="externalInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="socLbl">SOC:</mat-label>
+        <mat-form-field class="socInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="oclLbl">OCL:</mat-label>
+        <mat-checkbox class="oclCheckbox"></mat-checkbox>
+      </td>
+    </tr>
+  </table>
+  <table class="tableGrp">
+    <tr>
+      <td class="alterLblTd">
+        <mat-label class="paymentLbl">Alternate Biller Code:</mat-label>
+      </td>
+      <td>
+        <mat-form-field class="alternateInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <mat-label class="contractLbl">Contract:</mat-label>
+        <mat-form-field class="contractInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <!-- <div class="myDiv"> -->
+      <table class="tableGrp">
+          <tr>
+            <td>
+              <mat-form-field class="paymentLbl bilstartInpt">
+                <input matInput placeholder="Billing Start Date" type="text"> 
+              </mat-form-field> 
+              <button class="btnGrp" mat-button>D/T</button>
+         
+              <mat-form-field class="serstartInpt">
+                <input matInput placeholder="Service Start Date" type="text"> 
+              </mat-form-field> 
+              <button class="btnGrp" mat-button>D/T</button>
+        
+              <mat-form-field class="serdiscInpt">
+                <input matInput placeholder="Service Disconnect Date" type="text"> 
+              </mat-form-field>
+              <button class="btnGrp" mat-button>D/T</button>
+            </td>
+          </tr>
+        </table>
+        <table class="tableGrp">
+          <tr>
+            <td>
+              <button class="bgateBtn" mat-button (click)="openDialog()">BGATE Error</button> 
+              <button class="sidBtn" (click)="siidDialog()" mat-button>SIID/PP Edit</button>
+              <!-- <button class="sidBtn1" mat-button>Done</button> -->
+            </td>
+          </tr>
+        </table>
+  <!-- <table style="width:100%">
+    <tr>
+      <td>
+        <mat-label class="billstartLble">Billing Start Date:</mat-label>
+        <mat-form-field class="bilstartInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+        <button class="btnGrp" mat-button>D/T</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+          <mat-label class="serstartLbl">Service Start Date</mat-label>
+          <mat-form-field class="serstartInpt">
+            <input matInput type="text"> 
+          </mat-form-field> 
+          <button class="btnGrp" mat-button>D/T</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <mat-label class="">Service Disconnect Date</mat-label>
+        <mat-form-field class="serdiscInpt">
+          <input matInput type="text"> 
+        </mat-form-field>
+        <button class="btnGrp" mat-button>D/T</button>
+      </td>
+    </tr>
+  </table> -->
+  <!-- </div> -->
+</div>
+<!-- <div>
+  <table>
+    <tr>
+      <td><mat-label>Payment Method:</mat-label></td>
+      <td>
+        <mat-form-field class="paymentDropdown">
+          <mat-select [(ngModel)]="selectedDropdown">
+            <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
+          </mat-select>
+        </mat-form-field>
+      </td>
+      <td><mat-label>MNC:</mat-label></td>
+      <td>
+        <mat-form-field class="billing-inpt">
+          <input matInput type="text"> 
+        </mat-form-field>
+      </td>
+      <td><mat-label>GEO Code:</mat-label></td>
+      <td>
+        <mat-form-field class="billing-inpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <table class="tab2">
+    <tr>
+      <td class="accountTd"><mat-label>Account ID:</mat-label></td>
+      <td>
+        <mat-form-field class="accountInpt">
+          <input matInput type="text"> 
+        </mat-form-field>  
+      </td>
+      <td><mat-label>GRC:</mat-label></td>
+      <td>
+        <mat-form-field class="grcBlrInpt">
+          <input matInput type="text"> 
+        </mat-form-field>  
+      </td>
+      <td class="billerIdLbl"><mat-label>Biller ID:</mat-label></td>
+      <td>
+        <mat-form-field class="grcBlrInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td class="externalLbl"><mat-label>External ID:</mat-label></td>
+      <td>
+        <mat-form-field class="externalInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+      <td><mat-label>SOC:</mat-label></td>
+      <td>
+        <mat-form-field class=" socInpt">
+          <input matInput type="text"> 
+        </mat-form-field> 
+      </td>
+      <td class="oclLbl"><mat-label>OCL:</mat-label></td>
+      <td>
+          <mat-checkbox></mat-checkbox>
+
+      </td>
+    </tr>
+  </table>
+</div> -->

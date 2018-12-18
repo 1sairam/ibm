@@ -72,7 +72,7 @@
                      <div class="row_nine">
                        <label>Sub Type : </label>
                          <mat-form-field class="subType">
-                           <mat-select [(value)]="caseInfo.tableCase.xcaseSubtype">
+                           <mat-select [(value)]="caseInfo.tableCase.xcaseSubtype" [disabled]="true">
                              <mat-option *ngFor="let subTypeValue of subTypes" [value]="subTypeValue">{{subTypeValue}}</mat-option>
                             </mat-select>
                          </mat-form-field>
@@ -206,12 +206,13 @@
       
                  </mat-accordion>
                  </div>
+
                  <div class="matExpansionPannel_right">
                   <mat-accordion class="example-headers-align">
                     <!-- cases notes pannel -->
                     <!-- <button id="btn1" mat-raised-button (click)="changeComp(3);" color="primary">BRASS</button>&nbsp; -->
-                    <!-- <button id="btn1" mat-raised-button (click)="changeComp(5);" color="primary">Commitment Log</button>&nbsp;
-                    <button id="btn1" mat-raised-button (click)="changeComp(6);" color="primary">Select Commitments</button>&nbsp;
+                    <button id="btn1" mat-raised-button (click)="changeComp(9);" color="primary">Log Commitment </button>&nbsp;
+                    <!--<button id="btn1" mat-raised-button (click)="changeComp(6);" color="primary">Select Commitments</button>&nbsp;
                     <button id="btn1" mat-raised-button (click)="changeComp(7);" color="primary">HSIA Info</button>&nbsp; -->
                                               <!-- service information pannel -->
                                               <mat-expansion-panel class="pannel_7">
@@ -270,14 +271,7 @@
                                           Tap the pannel to view details
                                         </mat-panel-description> -->
                                       </mat-expansion-panel-header>
-                                  
-                                      <mat-form-field>
-                                        <input matInput placeholder="First name">
-                                      </mat-form-field>
-                                  
-                                      <mat-form-field>
-                                        <input matInput placeholder="Age">
-                                      </mat-form-field>
+                                        <bbw-billing [caseInfo]="caseInfo"></bbw-billing>
                                     </mat-expansion-panel>
                         <!-- activity log pannel -->
                         <mat-expansion-panel class="pannel_6">

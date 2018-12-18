@@ -11,7 +11,7 @@
                      </mat-select>
                     </mat-form-field>
                 </td>
-                 <td><button id="btn2" mat-raised-button >Action</button></td>
+                 <td><button id="btn2" mat-raised-button color="primary">Action</button></td>
                 </tr>
                 <tr>
                    <td>IP Action Type</td>
@@ -20,7 +20,7 @@
                        {{food.viewValue}}
                        </mat-option>
                        </mat-select></mat-form-field></td>
-                   <td><button id="btn2" mat-raised-button >IP Action</button></td>
+                   <td><button id="btn2" mat-raised-button color="primary">IP Action</button></td>
                   </tr>
                   <tr>
                      <td>Fetch type</td>
@@ -29,7 +29,7 @@
                          {{food.viewValue}}
                          </mat-option>
                          </mat-select></mat-form-field></td>
-                     <td><button id="btn2" mat-raised-button >Fetch</button></td>
+                     <td><button id="btn2" mat-raised-button color="primary">Fetch</button></td>
                     </tr>
                  </table>
         </div>
@@ -40,7 +40,7 @@
                 <mat-radio-group >
                         <mat-radio-button class="align-left" [checked]="true" value="1">View</mat-radio-button>
                 </mat-radio-group>&nbsp;&nbsp;&nbsp;
-               <button mat-raised-button color="primary" (click)="createIpMail(4)">Create IP mail</button><br>
+               <button mat-raised-button color="primary"  (click)="createIpMail(4)">Create IP mail</button><br>
                <label>Letter type :</label>
                <mat-form-field>
                     <mat-select placeholder="Please Specify">

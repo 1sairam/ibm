@@ -6,6 +6,7 @@ import { WipBinsService } from './wip-bins.service';
 import { CaseCompService } from './case-comp.service';
 import { UserInfoService } from './user-info.service';
 import { QueuesService } from './queues.service';
+import { YankService } from './yank.service';
 
 @NgModule({
   providers:[
@@ -16,6 +17,7 @@ import { QueuesService } from './queues.service';
     BrassService,
     UserInfoService,
     QueuesService,
+    YankService,
   ]
 })
 export class ServicesModule { }
