@@ -4,9 +4,10 @@
   <table class="htable" >
                <tr>
                  <td>Action Type</td>
-                 <td><mat-form-field><mat-select placeholder="Please Specify">
-                     <mat-option ng-disabled="disabled" *ngFor="let food of foods" [value]="food.value">
-                     {{food.viewValue}}
+                 <td><mat-form-field>
+                     <mat-select [(ngModel)]="selectedActionType">
+                     <mat-option ng-disabled="disabled" *ngFor="let action of actionTypes" [value]="action">
+                     {{action}}
                      </mat-option>
                      </mat-select>
                     </mat-form-field>
@@ -15,18 +16,20 @@
                 </tr>
                 <tr>
                    <td>IP Action Type</td>
-                   <td><mat-form-field><mat-select placeholder="Please Specify">
-                       <mat-option *ngFor="let food of foods" [value]="food.value">
-                       {{food.viewValue}}
+                   <td><mat-form-field>
+                       <mat-select [(ngModel)]="selectedIpActionType">
+                       <mat-option *ngFor="let ipAction of ipActionTypes" [value]="ipAction">
+                       {{ipAction}}
                        </mat-option>
                        </mat-select></mat-form-field></td>
                    <td><button id="btn2" mat-raised-button color="primary">IP Action</button></td>
                   </tr>
                   <tr>
                      <td>Fetch type</td>
-                     <td> <mat-form-field><mat-select placeholder="Please Specify">
-                         <mat-option *ngFor="let food of foods" [value]="food.value">
-                         {{food.viewValue}}
+                     <td> <mat-form-field>
+                         <mat-select  [(ngModel)]="selectedFetchType">
+                         <mat-option *ngFor="let fetch of fetchTypes" [value]="fetch">
+                         {{fetch}}
                          </mat-option>
                          </mat-select></mat-form-field></td>
                      <td><button id="btn2" mat-raised-button color="primary">Fetch</button></td>
@@ -35,12 +38,14 @@
         </div>
         
         <div class="grid-item2">
-               
-                <label>IP Letter: </label><br>
+                <br>
+               <fieldset>
+                <legend>IP Letter: </legend>
                 <mat-radio-group >
                         <mat-radio-button class="align-left" [checked]="true" value="1">View</mat-radio-button>
                 </mat-radio-group>&nbsp;&nbsp;&nbsp;
-               <button mat-raised-button color="primary"  (click)="createIpMail(4)">Create IP mail</button><br>
+               <button mat-raised-button color="primary"  (click)="changeComp(4)">Create IP mail</button><br>
+               <br>
                <label>Letter type :</label>
                <mat-form-field>
                     <mat-select placeholder="Please Specify">
@@ -49,6 +54,7 @@
                     </mat-option>
                     </mat-select>
                 </mat-form-field>
+            </fieldset>
         </div>
     <div><label>Brass Response :</label></div>
 
@@ -90,9 +96,9 @@
   </div>
   <table class="align-middle">
       <tr>
-            <td><button mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openDialog()">SIR</button></td>
+            <td><button mat-raised-button color="primary" [disabled]="basedOnSirResponse" (click)="openSIRDialog()">SIR</button></td>
             <!-- <td><button class="updateBtn" mat-raised-button color="primary">UPDATE</button></td> -->
-            <td><button  mat-raised-button color="primary">Addtional Info</button></td>
+            <td><button  mat-raised-button color="primary" (click)="additionalInfo()">Addtional Info</button></td>
             <td><button  mat-raised-button color="primary" (click)="refreshLog();">Refresh</button></td>
       </tr>
   </table >

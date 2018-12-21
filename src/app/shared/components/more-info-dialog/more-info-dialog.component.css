@@ -7,8 +7,12 @@ mat-dialog-content{
     width: 40%;
     height: 50%;
 }
-
-.row_one,.row_three,.row_five{
+.prioritySeverity{
+  /* background-color: lightgray; */
+  margin-left: 9.5%;
+  width: 60%;
+}
+.row_one,.row_three,.row_five,.row_seven{
     /* margin: 1%; */
     background-color: lightgray;
     height: 48px;

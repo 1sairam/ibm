@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of, from } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { SelectCommitment } from '../../core/models/SelectCommitment';
+import { SelectCommitmentData } from '../models/select-commitment-data';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,10 @@ export class SelectCommitmentService {
 
   constructor(private http: HttpClient) { }
 
-  getSelectCommitmentData(objid): Observable<SelectCommitment[]> {
+  getSelectCommitmentData(objid): Observable<SelectCommitmentData> {
     console.log(this._url);
-    return this.http.get<SelectCommitment[]>(this._url + objid);
+    this._url += objid;
+    return this.http.get<SelectCommitmentData>(this._url);
   }
 
   getSelectCommitmentWithFilter(caseObjId, option, subOpt, sortOpt, queryInput) {

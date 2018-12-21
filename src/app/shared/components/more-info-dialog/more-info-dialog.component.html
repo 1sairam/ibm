@@ -52,6 +52,14 @@
           </mat-select>
         </mat-form-field>
       </div>
+  <div class="row_seven">
+    <label>Priority/Severity : </label>
+    <mat-form-field class="prioritySeverity">
+      <mat-select [(value)]="details.tableGbstElmPrty.title" [disabled]="true">
+        <mat-option *ngFor="let prioritySeverityValue of priorityAndSeverity">{{prioritySeverityValue}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button class="closeBtn" mat-button (click)="closeDialog()">Close</button>

@@ -76,15 +76,15 @@
                              <mat-option *ngFor="let subTypeValue of subTypes" [value]="subTypeValue">{{subTypeValue}}</mat-option>
                             </mat-select>
                          </mat-form-field>
-                    </div>
-                    <div>
+      </div><br>
+                    <!-- <div>
                       <label>Priority/Severity : </label>
                         <mat-form-field class="prioritySeverity">
                           <mat-select [(value)]="caseInfo.tableCase.prioritySeverity">
                             <mat-option *ngFor="let prioritySeverityValue of priorityAndSeverity">{{prioritySeverityValue}}</mat-option>
                           </mat-select>
                         </mat-form-field>
-                     </div>
+                     </div> -->
                      <div class="case_btns">
                          <button mat-raised-button	class="btn_more_info" (click)="openDialog()">More Info</button>
                          <!-- <div><button mat-raised-button	class="btn_catch_all">Catch All</button></div> -->
@@ -239,7 +239,7 @@
                                                           <button mat-raised-button	class="btn_three">Billing</button><br>
                                                           <button mat-raised-button	class="btn_four">BRASS</button>
                                                           <button mat-raised-button	class="btn_five">View IPs</button>
-                                                          <button mat-raised-button	class="btn_six">HSIA</button>
+          <button mat-raised-button class="btn_six" (click)="hsiaModal()">HSIA</button>
                                                           <button mat-raised-button	class="btn_seven">View CPE</button>
                                                       </span>
                                                     </div>
@@ -259,7 +259,7 @@
                               Tap the pannel to view details
                             </mat-panel-description> -->
                           </mat-expansion-panel-header>
-                          <bbw-brass></bbw-brass>
+                          <bbw-brass (changeToComponent)="changeComp($event);"></bbw-brass>
                         </mat-expansion-panel>
                                   <!-- billing pannel -->
                                   <mat-expansion-panel class="pannel_8">
@@ -303,6 +303,7 @@
                                       <mat-form-field class="case-notes">
                                         <textarea class="case-notes-text-height"  matInput readonly="true">{{caseInfo.tableCase.caseHistory}}</textarea>
                                       </mat-form-field>
+                                      <button mat-raised-button	class="btn_more_info" (click)="openAddNotesDialog()">Add Notes</button>
                                     </mat-expansion-panel>
           </mat-accordion>      
     </div>

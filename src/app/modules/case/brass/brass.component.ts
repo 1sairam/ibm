@@ -16,6 +16,7 @@ import { ActivityLog } from '../../../core/models/activity-log';
   styleUrls: ['./brass.component.css']
 })
 export class BrassComponent implements OnInit,AfterViewInit {
+
   @Output() changeToComponent = new EventEmitter<number>();
 
   fileNameDialogRef: MatDialogRef<SirCreationDialogComponent>;
@@ -25,6 +26,15 @@ export class BrassComponent implements OnInit,AfterViewInit {
   foods:any[] = [];
   foo:any;
   isLoading=true;
+  
+
+  actionTypes = ["Cancel Order", "Prequalification","Resume Service", "Suspend Service", "Please Specify"];
+  ipActionTypes = ["Activate IP", "Reserve IP", "Please Specify"];
+  fetchTypes = ["Status", "Charge Code", "Please Specify"];
+  //Select by default
+  selectedActionType = this.actionTypes[4];
+  selectedIpActionType = this.ipActionTypes[2];
+  selectedFetchType =this.fetchTypes[2];
 
 
   constructor( private activityLogService: ActivityLogService,private dialogBox : Dialog,private brassService: BrassService,private caseInfoService:CaseInfoService,public dialog: MatDialog) { 
@@ -71,16 +81,13 @@ export class BrassComponent implements OnInit,AfterViewInit {
 
   dataSource = new MatTableDataSource<any>();
   dataSource1=new MatTableDataSource<any>();
-
-
-  createIpMail(index){
-    this.changeToComponent.emit(index);
-  }
   
-  changeComp(index){
-    this.changeToComponent.emit(index);
+  changeComp(){
+    console.log('In Change Comp...!');
+    this.changeToComponent.emit(4);
   }
-  openDialog(){
+
+  openSIRDialog(){
    
     this.fileNameDialogRef=this.dialog.open(SirCreationDialogComponent,{
       data: this.caseInfo.caseId
@@ -97,5 +104,10 @@ export class BrassComponent implements OnInit,AfterViewInit {
      
       
     });
+  }
+  additionalInfo(){
+    if(this.selectedAct != undefined && this.selectedAct.addInfo != undefined){
+    this.dialogBox.openDialog(this.selectedAct.addInfo);
+    }
   }
 }

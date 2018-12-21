@@ -6,4 +6,5 @@ export interface SelectCommitment {
     originalDate: string,
     completeDate: string,
     of: string
+    cmitHistory:string;
 }

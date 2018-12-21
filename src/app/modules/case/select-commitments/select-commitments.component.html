@@ -5,7 +5,7 @@
   List Commitments whose
   <span class="planner">Planner :
     <mat-form-field class="plannerText">
-      <input matInput>
+      <input matInput [(ngModel)]="hsiaInfo.tmplteName" disabled>
     </mat-form-field>
   </span>
 </div>
@@ -112,8 +112,11 @@
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{'highlight': selectedAct == row}"
-        (click)="setClickedRow(row)"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" 
+        (dblclick)="openCommitment();"
+        [ngClass]="{'highlight': selectedAct == row}"
+        (click)="setClickedRow(row)">
+         </tr>
     </table>
   </div>
 </div>
@@ -126,7 +129,8 @@
           Record</button></td>
       <td><button class="reset" mat-raised-button color="primary">Reset</button></td>
       <td><button class="fullfillDate" mat-raised-button color="primary">Fullfill Date</button></td>
-      <td><button class="new" mat-raised-button color="primary">New</button></td>
+      <td><button class="new" mat-raised-button color="primary" (click)="changeComp(5);">New</button></td>
+      <td><button class="new" mat-raised-button color="primary" (click)="openCommitment()" [disabled]="deleteDisabled">Open</button></td>
       <td><button class="done" (click)="changeComp(0)" mat-raised-button color="primary">Done</button></td>
     </tr>
   </table>

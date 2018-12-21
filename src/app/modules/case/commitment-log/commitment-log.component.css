@@ -1,22 +1,16 @@
-.fullBody{
-    margin-left: 1%;
-    margin-right: 1%;
+.mat-tab-body.mat-tab-body-active {
+  position: relative;
+  overflow-x: hidden;
+  
+}
+.titleSelect{
+  margin-left: 4%;
+}
+.inputField{
+  margin-left: 9%;
 }
 p{
     padding: 10px;
-  }
-  th{
-    /* font-weight: bold; */
-    font-size: 15px;
-    background-color: aquamarine;
-    color:black;
-  }
-  mat-expansion-panel-header{
-    background-color: darkblue;
-    color: white;
-  }
-  mat-header-cell{
-    color: blue;
   }
   .grid-container {
     margin-left: 5px;
@@ -42,10 +36,7 @@ p{
     float:right;
     margin-right: 100px;
   }
-  /* .highlight {
-    background-color: #1976D2 !important;
-    font-weight: bold;
-  } */
+  
   
   .result-row:hover {
     background-color: #BBDEFB;
@@ -109,9 +100,7 @@ p{
     margin-left: 50%;
     margin-top: -4%;
   }
-  .inputField{
-    margin-left: 6.3%;
-  }
+  
   .adjust{
     width: 70%;
     margin-top: -1%;
@@ -141,7 +130,7 @@ p{
   .btnGroup{
     position: absolute;
     left: 83%;
-    top: 67%;
+    top: 36%;
   }
   .btn{
     display: block;

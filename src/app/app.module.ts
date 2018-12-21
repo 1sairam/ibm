@@ -21,6 +21,8 @@ import { WarningMessageDialogComponent } from './shared/components/warning-messa
 import { MoreInfoDialogComponent } from './shared/components/more-info-dialog/more-info-dialog.component';
 import { SelectCommitDeleteDialogComponent } from './shared/components/select-commit-delete-dialog/select-commit-delete-dialog.component';
 import { YankCreationDialogComponent } from './modules/dialogs/yank-creation-dialog/yank-creation-dialog.component';
+import { DispatchDialogComponent } from './modules/dialogs/dispatch-dialog/dispatch-dialog.component';
+import { HsiaDialogComponent } from './modules/dialogs/hsia-dialog/hsia-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { YankCreationDialogComponent } from './modules/dialogs/yank-creation-dia
     MoreInfoDialogComponent,
     SelectCommitDeleteDialogComponent,
     YankCreationDialogComponent,
+    DispatchDialogComponent,
+    HsiaDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,8 @@ import { YankCreationDialogComponent } from './modules/dialogs/yank-creation-dia
     MoreInfoDialogComponent,
     SelectCommitDeleteDialogComponent,
     YankCreationDialogComponent,
+    DispatchDialogComponent,
+    HsiaDialogComponent
   ],
   bootstrap: [AppComponent]
 })

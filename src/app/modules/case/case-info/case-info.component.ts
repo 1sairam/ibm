@@ -2,7 +2,8 @@ import { Component, OnInit, Output,EventEmitter  } from '@angular/core';
 import { CaseInfoService } from '../../../core/services/case-info.service';
 import { CaseInfo } from '../../../core/models/case-info';
 import {MatDialog} from '@angular/material';
-import { MoreInfoDialogComponent } from '../../../shared/components/more-info-dialog/more-info-dialog.component'
+import { MoreInfoDialogComponent } from '../../../shared/components/more-info-dialog/more-info-dialog.component';
+import { HsiaDialogComponent } from '../../../modules/dialogs/hsia-dialog/hsia-dialog.component';
 @Component({
   selector: 'bbw-case-info',
   templateUrl: './case-info.component.html',
@@ -86,6 +87,16 @@ priorityAndSeverity = [
 
   MAT_TAB_COLLAPSED_HEIGHT = '35px';
   MAT_TAB_EXPANDED_HEIGHT = '27px';
+
+  openAddNotesDialog(){
+    
+  }
+  hsiaModal(){
+    const dialogRef = this.dialog.open(HsiaDialogComponent,  {
+      width: '85%',
+      height : '81%'
+    });
 }
 
 
+}

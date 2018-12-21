@@ -176,7 +176,23 @@ export class AppComponent implements OnInit, AfterViewInit {
   viewCase(caseId){
     console.log(caseId);
   }
-  
+
+  /////Desktop Options START
+  openAcceptDialog(){
+
+  }
+  openDispatchDialog(){
+
+  }
+  openMoveDialog(){
+    ///Open move dialog to display wipbins list.
+  }
+  openAssignDialog(){
+    
+  }
+  openRejectForwardDialog(){
+
+  }
   openYankDialog(){
    
     this.dialogRef=this.yankDialog.open(YankCreationDialogComponent,{
@@ -188,4 +204,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
     );
   }
+  /////Desktop Options END
+
 }

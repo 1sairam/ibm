@@ -3,6 +3,7 @@ import { SelectCommitment } from 'src/app/core/models/selectCommitment';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { MatTableDataSource } from '@angular/material';
+import { Dialog } from '../../../shared/util/dialog';
 import { SelectCommitmentService } from '../../../core/services/log-commitment.service';
 import { SelectCommitDeleteDialogComponent } from '../../../shared/components/select-commit-delete-dialog/select-commit-delete-dialog.component';
 import { CaseInfo } from 'src/app/core/models/case-info';
@@ -24,12 +25,15 @@ export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<any>();
   deleteDisabled: boolean;
   dataLength: number;
+  hsiaInfo : any ={
+    "tmplteName" : ""
+  };
 
   selected2: any;
   selected: any;
   SelectCommitments = [];
 
-  constructor(private selectCommitmentService: SelectCommitmentService, public dialog: MatDialog,private caseInfoService:CaseInfoService) {
+  constructor(private dialogCommit : Dialog,private selectCommitmentService: SelectCommitmentService, public dialog: MatDialog,private caseInfoService:CaseInfoService) {
     this.selectedRow = 0;
     this.deleteDisabled = true;
     this.dataLength = 0;
@@ -46,7 +50,12 @@ export class SelectCommitmentsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
       this.selectCommitmentService.getSelectCommitmentData(this.caseInfo.tableCase.objid)
-      .subscribe(data => this.selectCommitment = this.dataSource.data = data);
+      .subscribe(data => {
+        this.selectCommitment = this.dataSource.data = data.commitLog;
+        if(data.planTmplteHdr != undefined){
+          this.hsiaInfo = data.planTmplteHdr;
+        }
+      });
        this.dataSource.data = this.selectCommitment;
   }
 
@@ -170,4 +179,9 @@ setDefault(val){
     });
     return dialogRef.afterClosed();
   }
+  
+  //
+  openCommitment(){
+  this.dialogCommit.openDialog(this.selectedAct.cmitHistory);
+}
 }
