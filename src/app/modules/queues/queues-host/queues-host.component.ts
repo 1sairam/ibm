@@ -3,7 +3,7 @@ import {FlatTreeControl} from '@angular/cdk/tree';
 import { QueuesCaseList } from '../../../core/models/queues-case-list';
 import { WipbinsCaseList } from '../../../core/models/wipbins-case-list';
 import { MatTableDataSource } from '@angular/material';
-import {Component, Injectable, Input} from '@angular/core';
+import {Component, Injectable, Input, AfterViewInit} from '@angular/core';
 import {BehaviorSubject, merge, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { WipBins } from '../../../core/models/wip-bins';

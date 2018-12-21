@@ -152,6 +152,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     //this.getCaseInfo('untitled');
   }
 
+  setWipBindWindowClosed(){
+    //set wipbin window closed
+  }
   
   openLogCommitment(){
    //this.caseHost.loadComponent(9);
@@ -181,15 +184,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
     this.dialogRef.afterClosed().subscribe(result => {
-      this.YabkResponseMessage=result;
-      if(this.YabkResponseMessage.status == 200){
-        this.dialog.openDialog("Thank you,"+this.YabkResponseMessage.message+" !!");
-      }else if(this.YabkResponseMessage.status == 700){
-        console.log('no thanks clicked');
-        }else{
-        this.dialog.openDialog("Sorry, Service Instance Request not created, Reason "+this.YabkResponseMessage.message);
-      }
-      console.log('The dialog was closed result'+result);
+      console.log('Refresh the page, case window and wipbin windows...etc');
     }
     );
   }

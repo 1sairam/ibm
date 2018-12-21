@@ -1,9 +1,9 @@
 import { Component, Output, EventEmitter, Inject, ViewChild } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { YankCase } from '../../../core/models/yank-case';
 import { YankService } from '../../../core/services/yank.service';
 import { HttpClient ,HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable, of} from 'rxjs';
+import { Dialog } from '../../../shared/util/dialog';
+import { CaseInfoService } from '../../../core/services/case-info.service';
 
 @Component({
   selector: 'bbw-yank-creation-dialog',
@@ -13,56 +13,53 @@ import { Observable, of} from 'rxjs';
 export class YankCreationDialogComponent {
   buttonDisabled: boolean;
   public SelectCase: any= "Case";
-  public selectedCaseId: any="2345678";
+  public selectedCaseId:any="";
   selectDrop = ["Case"];
 
   private _url: string ='../ordermgmtservice/v1/service/createSirRequest';
 
-  constructor(
+    constructor(
+    private caseInfoService:CaseInfoService,
+    public yankService:YankService,
+    private dialog : Dialog,
     public dialogRef: MatDialogRef<YankCreationDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public caseId: any,private http : HttpClient,public dummy:YankService) {
+    @Inject(MAT_DIALOG_DATA) public caseId: any,
+    private http : HttpClient,public dummy:YankService) {
 
     }
-    YankCase = {
-      "message" : "do Nothing",
-      "status": 700
-    };
+
     ngOnInit(){
+      //Need to get from WIPBINS data also...
+      console.log('in Yank modal');
+      let caseInfo = this.caseInfoService.getSelectedCaseInfo();
+      if(caseInfo != undefined){
+        this.selectedCaseId = this.caseInfoService.getSelectedCaseInfo().caseId;
+      }
+      console.log('case ID received'+this.selectedCaseId);
+      console.log('in Yank modal');
+    }
+
+    onYankClick(){
+
+      if(this.selectedCaseId == null || this.selectedCaseId.length <1){
+        this.dialog.openDialog('Please enter valid case ID.');
+        return;
+      }
+      this.yankService.yankCase(this.selectedCaseId).subscribe(data =>{
+        this.dialogRef.close('Do Nothing...');
+        this.dialog.openDialog(data);
+      },error=>{
+        this.dialogRef.close('Do Nothing...');
+        this.dialog.openDialog("Yank Case Failed.");
+      }
+      );
 
     }
 
-    onOkClick(){
-  
-      console.log(`trigger Yank rest call`);
-      const params = new HttpParams().set('caseId',this.caseId);
-      console.log(`URL:::${this._url},params ::: ${params}`);
+  onCancelClick(){
+    this.dialogRef.close('Do Nothing...');
+  }
 
-     this.http.get<YankCase>(this._url,{params}).subscribe(data =>{
-      console.log('response status code :: '+data);
-      if(data.status==200){
-        this.dialogRef.close(data);
-      }else{
-        this.dialogRef.close(data);
-      }
-     },error=>{
-      if (error instanceof HttpErrorResponse) {
-        console.log(`status code against Yank creation request:::${error.status}`);
-         //Backend returns unsuccessful response codes such as 404, 500 etc.				  
-         console.error('Backend returned status code: ', error.status);
-         console.error('Response body:', error.message);          	  
-     } else {
-         //A client-side or network error occurred.	          
-         console.error('An error occurred:', error.message);          
-     } 
-     this.YankCase.message= error.message;
-     this.YankCase.status=error.status;
-      this.dialogRef.close(this.YankCase);
-     }
-    );
-}
-onCancelClick(){
-  this.dialogRef.close(this.YankCase);
- }
 }
 
 

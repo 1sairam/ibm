@@ -8,11 +8,12 @@ import { YankCase } from '../models/yank-case';
   providedIn: 'root'
 })
 export class YankService {
-  private _url: string = "";
+  private _url: string = "./yank/";
 
   constructor(private http: HttpClient) { }
-  getYankData(objid):Observable<YankCase[]>{
-    return this.http.get<YankCase[]>(this._url+objid);
+
+  yankCase(caseId):Observable<YankCase[]>{
+    return this.http.get<YankCase[]>(this._url+caseId);
   }
 }
 
