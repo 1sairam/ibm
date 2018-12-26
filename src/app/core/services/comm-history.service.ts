@@ -12,6 +12,9 @@ export class CommHistoryService {
   constructor(private http: HttpClient) { }
 
   getCommHistoryData(objid): Observable<CommHistory[]>{
-    return this.http.get<CommHistory[]>(this._url+objid);
+    let url = this._url;
+    url += objid;
+    url += '?readonly=';
+    return this.http.get<CommHistory[]>(url);
   }
 }
