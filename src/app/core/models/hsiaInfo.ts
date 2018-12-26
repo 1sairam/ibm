@@ -22,5 +22,5 @@ export interface HsiaInfo {
     emtPortAssignment: string,
     emtFbgAccessCvlan: string,
     inlSvlan: string,
-    InlCvlan: string
+    inlCvlan: string
 }

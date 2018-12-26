@@ -10,7 +10,7 @@ import { HsiaInfoService } from '../../../core/services/hsia-info.service'
   styleUrls: ['./hsia-dialog.component.css']
 })
 export class HsiaDialogComponent implements OnInit,AfterViewInit {
-  hsiaInfo: HsiaInfo[] = [];
+  hsiaInfo: HsiaInfo;
   @Input() caseInfo: any;
   dataSource = new MatTableDataSource<any>();
 

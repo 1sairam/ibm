@@ -14,9 +14,9 @@ export class HsiaInfoService {
   
   constructor(private http: HttpClient) { }
 
-  getHsiaInfoData(caseObjId): Observable<HsiaInfo[]>{
+  getHsiaInfoData(caseObjId): Observable<HsiaInfo>{
     console.log(this._url + caseObjId);
-    return this.http.get<HsiaInfo[]>(this._url + caseObjId);
+    return this.http.get<HsiaInfo>(this._url + caseObjId);
   }
 
 }
