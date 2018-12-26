@@ -12,8 +12,8 @@ export class YankService {
 
   constructor(private http: HttpClient) { }
 
-  yankCase(caseId):Observable<YankCase[]>{
-    return this.http.get<YankCase[]>(this._url+caseId);
+  async yankCase(caseId):Promise<any>{
+    return await this.http.get<any>(this._url+caseId).toPromise();
   }
 }
 

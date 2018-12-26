@@ -45,7 +45,7 @@ export class YankCreationDialogComponent {
         this.dialog.openDialog('Please enter valid case ID.');
         return;
       }
-      this.yankService.yankCase(this.selectedCaseId).subscribe(data =>{
+      this.yankService.yankCase(this.selectedCaseId).then(data =>{
         this.dialogRef.close('Do Nothing...');
         this.dialog.openDialog(data);
       },error=>{
