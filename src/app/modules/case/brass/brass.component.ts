@@ -9,6 +9,7 @@ import { Dialog } from '../../../shared/util/dialog';
 import{SirCreationDialogComponent} from '../../../shared/components/sir-creation-dialog/sir-creation-dialog.component';
 import { ActivityLogService } from '../../../core/services/activity-log.service';
 import { ActivityLog } from '../../../core/models/activity-log';
+import {ConfirmDialogComponent} from '../../dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'bbw-brass',
@@ -20,6 +21,8 @@ export class BrassComponent implements OnInit,AfterViewInit {
   @Output() changeToComponent = new EventEmitter<number>();
 
   fileNameDialogRef: MatDialogRef<SirCreationDialogComponent>;
+  confirmDialogComponentRef: MatDialogRef<ConfirmDialogComponent>;
+
   basedOnSirResponse:boolean=false;
   activityLog: ActivityLog[] = [];
   caseInfo: CaseInfo;//default
@@ -87,6 +90,75 @@ export class BrassComponent implements OnInit,AfterViewInit {
     this.changeToComponent.emit(4);
   }
 
+
+  validate(val){
+    if(val == "Please Specify"){
+      return false;
+    }
+    return true;
+  }
+
+  showDialog(msg){
+    this.dialogBox.openDialog(msg);
+  }
+
+  confirmUserAction(message){
+    return this.dialog.open(ConfirmDialogComponent,{
+      width:"400px",
+      data: message
+    });
+  }
+
+  confirmAction(btn){
+
+    switch(btn){
+      case 'action':
+          if(!this.validate(this.selectedActionType)){
+            this.showDialog("Please select an Action Type");
+            return;
+          }
+          this.confirmUserAction('Do you want to send action type "'+this.selectedActionType+'" to be sent to Brass ?').afterClosed().subscribe(action=>{
+            if(action == 'Yes'){
+                console.log('Yes selected ....');
+            }else{
+              console.log('No selected ....');
+              //Do nothing
+            }
+          });
+          break;
+      case 'ipAction':
+          if(!this.validate(this.selectedActionType)){
+            this.showDialog("Please select Reserve Type");
+            return;
+          }
+          this.confirmUserAction('Do you want to "' + this.selectedIpActionType +'" ?').afterClosed().subscribe(action=>{
+            if(action == 'Yes'){
+                console.log('Yes selected ....');
+            }else{
+              console.log('No selected ....');
+              //Do nothing
+            }
+          });
+          break;
+      case 'fetch':
+          if(!this.validate(this.selectedActionType)){
+            this.showDialog("Please select Fetch Type");
+            return;
+          }
+          this.confirmUserAction('Do you want to  fetch "' + this.selectedFetchType + '" from Brass ?').afterClosed().subscribe(action=>{
+            if(action == 'Yes'){
+                console.log('Yes selected ....');
+            }else{
+              console.log('No selected ....');
+              //Do nothing
+            }
+          });
+          break;
+    }
+
+
+  }
+
   openSIRDialog(){
    
     this.fileNameDialogRef=this.dialog.open(SirCreationDialogComponent,{
@@ -101,8 +173,6 @@ export class BrassComponent implements OnInit,AfterViewInit {
         this.dialogBox.openDialog("Sorry , Service Instance Request not created ");
       }
       console.log('The dialog was closed result'+result);
-     
-      
     });
   }
   additionalInfo(){

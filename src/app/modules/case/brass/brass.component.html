@@ -12,7 +12,7 @@
                      </mat-select>
                     </mat-form-field>
                 </td>
-                 <td><button id="btn2" mat-raised-button color="primary">Action</button></td>
+                 <td><button id="btn2" (click)="confirmAction('action');" mat-raised-button color="primary">Action</button></td>
                 </tr>
                 <tr>
                    <td>IP Action Type</td>
@@ -22,7 +22,7 @@
                        {{ipAction}}
                        </mat-option>
                        </mat-select></mat-form-field></td>
-                   <td><button id="btn2" mat-raised-button color="primary">IP Action</button></td>
+                   <td><button id="btn2" (click)="confirmAction('ipAction');" mat-raised-button color="primary">IP Action</button></td>
                   </tr>
                   <tr>
                      <td>Fetch type</td>
@@ -32,7 +32,7 @@
                          {{fetch}}
                          </mat-option>
                          </mat-select></mat-form-field></td>
-                     <td><button id="btn2" mat-raised-button color="primary">Fetch</button></td>
+                     <td><button id="btn2" (click)="confirmAction('fetch');" mat-raised-button color="primary">Fetch</button></td>
                     </tr>
                  </table>
         </div>

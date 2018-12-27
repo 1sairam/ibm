@@ -23,6 +23,7 @@ import { SelectCommitDeleteDialogComponent } from './shared/components/select-co
 import { YankCreationDialogComponent } from './modules/dialogs/yank-creation-dialog/yank-creation-dialog.component';
 import { DispatchDialogComponent } from './modules/dialogs/dispatch-dialog/dispatch-dialog.component';
 import { HsiaDialogComponent } from './modules/dialogs/hsia-dialog/hsia-dialog.component';
+import { ConfirmDialogComponent } from './modules/dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HsiaDialogComponent } from './modules/dialogs/hsia-dialog/hsia-dialog.c
     YankCreationDialogComponent,
     DispatchDialogComponent,
     HsiaDialogComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { HsiaDialogComponent } from './modules/dialogs/hsia-dialog/hsia-dialog.c
     SelectCommitDeleteDialogComponent,
     YankCreationDialogComponent,
     DispatchDialogComponent,
-    HsiaDialogComponent
+    HsiaDialogComponent,
+    ConfirmDialogComponent,
   ],
   bootstrap: [AppComponent]
 })
