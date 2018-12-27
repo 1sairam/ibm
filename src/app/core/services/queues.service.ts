@@ -13,7 +13,21 @@ export class QueuesService {
   private _url1: string = "./myQueuesList/";
   private _url2: string = "./allQueuesList";
   private _url3: string = "./casesInQueue/";
-  //private _url1: string = "app/core/mocks/queues.json";
+  private url4: string = "app/core/mocks/queues.json";
+
+  private queues:Queues[] = [];
+
+  setLocalAllQueuesList(queues) {
+    this.queues = queues;
+  }
+
+  getLocalAllQueuesList():Queues[] {
+    return this.queues;
+  }
+
+  getMockAllQueuesList():Observable<Queues[]> {
+     return this.http.get<Queues[]>(this.url4);
+  }
 
   async getMyQueuesList(): Promise<Queues[]> {
     return await this.http.get<Queues[]>(this._url1).toPromise();

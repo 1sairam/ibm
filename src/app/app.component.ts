@@ -9,6 +9,7 @@ import { CaseHostComponent } from './modules/case/case-host/case-host.component'
 import { YankCase } from './core/models/yank-case';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { YankCreationDialogComponent } from '../app/modules/dialogs/yank-creation-dialog/yank-creation-dialog.component';
+import { DispatchDialogComponent } from '../app/modules/dialogs/dispatch-dialog/dispatch-dialog.component';
 
 @Component({
   selector: 'bbw-root',
@@ -34,7 +35,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(private caseInfoService: CaseInfoService,
     private dialog : Dialog,
     private caseCompService: CaseCompService,
-    private userInfoService: UserInfoService, public yankDialog: MatDialog) {
+    private userInfoService: UserInfoService, 
+    public yankDialog: MatDialog,
+    public dispatchDialog:MatDialog) {
       console.log('construct...');
   }
 
@@ -107,7 +110,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     this.isLoading = true;
-    let local = true;
+    let local = false;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {
@@ -182,6 +185,12 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
   openDispatchDialog(){
+    
+    this.dispatchDialog.open(DispatchDialogComponent, {
+      data: this.caseInfoService.getSelectedCaseInfo()
+    }).afterClosed().subscribe(data=>{
+
+    });
 
   }
   openMoveDialog(){

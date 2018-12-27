@@ -238,6 +238,7 @@ export class QueuesHostComponent {
           this.queuesService.getAllQueuesList().then(data => {
             this.allQueuesList = data;
             database.setAllQueues(this.allQueuesList);
+            this.queuesService.setLocalAllQueuesList(this.allQueuesList);
             this.dataSource.data = database.initialData();
           });
     //}
