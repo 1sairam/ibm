@@ -13,7 +13,7 @@
     margin-left: 7%;
 }
 .billing-inpt{
-    width: 23.6%;
+    width: 23%;
     margin-left: 1.6%;
 }
 .accountInpt, .externalInpt{
@@ -24,7 +24,7 @@
     margin-left: 2.6%;
 }
 .grcInpt{
-    width: 23.6%;
+    width: 23%;
     margin-left: 1.6%;
 }
 .billingLbl{
@@ -35,7 +35,7 @@
     margin-left: 3.5%;
 }
 .socLbl{
-    margin-left: 1.5%;
+    margin-left: 2%;
 }
 .socInpt{
     margin-left: 2.5%;
@@ -48,14 +48,14 @@
 }
 .alternateInpt{
     margin-left: 2.5%;
-    width: 20%;
+    width: 19%;
 }
 .contractLbl{
-    margin-left: 1%;
+    margin-left: 1.4%;
 }
 .contractInpt{
-    margin-left: 2%;
-    width: 24%;
+    margin-left: 1%;
+    width: 25%;
 }
 .bilstartInpt{
    width: 15%;

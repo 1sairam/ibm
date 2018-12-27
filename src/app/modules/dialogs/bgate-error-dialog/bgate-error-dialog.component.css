@@ -30,6 +30,7 @@ table, .custTd{
     width: 100%;
     height: 190px;
     border: 1px solid gray;
+    overflow: auto;
 }
 .recordLbl{
 

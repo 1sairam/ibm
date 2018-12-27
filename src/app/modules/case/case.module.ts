@@ -21,6 +21,7 @@ import {SirCreationDialogComponent} from '../../shared/components/sir-creation-d
 import { BgateErrorDialogComponent } from '../dialogs/bgate-error-dialog/bgate-error-dialog.component';
 import { SiidDialogComponent } from '../dialogs/siid-dialog/siid-dialog.component';
 import { BillingComponent } from '../case/billing/billing.component';
+import { ServiceInfoComponent } from './service-info/service-info.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { BillingComponent } from '../case/billing/billing.component';
     SiidDialogComponent,
     BgateErrorDialogComponent,
     BillingComponent,
+    ServiceInfoComponent,
 
   ],
   entryComponents:[
@@ -60,6 +62,7 @@ import { BillingComponent } from '../case/billing/billing.component';
     SiidDialogComponent,
     BgateErrorDialogComponent,
     BillingComponent,
+    ServiceInfoComponent,
 
   ],
   providers:[

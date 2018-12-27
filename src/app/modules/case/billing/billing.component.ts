@@ -13,7 +13,8 @@ export class BillingComponent implements OnInit {
 
   selectDrop = ["Invoice", "Subcase", "RQST", "SOLN", "CR"];
   selectedDropdown:any = 'Invoice';
-
+  tableCustomerAccount:any;
+  
   @Input()
   caseInfo:CaseInfo;
 

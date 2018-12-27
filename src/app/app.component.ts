@@ -107,7 +107,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     this.isLoading = true;
-    let local = false;
+    let local = true;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {
@@ -196,6 +196,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   openYankDialog(){
    
     this.dialogRef=this.yankDialog.open(YankCreationDialogComponent,{
+      width: "17%",
+      height: "30%",
       //data: this.caseInfo.caseId
     });
 
