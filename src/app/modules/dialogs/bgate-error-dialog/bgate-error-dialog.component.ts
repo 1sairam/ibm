@@ -10,6 +10,7 @@ export class BgateErrorDialogComponent implements OnInit {
 
   public drop:any="New";
   selectDrop=['New', 'Old']
+  displayedColumns: string[] = ['type1', 'idNumber', 'special', 'name'];
   constructor(public dialogRef:MatDialogRef<BgateErrorDialogComponent>) { }
 
   clearDialog(): void {

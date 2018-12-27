@@ -224,29 +224,8 @@
                                                       Tap the pannel to view details
                                                     </mat-panel-description> -->
                                                   </mat-expansion-panel-header>
-                                              
-                                                  <div class="service_div_one">
-                                                    <span class="serviceCircuit">CIRCUIT INFOMATION</span>
-                                                    <span class="serviceSubscribed">SUBSCRIBED OPTIONS</span>
-                                                  </div>
-                                                  <div class="service_div_two">
-                                                      <span>
-                                                          <span class="serviceProvider">PROVIDER INFOMATION</span>
-                                                      </span>
-                                                      <span>
-                                                          <button mat-raised-button	class="btn_one">Add Service</button>
-                                                          <button mat-raised-button	class="btn_two">Modify Service</button>
-                                                          <button mat-raised-button	class="btn_three">Billing</button><br>
-                                                          <button mat-raised-button	class="btn_four">BRASS</button>
-                                                          <button mat-raised-button	class="btn_five">View IPs</button>
-          <button mat-raised-button class="btn_six" (click)="hsiaModal()">HSIA</button>
-                                                          <button mat-raised-button	class="btn_seven">View CPE</button>
-                                                      </span>
-                                                    </div>
-                                                    
-                                                    <div class="service_div_three">
-                                                       IP INFORMATION
-                                                      </div>
+                                              <bbw-service-info [caseInfo]="caseInfo"></bbw-service-info>
+
                                                 </mat-expansion-panel>
       
                       <!-- planner  pannel -->

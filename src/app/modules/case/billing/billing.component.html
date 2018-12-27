@@ -5,17 +5,17 @@
         <mat-label class="paymentLbl">Payment Method:</mat-label>
 
         <mat-form-field class="paymentDropdown">
-          <mat-select [(ngModel)]="selectedDropdown">
+          <mat-select [(ngModel)]="tableCustomerAccount">
             <mat-option *ngFor="let drop of selectDrop" [value]="drop">{{drop}}</mat-option> 
           </mat-select>
         </mat-form-field>
         <mat-label class="mncLbl">MNC:</mat-label>
         <mat-form-field class="billing-inpt">
-          <input matInput type="text"> 
+          <input matInput type="text" [(ngModel)]='caseInfo.tableSof.masterCustNumber'> 
         </mat-form-field>
         <mat-label class="geoLbl">GEO Code:</mat-label>
         <mat-form-field class="billing-inpt">
-          <input matInput type="text"> 
+          <input matInput type="text" [(ngModel)]="caseInfo.tableSite.geocode"> 
         </mat-form-field> 
       </td>
     </tr>
@@ -29,11 +29,11 @@
         </mat-form-field> 
         <mat-label class="grcLbl">GRC:</mat-label>
         <mat-form-field class="grcInpt">
-          <input matInput type="text"> 
+          <input matInput type="text" [(ngModel)]="caseInfo.tableSof.groupRevenueCode"> 
         </mat-form-field> 
         <mat-label class="billingLbl">Billing ID:</mat-label>
         <mat-form-field class="billingInpt">
-          <input matInput type="text"> 
+          <input matInput [(ngModel)]="caseInfo.tableSof.billerCode" type="text"> 
         </mat-form-field> 
       </td>
     </tr>
@@ -47,10 +47,10 @@
         </mat-form-field> 
         <mat-label class="socLbl">SOC:</mat-label>
         <mat-form-field class="socInpt">
-          <input matInput type="text"> 
+          <input matInput type="text" [(ngModel)]="caseInfo.tableSof.salesOfficeCode"> 
         </mat-form-field> 
         <mat-label class="oclLbl">OCL:</mat-label>
-        <mat-checkbox class="oclCheckbox"></mat-checkbox>
+        <mat-checkbox class="oclCheckbox" [(ngModel)]="caseInfo.tableSite.outsideCityLimitInd"></mat-checkbox>
       </td>
     </tr>
   </table>
@@ -69,23 +69,23 @@
         </mat-form-field> 
       </td>
     </tr>
-  </table>
+  </table> 
   <!-- <div class="myDiv"> -->
       <table class="tableGrp">
           <tr>
             <td>
               <mat-form-field class="paymentLbl bilstartInpt">
-                <input matInput placeholder="Billing Start Date" type="text"> 
+                <input matInput placeholder="Billing Start Date" type="text" [(ngModel)]="caseInfo.tableSite.geocode"> 
               </mat-form-field> 
               <button class="btnGrp" mat-button>D/T</button>
          
               <mat-form-field class="serstartInpt">
-                <input matInput placeholder="Service Start Date" type="text"> 
+                <input matInput placeholder="Service Start Date" type="text" [(ngModel)]="caseInfo.tableSite.geocode"> 
               </mat-form-field> 
               <button class="btnGrp" mat-button>D/T</button>
         
               <mat-form-field class="serdiscInpt">
-                <input matInput placeholder="Service Disconnect Date" type="text"> 
+                <input matInput placeholder="Service Disconnect Date" type="text" [(ngModel)]="caseInfo.tableSite.geocode"> 
               </mat-form-field>
               <button class="btnGrp" mat-button>D/T</button>
             </td>
