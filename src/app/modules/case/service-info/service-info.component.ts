@@ -67,6 +67,7 @@ export class ServiceInfoComponent implements OnInit {
     "remoteWorkerInd":"No",
     "offerProduct":"Multi-User",
     "hsiaIndicator":"N",
+    "wanCustomerRouterIp":"",
     "hsiaHeldOrdInd":"",
     "serviceClass":"Basic",
     "networkTransportType":"",

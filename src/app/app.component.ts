@@ -28,6 +28,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   selectCase: number;//default
   caseCompList: CaseCompItem[] = [];
   userInfo: UserInfo;
+  disableCaseSelectedForAction:boolean=true;
 
   YabkResponseMessage:YankCase;
   isLoading=true;
@@ -117,6 +118,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         caseInfo = data;
         this.caseInfoService.createCaseInfo(caseId,caseInfo);//for all components
         this.caseIdList.push(caseId);
+        this.disableCaseSelectedForAction = false;
         this.selectCase = this.caseIdList.length;
         this.selectedCaseIndex = this.selectCase;
         this.isLoading = false;
@@ -131,6 +133,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.showMessage(caseId);
       return;
     }
+    this.disableCaseSelectedForAction = false;
     this.caseIdList.push(caseId);//local to app component
     //select Manually newly created case
     this.selectCase = this.caseIdList.length;
