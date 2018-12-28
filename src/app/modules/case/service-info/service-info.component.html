@@ -32,9 +32,7 @@
         <div class="divTbl2"> </div>
       </td> -->
     </tr>
-
   </table>
- <mat-progress-spinner style="margin-top:-6%;left: 65%;z-index:125;position: absolute;" *ngIf="isLoading" color="success" mode="indeterminate"></mat-progress-spinner>
   <table style="width:100%">
     <tr>
       <td>
@@ -243,38 +241,58 @@
      <tr>
        <td>
         <button class="subBtn" mat-button>Subscribe>></button>
-        <button class="unSubBtn" mat-button>>>UnSubscribe</button>
+        <button class="unSubBtn" mat-button><<UnSubscribe</button>
        </td>
      </tr>
    </table>
     <div class="optionalInfo">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+
+            <ng-container matColumnDef="Options">
+                <th mat-header-cell *matHeaderCellDef> Options </th>
+                   <td mat-cell *matCellDef="let ServiceInfo"></td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns3; sticky: true"></tr>
+            <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns3;"></tr>
+            </table>      
     </div>
     <div class="unsupOption">
+        <table mat-table [dataSource]="installedOptionsdataSource" class="mat-elevation-z8">
 
+            <ng-container matColumnDef="Subscribed">
+                <th mat-header-cell *matHeaderCellDef> Subscribed Options </th>
+                <td mat-cell *matCellDef="let tableInstalledOption">{{tableInstalledOption.serviceOptionsName}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Quantity">
+                <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                <td mat-cell *matCellDef="let tableInstalledOption">{{tableInstalledOption.quantity}}</td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns2; sticky: true"></tr>
+            <tr mat-row class="result-row" *matRowDef="let row; columns: displayedColumns2;"
+            [ngClass]="{'highlight': selectedSubscribedOption == row}"
+            (click)="selectInstallOption(row)"
+            ></tr>
+      </table>      
     </div>
     <mat-form-field class="SubInfoOne">
-      <mat-select placeholder="Subscribed Options">
+      <input matInput [(ngModel)]="selectedSubscribedOption.quantity" type="text"> 
+    </mat-form-field> 
+    <mat-form-field class="SubInfo">
+      <mat-select placeholder="Static IP" [(ngModel)]="selectedSubscribedOption.staticIpInd">
         <mat-option *ngFor="let OptionX of OptionalInfo" [value]="OptionX">{{OptionX}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="SubInfo">
-      <mat-select placeholder="Quantity" [(ngModel)]="optopnDrp">
+      <mat-select placeholder="NAT" [(ngModel)]="selectedSubscribedOption.natOfferInd">
         <mat-option *ngFor="let OptionX of OptionalInfo" [value]="OptionX">{{OptionX}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="SubInfo">
-      <mat-select placeholder="Static IP" [(ngModel)]="optopnDr1">
-        <mat-option *ngFor="let OptionX of OptionalInfo" [value]="OptionX">{{OptionX}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="SubInfo">
-      <mat-select placeholder="NAT" [(ngModel)]="optopnDr1">
-        <mat-option *ngFor="let OptionX of OptionalInfo" [value]="OptionX">{{OptionX}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="SubInfo">
-      <mat-select placeholder="BOY CPE" [(ngModel)]="optopnDr1">
+      <mat-select placeholder="BOY CPE" [(ngModel)]="selectedSubscribedOption.byoCpeIndicator">
         <mat-option *ngFor="let OptionX of OptionalInfo" [value]="OptionX">{{OptionX}}</mat-option>
       </mat-select>
     </mat-form-field>

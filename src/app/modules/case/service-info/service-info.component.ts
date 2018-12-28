@@ -13,14 +13,20 @@ import { HsiaDialogComponent } from '../../../modules/dialogs/hsia-dialog/hsia-d
 })
 export class ServiceInfoComponent implements OnInit {
  
+  quantity:number;
+
   @Input()
   caseInfo:CaseInfo;
+
   isLoading=true;
 
   displayedColumns: string[] = ['Conne', 'Status', 'DSL Order ID'];
+  displayedColumns2: string[] = ['Subscribed', 'Quantity'];
+  displayedColumns3: string[] = ['Options'];
 
   public serviceInfo: ServiceInfo[]=[];
   dataSource = new MatTableDataSource<any>();
+  installedOptionsdataSource=new MatTableDataSource<any>();
 
   selected=['None', 'Yes', 'No'];
   // selectedX="None";
@@ -28,21 +34,17 @@ export class ServiceInfoComponent implements OnInit {
   // selectedXn="No";
 
   OtherInfoSelected=["Multi-User", "Y", "N", "Lease", "IP-CO", "144/144 Kbps"]
-  // otherDrop="Single-User";
-  // otherDrop1="Y";
-  // otherDrop2="No";
-  // otherDrop3="Lease";
-  // otherDrop4="IP-CO";
-  // otherDrop5="768/384 Kbps";
-
-  OptionalInfo=["Subscribed ", '0', 'No', 'Static IP', 'NAT']
-  optopnDrp="0";
-  optopnDr1="No";
-  //selectedTyp:ServiceInfo;
-  //selectedRow: number;
 
 
-  selectedServerInfo : any= {
+  OptionalInfo=['5', 'No', 'Static IP', 'NAT'];
+
+  selectedSubscribedOption: any = {
+    "quantity":"0",
+    "byoCpeIndicator":"No",
+    "natOfferInd":"No",
+    "staticIpInd":"No"
+  };
+  selectedServerInfo= {
     "providerOrderId": "",
     "providerOrderStatus":"",
     "dslProvider":"",
@@ -69,10 +71,19 @@ export class ServiceInfoComponent implements OnInit {
     "serviceClass":"Basic",
     "networkTransportType":"",
     "accessSpeed":"144/144 Kbps",
+    "tableInstalledOption":[
+      {
+      "serviceOptionsName":"",
+      "quantity":"",
+      "byoCpeIndicator":"",
+      "natOfferInd":"",
+      "staticIpInd":""
+      }
+
+    ],
 
   }
 
-  
 
   constructor(public dialog: MatDialog,private _serviceInfoService : ServiceInfoService) {
     //this.selectedRow=0;
@@ -80,31 +91,37 @@ export class ServiceInfoComponent implements OnInit {
 
   ngOnInit() {
     this._serviceInfoService.getServiceInfoData(this.caseInfo.caseId).subscribe(data => {
-      this.isLoading=false;
       this.serviceInfo = this.dataSource.data= data;
-      if(this.serviceInfo != undefined && this.serviceInfo.length>0)
-        this.selectedServerInfo = this.serviceInfo[0];
+      this.isLoading=false;
     },error=>{
       this.isLoading=false;
     }
   );
   }
-setClickedRow(row){
+
+  setClickedRow(row){
     this.selectedServerInfo = row;
-}
-
-hsiaModal(){
-
-  if(this.selectedServerInfo == undefined || this.selectedServerInfo == null){
-    return;
+    this.installedOptionsdataSource.data = this.selectedServerInfo.tableInstalledOption;
   }
 
-  const dialogRef = this.dialog.open(HsiaDialogComponent,  {
-    width: '85%',
-    height : '81%',
-    data: {"hsiaInfo" : this.selectedServerInfo}
+  selectInstallOption(row){
+    this.selectedSubscribedOption=row;
+    this.quantity=row.quantity;
+     console.log(row.quantity)
   }
-  );
-}
+  
+  hsiaModal(){
 
+    if(this.selectedServerInfo == undefined || this.selectedServerInfo == null){
+      return;
+    }
+  
+    const dialogRef = this.dialog.open(HsiaDialogComponent,  {
+      width: '85%',
+      height : '81%',
+      data: {"hsiaInfo" : this.selectedServerInfo}
+    }
+    );
+  }
+  
 }
