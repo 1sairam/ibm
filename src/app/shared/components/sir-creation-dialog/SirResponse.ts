@@ -1,4 +1,6 @@
 export interface SirResponse {
-    status:String;
-    message:String;
+    resultCode:string;
+    resultMessage:string;
 }
+
+

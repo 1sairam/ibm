@@ -28,33 +28,43 @@ export class SirCreationDialogComponent  {
 
     }
     
-    onOkClick():Observable<SirResponse[]>{
-      console.log('trigger rest call');
-      console.log(this._url,{params :new HttpParams().set('caseId',this.caseId)});
-      this.dialogRef.close();
-      this.http.get<SirResponse[]>(this._url,{params :new HttpParams().set('caseId',this.caseId)}).subscribe(
-        response =>{
-        console.log("response:::"+response);
-        this.dialogRef.close('true');
-        },
-        error =>{
+    sirResponse = {
+      "resultMessage" : "do Nothing",
+      "resultCode": 700
+    };
 
-          if (error instanceof HttpErrorResponse) {
-            //Backend returns unsuccessful response codes such as 404, 500 etc.				  
-            console.error('Backend returned status code: ', error.status);
-            console.error('Response body:', error.message);          	  
-        } else {
-            //A client-side or network error occurred.	          
-            console.error('An error occurred:', error.message);          
-        } 
-        this.dialogRef.close('false');    
-      }
-      
-      );
-        
-      return this.http.get<SirResponse[]>(this._url,{params :new HttpParams().set('caseId',this.caseId)});
-      
-    }
+    
+
+    onOkClick()
+    {
+      console.log(`trigger SIR rest call`);
+      const params = new HttpParams().set('caseId',this.caseId);
+      console.log(`URL:::${this._url},params ::: ${params}`);
+     this.http.get<SirResponse>(this._url,{params}).subscribe(data =>{
+      console.log('response status code :: '+data);
+if(data.resultCode==null && data.resultMessage==null){
+  console.log(`Service Instance Request not created `);
+}else{
+  console.log(` Service Instance Request created successfully`);
+}
+this.dialogRef.close(data);
+     
+     },error=>{
+      if (error instanceof HttpErrorResponse) {
+        console.log(`status code against Sir creation request:::${error.status}`);
+         //Backend returns unsuccessful response codes such as 404, 500 etc.				  
+         console.error('Backend returned status code: ', error.status);
+         console.error('Response body:', error.message);          	  
+     } else {
+         //A client-side or network error occurred.	          
+         console.error('An error occurred:', error.message);          
+     } 
+     this.sirResponse.resultMessage= error.message;
+     this.sirResponse.resultCode=error.status;
+      this.dialogRef.close(this.sirResponse);
+     }
+    );
+}
     onCancelClick(){
      this.dialogRef.close();
 
