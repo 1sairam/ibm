@@ -47,7 +47,7 @@ export class YankCreationDialogComponent {
       }
       this.yankService.yankCase(this.selectedCaseId).then(data =>{
         this.dialogRef.close('Do Nothing...');
-        this.dialog.openDialog(data);
+        this.dialog.openDialog(data.message);
       },error=>{
         this.dialogRef.close('Do Nothing...');
         this.dialog.openDialog("Yank Case Failed.");
