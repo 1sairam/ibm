@@ -13,7 +13,7 @@
     <button mat-flat-button color="primary" (click)="getCaseInfo(caseId);caseId='';">Open</button>
     <span class="header-fill-remaining-space"></span>
     <button mat-button color="primary" (click)="openAcceptDialog();" disabled><i class="small icon-location-geofence"></i> Accept</button>
-    <button mat-button color="primary" (click)="openDispatchDialog();"><i class="small icon-location-geofence"></i> Dispatch</button>
+    <button mat-button color="primary" (click)="openDispatchDialog();" [disabled]="disableCaseSelectedForAction"><i class="small icon-location-geofence"></i> Dispatch</button>
     <button mat-button color="primary" (click)="openMoveDialog();" disabled><i class="small icon-location-geofence"></i> Move</button>
     <button mat-button color="primary" (click)="openAssignDialog();" disabled><i class="small icon-location-geofence"></i> Assign</button>
     <button mat-button color="primary" (click)="openRejectForwardDialog();" disabled><i class="small icon-location-geofence"></i> Reject-Forward</button>
