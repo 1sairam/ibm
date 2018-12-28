@@ -10,6 +10,7 @@ import{SirCreationDialogComponent} from '../../../shared/components/sir-creation
 import { ActivityLogService } from '../../../core/services/activity-log.service';
 import { ActivityLog } from '../../../core/models/activity-log';
 import {ConfirmDialogComponent} from '../../dialogs/confirm-dialog/confirm-dialog.component';
+import {SirResponse} from '../../../shared/components/sir-creation-dialog/SirResponse';
 
 @Component({
   selector: 'bbw-brass',
@@ -29,6 +30,7 @@ export class BrassComponent implements OnInit,AfterViewInit {
   foods:any[] = [];
   foo:any;
   isLoading=true;
+  sirResponseMessage:SirResponse;
   
 
   actionTypes = ["Cancel Order", "Prequalification","Resume Service", "Suspend Service", "Please Specify"];
@@ -166,13 +168,16 @@ export class BrassComponent implements OnInit,AfterViewInit {
     });
 
     this.fileNameDialogRef.afterClosed().subscribe(result => {
-      this.basedOnSirResponse=result;
-      if(result){
-        this.dialogBox.openDialog("Thank you, Service Instance Request created sucessFully !!");
-      }else{
-        this.dialogBox.openDialog("Sorry , Service Instance Request not created ");
-      }
-      console.log('The dialog was closed result'+result);
+      this.sirResponseMessage=result;
+ if(this.sirResponseMessage.resultCode==null && this.sirResponseMessage.resultMessage==null){
+  this.dialogBox.openDialog("Sorry , Service Instance Request not created ");
+}else if(this.sirResponseMessage.resultCode=='200'){
+  this.dialogBox.openDialog("Thank you, Service Instance Request created sucessFully !!");
+  this.basedOnSirResponse=true;
+}else if(this.sirResponseMessage.resultCode=='700'){
+  console.log(`error from DME2 client for SIR`);
+}
+console.log('The dialog was closed result'+result);
     });
   }
   additionalInfo(){

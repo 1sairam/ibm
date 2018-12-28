@@ -61,12 +61,15 @@ this.dialogRef.close(data);
      } 
      this.sirResponse.resultMessage= error.message;
      this.sirResponse.resultCode=error.status;
-      this.dialogRef.close(this.sirResponse);
+     console.log(error.status +':'+error.message);
+     this.dialogRef.close(this.sirResponse);
      }
     );
 }
     onCancelClick(){
-     this.dialogRef.close();
+      this.sirResponse.resultMessage= "";
+      this.sirResponse.resultCode=800;
+     this.dialogRef.close(this.sirResponse);
 
     }
 }
