@@ -4,6 +4,7 @@ import { MatTableDataSource, MAT_DIALOG_DATA ,MatDialogRef} from '@angular/mater
 import { DispatchService } from '../../../core/services/dispatch.service';
 import { QueuesService } from '../../../core/services/queues.service';
 import { Queues } from 'src/app/core/models/queues';
+import { Dialog } from '../../../shared/util/dialog';
 
 @Component({
   selector: 'bbw-dispatch-dialog',
@@ -14,6 +15,7 @@ export class DispatchDialogComponent implements OnInit, AfterViewInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public caseInfo: CaseInfo,
+    private dialog : Dialog,
     public dialogRef: MatDialogRef<DispatchDialogComponent>,
     public dispatchService: DispatchService,
     public queuesService: QueuesService) {
@@ -79,7 +81,11 @@ export class DispatchDialogComponent implements OnInit, AfterViewInit {
 
   dispatch() {
     this.dispatchService.dispatch(this.caseInfo.caseId, this.selectedAct.objid).subscribe(data=>{
-
+      this.dialogRef.close();
+      this.dialog.openDialog('Successfully Case ID Dispatched.');
+    },error=>{
+      this.dialog.openDialog('Error While Dispatching Case ID.');
+      this.dialogRef.close();
     })
   }
 

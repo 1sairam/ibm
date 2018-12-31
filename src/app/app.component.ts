@@ -188,9 +188,13 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   }
   openDispatchDialog(){
-    
+    let caseInfo = this.caseInfoService.getSelectedCaseInfo();
+    if(caseInfo == undefined || caseInfo == null){
+      this.dialog.openDialog('Select CaseID to Dispatch.');
+      return;
+    }
     this.dispatchDialog.open(DispatchDialogComponent, {
-      data: this.caseInfoService.getSelectedCaseInfo()
+      data: caseInfo
     }).afterClosed().subscribe(data=>{
 
     });
