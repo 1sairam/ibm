@@ -111,7 +111,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       return;
     }
     this.isLoading = true;
-    let local = false;
+    let local = true;
     if(local){
       let caseInfo;
       this.caseInfoService.getLocalCaseInfo().then(data => {

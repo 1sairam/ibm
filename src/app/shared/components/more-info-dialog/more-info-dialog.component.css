@@ -9,8 +9,8 @@ mat-dialog-content{
 }
 .prioritySeverity{
   /* background-color: lightgray; */
-  margin-left: 9.5%;
-  width: 60%;
+  margin-left: 7%;
+  width: 65%;
 }
 .row_one,.row_three,.row_five,.row_seven{
     /* margin: 1%; */
@@ -25,27 +25,27 @@ mat-dialog-content{
   }
 
   .project{
-    margin-left: 15%;
-     width: 65%;
+    margin-left: 18%;
+     width: 63%;
   }
   .serviceIndicator{
-    margin-left: 4%;
+    margin-left: 6%;
      width: 65%;
   }
   .salesOffer{
-    margin-left: 12%;
+    margin-left: 15%;
      width: 65%;
   }
   .custQualifier{
-    margin-left: 8%;
+    margin-left: 10%;
      width: 65%;
   }
   .origin{
-    margin-left: 18%;
+    margin-left: 21%;
      width: 65%;
   }
   .custPremises{
-    margin-left: 8%;
+    margin-left: 10%;
      width: 65%;
   }
 
