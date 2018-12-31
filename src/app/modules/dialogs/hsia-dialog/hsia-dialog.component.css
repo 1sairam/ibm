@@ -22,18 +22,15 @@ mat-form-field.input{
 .closeBtn{
     margin-left: 50%;
 } 
-textarea,.hsiaErrDes{
+textarea{
     width: 200%;
     height: 156px;
-    max-width: 200%;
-    max-height: 156px;    
+    resize: none;
 }
-textarea,.srcActName{
+textarea{
     width: 200%;
     height: 156px;
-    max-width: 200%;
-    max-height: 156px;
-    
+    resize: none;
 }
 mat-card{
     background: #3f51b5;

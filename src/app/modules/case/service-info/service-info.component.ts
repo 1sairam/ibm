@@ -14,6 +14,8 @@ import { HsiaDialogComponent } from '../../../modules/dialogs/hsia-dialog/hsia-d
 export class ServiceInfoComponent implements OnInit {
  
   quantity:number;
+  serviceFrom:any;
+  serviceTo:any;
 
   @Input()
   caseInfo:CaseInfo;
@@ -29,9 +31,6 @@ export class ServiceInfoComponent implements OnInit {
   installedOptionsdataSource=new MatTableDataSource<any>();
 
   selected=['None', 'Yes', 'No'];
-  // selectedX="None";
-  // selectedXs="Yes";
-  // selectedXn="No";
 
   OtherInfoSelected=["Multi-User", "Y", "N", "Lease", "IP-CO", "144/144 Kbps"]
 
@@ -103,7 +102,26 @@ export class ServiceInfoComponent implements OnInit {
   setClickedRow(row){
     this.selectedServerInfo = row;
     this.installedOptionsdataSource.data = this.selectedServerInfo.tableInstalledOption;
-  }
+    this.serviceFrom = "";
+this.serviceTo = "";
+if(this.selectedServerInfo.lanEndUserIp!=null){
+
+let ipStr = this.selectedServerInfo.lanEndUserIp;
+let fromIp ="";
+let toIp = "";
+let vals = ipStr.split('.');
+let lastVal = parseInt(vals[vals.length -1]);
+vals[vals.length -1] = (lastVal - 5).toString();
+fromIp = vals.toString().replace(/,/g,".");
+console.log(`fromIp value :: ${fromIp}`);
+this.serviceFrom=fromIp;
+console.log(`serviceFrom value :: ${this.serviceFrom}`);
+vals[vals.length -1] = (lastVal - 1).toString();
+toIp = vals.toString().replace(/,/g,".");
+this.serviceTo=toIp;
+
+}
+}
 
   selectInstallOption(row){
     this.selectedSubscribedOption=row;

@@ -26,6 +26,10 @@ td{
   /* overflow: auto;      */
 }
 
+tr.mat-header-row{
+  height: 25px;
+}
+
 .responseTable{
   margin-left: 5px;
   width: 98.5%;

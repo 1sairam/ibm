@@ -8,6 +8,11 @@ p{
     color:white;
     height: 20%;
   }
+  
+  tr.mat-header-row{
+    height: 25px;
+  }
+
   td{
     width: 10%;
   }

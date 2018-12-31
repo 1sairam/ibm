@@ -156,8 +156,8 @@
         <fieldset class="availIpAdrs">
           <legend>Availabable IP Address</legend>
           <span>
-            <mat-label>From:</mat-label>
-            <mat-label class="availTo">To:</mat-label>
+            <mat-label>From:{{serviceFrom}}</mat-label>
+            <mat-label class="availTo">To:{{serviceTo}}</mat-label>
           </span>
         </fieldset>
 
@@ -299,10 +299,10 @@
   </div>
   <div class="button-row">
     <!-- <button class="btn" mat-button>Add Service</button> -->
-    <button class="btn" mat-button>Modify Service</button>
-    <button class="btn1" mat-button>Billing</button>
-    <button class="btn1" mat-button (click)="hsiaModal();">HSIA</button>
-    <button class="btn1" mat-button>View IPs</button>
-    <button class="btn1" mat-button>View CPE</button>
+    <button mat-raised-button color="primary" class="btn" mat-button>Modify Service</button>
+    <button mat-raised-button color="primary" class="btn1" mat-button>Billing</button>
+    <button mat-raised-button color="primary" class="btn1" mat-button (click)="hsiaModal();">HSIA</button>
+    <button mat-raised-button color="primary" class="btn1" mat-button>View IPs</button>
+    <button mat-raised-button color="primary" class="btn2" mat-button>View CPE</button>
   </div>
 </div>

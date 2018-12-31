@@ -74,7 +74,7 @@ export class DispatchDialogComponent implements OnInit, AfterViewInit {
 
   setClickedRow(row) {
     this.selectedAct = row;
-    this.isAvailButtonDisabled = false;
+    //this.isAvailButtonDisabled = false;
     this.isDispButtonDisabled = false;
     this.isCheckDisabled = false;
   }

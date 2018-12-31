@@ -30,7 +30,7 @@
 margin-left: 6%;
 }
 .ipInfo{
-    height: 377px;
+    /* height: 377px; */
     width: 97%;
 }
 .ipLbl{
@@ -51,7 +51,7 @@ margin-left: 6%;
 }
 .ipInfoBorder{
     width: 58%;
-    height: 76%;
+    /* height: 76%; */
     /* border: 1px solid gray; */
 }
 .ipInfoInpt{
@@ -62,20 +62,20 @@ margin-left: 6%;
     width: 100%;
 }
 .tableUp{
-    margin-top: -5%;
+    margin-top: -5.5%;
 }
 .ipInfoOut{
     width: 39%;
     /* height: 60%; */
     float: right;
-    margin-top: -33%;
+    margin-top: -28%;
 }
 .availIpAdrs{
     height: 12%;
-    margin-top: -5%;
+    margin-top: -3%;
 }
 .availTo{
-    margin-left: 45%;
+    margin-left: 40%;
 }
 .selectDrop{
     width: 78%;
@@ -107,18 +107,19 @@ tr.mat-header-row{
 }
 .SubInfo{
     width: 17%;
-    margin-left: 4%;
+    margin-left: 10.5%;
 }
 .lineSplt{
-    margin: 1%;
+   margin-top: 0.5%;
 }
 .OtherHead{
     margin-top: 2%;
 }
 .btn1{
-    background: #3f51b5;
-    color: white;
     margin-left: 9%;
+}
+.btn2{
+    float: right;
 }
 .btn{
     background: #3f51b5;
