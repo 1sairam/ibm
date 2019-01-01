@@ -74,7 +74,10 @@
       <!-- Symbol Column -->
       <ng-container matColumnDef="Condition">
         <th mat-header-cell *matHeaderCellDef> Condition </th>
-        <td mat-cell *matCellDef="let selectCommit"> {{selectCommit.condition}} </td>
+        <td mat-cell *matCellDef="let selectCommit">
+          <span [hidden]="!(selectCommit.condition == 2)" >Closed</span>
+          <span [hidden]="!(selectCommit.condition == 4)" >Open</span>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="Original Date">
